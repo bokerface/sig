@@ -50,8 +50,64 @@
             padding: 0px 15px 0px 30px;
             font-size: 18px;
         }
+
+        .bgsd-grey {
+		background-color: #F7F7F8;
+	}
+
+	.text-black-sd {
+		color: #000;
+		font-weight: 500;
+
+	}
+
+	.item-info {
+
+		border-left: solid 5px #FD1049 !important;
+
+	}
+
+	.sdcustom-btnicon {
+		padding: 0px 10px 0px 0px;
+		display: block !important;
+		padding-left: 0px !important;
+		overflow: hidden;
+		position: relative;
+		color: #ffffff;
+		border-radius: 0px;
+		min-height: 10px !important;
+		margin-bottom: 10px;
+	}
+
+
+	.item-info {
+		padding: 15px;
+	}
+
+	.item-info span {
+		color: #c2c2c2;
+		float: right;
+		right: 15px;
+		top: 15px;
+		font-weight: 400;
+		font-size: medium;
+		position: absolute;
+	}
+
+
+	.item-info span.iconsd {
+		color: #c2c2c2;
+		float: right;
+		right: 15px;
+		top: 50% !important;
+		font-weight: 700;
+		font-size: large;
+		position: absolute;
+	}
+
     </style>
 
+    <div class="mb-5">
     <div class="page-title mb-5">
 
         <div class="page-title page-title-small d-flex justify-content-between">
@@ -69,7 +125,27 @@
     <div class="sdcustom card header-card shape-rounded" data-card-height="130">
         <div class="bgsd-gradient card-overlay opacity-95"></div>
     </div>
+    </div>
 
     
+    <a href="inbox-ex-sub.php" class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
+        <div class="item-info text-black">
+            <h3>Exbound Exchange</h3><span>02:30 AM</span>
+            <p>Helo, Folta! Your exbound exchange documents were...</p>
+            <span class="iconsd">&#8942;</span>
+        </div>
+
+    </a>
+
+    <a href="inbox-ex-sub.php" class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
+        <div class="item-info text-black">
+            <h3>Activation Letter</h3><span>02:30 AM</span>
+            <p>Helo, Folta! Your exbound exchange documents were...</p>
+            <span class="iconsd">&#8942;</span>
+        </div>
+
+    </a>
+
+
     
 </div>

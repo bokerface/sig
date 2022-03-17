@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('letter_type_id');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

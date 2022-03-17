@@ -5,7 +5,7 @@ use App\Http\Livewire\Auth;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Notification;
 use App\Http\Livewire\Inbox;
-use App\Http\Livewire\Letter;
+use App\Http\Livewire\LetterIndex;
 use App\Http\Livewire\CapacityBuildings;
 use App\Http\Livewire\Exchange;
 use App\Http\Livewire\News;
@@ -41,7 +41,7 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
     Route::get('exchange', Exchange::class)->name('exchange');
     Route::get('news', News::class)->name('news');
-    Route::get('letter', Letter::class)->name('letter');
+    Route::get('letter', LetterIndex::class)->name('letter');
     Route::get('secondary-supervisor', SecondarySupervisor::class)->name('secondary-supervisor');
     Route::get('transcript-application', TranscriptApplication::class)->name('transcript-application');
     Route::get('logout', [Auth::class, 'logout'])->name('logout');
