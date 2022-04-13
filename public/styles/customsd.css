@@ -1,4 +1,12 @@
 
+#page, #footer-bar {
+    max-width:500px;
+    margin:0 auto;
+}
+#page {
+    position:relative;
+}
+
 .header.hcustom {
     background-color: transparent;
     border: none;
@@ -12,8 +20,6 @@
 .header .header-icon {
 font-size:16px !important;
 }
-
-
 .sdcustom.header-card.shape-rounded {
     border: none !important;
     border-radius: 0;
@@ -31,9 +37,6 @@ font-size:16px !important;
     margin-left:8px;
     margin-right:8px;
 }
-
-
-
 .header.hcustom .header-title.mcustomsd {
     color: #ffffff !important;
     font-weight: 300;
@@ -56,35 +59,13 @@ font-size:16px !important;
     background: linear-gradient(to bottom right, #361928 0%, #141118 100%);
 }
 
-.bgsd-black{
-    background-color: black;
-}
-
-.bgsd-white{
-    background-color: white;
-}
-
-.bgsd-blue{
-    background-color: #2D55CA;
-}
-
-.bgsd-blur-blue{
-    background-color: #889AE0;
-}
-
-.bgsd-pink{
-    background-color: #FD1049;
-}
-
-.bgsd-dark-red{
-    background-color: #9B152F;
-}
 
 .bgsd-circleimg-title-large {
     background-image: url("../images/asset/circle-transparent.png");
     background-position:  200px -200px;
     background-repeat: no-repeat;
-}
+} 
+
 .bgsd-circleimg-title-small {
     background-image: url("../images/asset/circle-transparent-small2.png");
     background-position: right -40px;
@@ -93,7 +74,7 @@ font-size:16px !important;
 }
 .bgsd-circleimg-small {
     background-image: url("../images/asset/circle-transparent-small.png");
-    background-position:  -75px -20px;
+    background-position:  -65px -20px;
     background-repeat: no-repeat;
 }
 
@@ -142,7 +123,7 @@ font-size:16px !important;
     position: absolute;
     left: 5px;
     top: 0px;
-    width: 70px;
+    width: 60px;
     height: 100%;
     color:#fff;
     font-size: 20px;
@@ -166,15 +147,22 @@ font-size:16px !important;
 .formsd .sdtitle-red {
     color:#bb2020;
 }
+.formsd .form-label {
+    color:#181818;
+    font-size: 14px;
+    font-weight: 600;
+}
 .formsd .text-muted {
-   font-size:11px;
-   padding-left:10px;
-   display:block;
-   color:#bb2020 !important;
+    font-size:12px;
+    font-style: italic;
+    display:block;
+    color:#585858 !important;
 }
 
+/* HOME */
+
 .page-content .page-title {
-    margin: 20px 20px 0px 20px !important;
+    margin: 25px 20px 0px 20px !important;
     font-weight: 300 !important;
 }
 
@@ -184,7 +172,8 @@ font-size:16px !important;
 }
 
 .search-box {
-    margin-top: 10px !important;
+    margin-top: 0px !important;
+    line-height: 0px !important;
 }
 
 .icon-header-home {
@@ -219,7 +208,7 @@ font-size:16px !important;
 .search-box .icon-search1 {
     position: absolute;
     left: 0px;
-    line-height: 40px;
+    line-height: 49px !important;
     padding: 0px 15px 0px 30px;
     font-size: 18px;
 }
@@ -228,4 +217,104 @@ font-size:16px !important;
     position: relative;
     margin-top:3px;
     padding-top:9px;
+}
+
+/* PROFILE */
+.profile {
+    margin-top: -35%;
+    z-index: 9999;
+    width: 100%;
+}
+
+.title {
+    color:#E43256;
+    display: block;
+}
+
+.judul {
+    color:#242424;
+    display: block;
+    font-weight:600;
+}
+.students-pict img {
+    max-width: 40%;
+}
+.profile .row {
+    border-bottom:1px solid #c7c7c7;
+    margin-bottom:5px;
+}
+
+.mask {
+    -webkit-mask-image: url('../images/mask.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-image: url('../images/mask.png');
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    z-index:20;
+    position:relative;
+    background:#3b4e8a;
+}
+
+.mask img {
+    width:130px;
+}
+.profile-pic {
+    position: relative;
+}
+.mask-overlay {
+    background: transparent url('../images/mask-shadow.png') center top no-repeat;
+    height:200px;
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:0;
+}
+
+
+.splash-page {
+    height: 100%;
+    background-color: red;
+    /* position: fixed; */
+    width: 100%;
+}
+
+.top-splash {
+    height: 180px;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    margin-bottom: -25%;
+}
+
+.bg-pink {
+    background-color: #E43256;
+}
+
+.bottom-splash {
+    border-top-left-radius: 200px 150px;
+    border-top-right-radius: 200px 150px;
+    height: 80%;
+    z-index: 9999;
+    padding-top: 30%;
+    background: #fff url("../images/asset/ornamen-igov.png") bottom right no-repeat;
+}
+
+.bottom-splash span img {
+    max-width: 75px;
+    margin-bottom: -5px;
+    margin-left: -10px;
+}
+
+.bottom-splash p {
+    font-size: 16px;
+}
+
+
+.logo-splash img {
+    max-width: 60%;
+    text-align: center;
+    margin-bottom: -20%;
+
 }

@@ -29,6 +29,10 @@
     }
 </style>
 @livewireStyles
+
+<script type="text/javascript" src="{{ asset('js/plugin.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
 </head>
     
 <body class="theme-light" data-highlight="pink2">
@@ -44,7 +48,7 @@
 
     <div id="footer-bar" class="footer-bar-5 rounded-0">            
         <a href="{{ url('inbox') }}" class="{{ (request()->is('inbox')) ? 'active-nav' : '' }}"><i class="icon-mail"></i></a>
-        <a href="{{ url('/') }}" class="{{ (request()->is('/')) ? 'active-nav' : '' }}"><i class="icon-home"></i></a>
+        <a href="{{ url('home') }}" class="{{ (request()->is('home')) ? 'active-nav' : '' }}"><i class="icon-home"></i></a>
         <a href="#" data-menu="menu-profile" class="{{ (request()->is('profile')) ? 'active-nav' : '' }}"><i class="icon-user"></i></a>
     </div>
     
@@ -66,71 +70,35 @@
     </div>    
     <!-- end of page content-->
 
-    <!-- Modal Form Exchange -->        
-   
-    <div id="menu-outbound-exchange" 
-    class="menu menu-box-left" 
-    data-menu-height="cover" 
-    data-menu-width="cover" 
-    data-menu-effect="menu-over" >  
-        @livewire('form-outbound-exchange')
-    </div>
-    
-    <div id="menu-inbound-exchange" 
-    class="menu menu-box-left" 
-    data-menu-height="cover" 
-    data-menu-width="cover" 
-    data-menu-effect="menu-over" >  
-        @livewire('form-inbound-exchange')
-    </div>
-        
-    <!-- Modal Form Letter -->   
+    <div id="modal-success" class="menu menu-box-modal bg-red-dark rounded-s shadow-l" style="z-index:9999;"
+        {{-- data-menu-height="100" --}}
+        data-menu-width="350">
+        <h3 class="text-center mt-4 color-white font-300">Your request was succesfully submitted!</h3>
 
-    <div id="menu-letter-recommendation-exchange" 
-    class="menu menu-box-left" 
-    data-menu-height="cover" 
-    data-menu-width="cover" 
-    data-menu-effect="menu-over" >  
-        @livewire('form-letter-recommendation-exchange')
-    </div>
-
-    <div id="menu-letter-recommendation-passport" 
-    class="menu menu-box-left" 
-    data-menu-height="cover" 
-    data-menu-width="cover" 
-    data-menu-effect="menu-over" > 
-        @livewire('form-letter-recommendation-passport')
-    </div>
-
-    <div id="menu-letter-active-student"
-    class="menu menu-box-left" 
-    data-menu-height="cover" 
-    data-menu-width="cover" 
-    data-menu-effect="menu-over" >  
-        @livewire('form-letter-active-student')
-    </div>
-
-    <div id="menu-letter-internship-program" 
-    class="menu menu-box-left" 
-    data-menu-height="cover" 
-    data-menu-width="cover" 
-    data-menu-effect="menu-over" >
-        @livewire('form-letter-internship-program')
-    </div>
-    
-    <!-- Modal Form Capacity Building --> 
-    
-    <div id="menu-detail-capacity-building" 
-    class="menu menu-box-left" 
-    data-menu-height="cover" 
-    data-menu-width="cover" 
-    data-menu-effect="menu-over" >
-        <div>
-            <x-modal-title title="Capacity Building"  bg="bgsd-blue" />
-            <H3 class="text-center p-5">Coming soon</H3>
+            <p class="color-white mx-3 text-center">We will notify you when documents is fully checked</p>
+       
+        <div class="bg-white pt-4 pb-5">
+            <h1 class="text-center mt-3 pb-5 font-45"><i class="fa fa-3x fa-check-circle text-danger shadow-xl rounded-circle"></i></h1>
+            <a href="#" class="close-menu btn btn-m btn-center-m button-s shadow-l rounded-m text-uppercase font-900 bg-danger text-white">Close</a>
         </div>
+        
+       
     </div>
 
+    <div id="modal-error" class="menu menu-box-modal bg-dark rounded-s shadow-l" style="z-index:9999;"
+        {{-- data-menu-height="100" --}}
+        data-menu-width="350">
+        <h3 class="text-center mt-4 color-white font-300">Error!</h3>
+            <p class="color-white mx-3 text-center">Please fill all required fields.</p>       
+        <div class="bg-white pt-4 pb-5">
+            <h1 class="text-center mt-3 pb-5 font-45"><i class="fa fa-3x fa-times text-danger shadow-xl rounded-circle"></i></h1>
+            <a href="#" class="close-menu btn btn-m btn-center-m button-s shadow-l rounded-m text-uppercase font-900 bg-danger text-white">Close</a>
+        </div>       
+    </div>
+        </div>       
+    </div>
+     
+   
     <!-- Modal Profile --> 
     
     <div id="menu-profile" 
@@ -180,8 +148,14 @@
 </div>    
 
 
-
-<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="scripts/custom.js"></script>
-@livewireScripts
 </body>
+
+@livewireScripts
+
+{{-- <script type="text/javascript" src="scripts/bootstrap.min.js"></script> --}}
+
+
+<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+
+
+</html>

@@ -1,5 +1,5 @@
 <div>
-    <div class="col-xl-10 col-lg-12 col-md-9">
+    <div class="col-md-12">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
@@ -12,13 +12,18 @@
                                 <img src="{{ asset('images/logo.png') }}" width="200" class="pt-5 pb-5 mb-5"/>                                      
                             </div>
 
-                            @if(Session::has("error"))
-                            <p class="alert alert-danger my-4 text-center"><i class="fas fa-exclamation-triangle"></i>
-                               {{ Session::get('error') }}
-                            </p>
-                            @endif
+                            <div class="alert text-center">
+                                <p class="text-pinksigov">
+                                    @if(Session::has("error"))
+                                        &#9888;
+                                        {{ Session::get('error') }}
+                                    @else
+                                        &nbsp;
+                                    @endif
+                                </p>
+                            </div>
 
-                            <form class="user" wire:submit.prevent="login">
+                            <form class="user mb-5" wire:submit.prevent="login">
                                 <div class="form-group">
                                     <input wire:model="username" type="text" class="form-control form-control-user @error('username')  {! is-invalid !} @enderror"
                                         id="exampleInputusername" aria-describedby="usernameHelp"
@@ -40,7 +45,7 @@
                                         @enderror
                                 </div>
                              
-                                <button class="btn btn-danger btn-user btn-block">
+                                <button class="btn btn-pinksigov btn-user btn-block">
                                     Login
                                 </button>
                                 <hr>

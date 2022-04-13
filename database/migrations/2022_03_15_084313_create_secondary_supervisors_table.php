@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('secondary_supervisors', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('student_id');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('exchanges', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('exhange_destination_id');
+            $table->tinyInteger('exchange_type');
+            $table->tinyInteger('status');
             $table->timestamps();            
         });
     }

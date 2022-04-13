@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             [
                 UserSeeder::class,
                 LetterTypeSeeder::class,
+                ExchangeDestinationSeeder::class,
+                MhsSeeder::class,
             ]
         );
     }

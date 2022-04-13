@@ -3,37 +3,55 @@
 namespace App\Http\Livewire;
 
 use App\Models\Letter;
+use App\Models\Meta;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class FormLetterRecommendationExchange extends Component
 {
 
-    public $letter_type_id;
-    // public $exchange_destination_id;
-    public $created_at;
+    public $exchange_destination_id;
 
     public function render()
     {
-        return view('livewire.form-letter-recommendation-exchange');
+        return view('livewire.form-letter-recommendation-exchange',
+            [
+                "destinations" => DB::table('exchange_destinations')->latest()->get()
+            ]    
+        )->layout('components.layoutfront');
     }
 
     public function handleForm() 
     {
-        // $this->validate([
-        //     'exchange_destination_id' => 'required'
-        // ]);
+        $this->validate([
+            'exchange_destination_id' => 'required'
+        ]);
 
         $letter = Letter::create([
             'student_id' => Session::get('user_data.user_id'),
-            'letter_type_id' => $this->letter_type_id,
-            'status' => 0,
-            // 'exchange_destination_id' => $this->exchange_destination_id,
-        ]);
+            'letter_type_id' => 1,
+            'status' => 0,            
+        ])->id;
 
         if($letter) {
-            session()->flash('success', 'Success');
+
+            $meta = Meta::create([
+                'post_id' => $letter,
+                'key' => 'exchange_destination_id',
+                'value' => $this->exchange_destination_id,
+                
+            ]);
+           
+            $this->dispatchBrowserEvent('insert-success');
+
+            $this->resetInput();
+            
         }
         
+    }
+
+    private function resetInput() {
+        $this->exchange_destination_id = '';     
     }
 }

@@ -16,10 +16,10 @@ $gray-800: #5a5c69 !default;
 $gray-900: #3a3b45 !default;
 $black: #000 !default;
 
-$blue: #4e73df !default;
+$blue: #2D55CA !default;
 $indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
-$pink: #e83e8c !default;
+$purple: #361928 !default;
+$pink: #FD1049 !default;
 $red: #e74a3b !default;
 $orange: #fd7e14 !default;
 $yellow: #f6c23e !default;
@@ -76,6 +76,42 @@ $dropdown-font-size: 0.85rem !default;
 $dropdown-border-color: $border-color !default;
 
 // Images
-$login-image: 'https://source.unsplash.com/K4mSJ7kc0As/600x800' !default;
+$login-image: 'https://igov.umy.ac.id/wp-content/uploads/2022/03/IMG_9755-scaled.jpg' !default;
 $register-image: 'https://source.unsplash.com/Mv9hjnEUHR4/600x800' !default;
 $password-image: 'https://source.unsplash.com/oWTW-jNGl9I/600x800' !default;
+
+
+// custom warna
+$darkred: #9B152F !default;
+$abusma: #889AE0 !default;
+$pinkpastel: #f2b9c4 !default;
+$kuningpastel: #f7de60 !default;
+
+$colors: () !default;
+$colors: map-merge((
+		"darkred": $darkred,
+		"abusma": $abusma,
+		"pinkpastel": $abusma,
+		"kuningpastel": $kuningpastel,
+		"pinksigov": $pink,
+		"purple": $purple,
+	),
+	$colors);
+
+$darkred: $darkred !default;
+$abusma: $abusma !default;
+$pinkpastel: $pinkpastel !default;
+$kuningpastel: $kuningpastel !default;
+$pink: $pink !default;
+
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+    "darkred": $darkred,
+		"abusma": $abusma,
+		"pinkpastel": $abusma,
+		"kuningpastel": $kuningpastel,
+		"pinksigov": $pink,
+        "purple": $purple,
+    ),
+	$theme-colors);

@@ -1,6 +1,6 @@
 <div>
     <style>
-        .page-title {
+        /* .page-title {
             margin: 20px 20px 20px 20px;
         }
 
@@ -19,18 +19,18 @@
 
         .page-title .subtitle {
             font-size: 16px;
-        }
+        } */
 
     </style>
 
 
     <div class="page-title page-title-small px-2">
-        <h2><a href="#" @if($modal == 'true') class="close-menu" @else data-back-button @endif ><i class="fa fa-chevron-left me-1"></i> {{ $title }}</a></h2>
+        <h2><a href="#" @if($modal == 'true') class="close-menu" @else data-back-button @endif ><i class="icon-arrow-left me-1"></i> {{ $title }}</a></h2>
        
         @if($type == 'large')  
             <div class="row d-flex align-items-center mt-4 mb-2" style="height:{{ $height-($height*30/100) }}px;">
                 <div class="col-9">
-                    <div class="text-white subtitle">
+                    <div class="text-white subtitle font-16 font-400">
                         {!!$subtitle !!}
                     </div>
                 </div>

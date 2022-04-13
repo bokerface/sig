@@ -111,7 +111,7 @@
     <div class="page-title mb-5">
 
         <div class="page-title page-title-small d-flex justify-content-between">
-            <h2><i class=""></i> <a href="#" data-back-button>Inbox</a></h2>
+            <h2><a href="#" data-back-button><i class="fas fa-chevron-left me-2"></i> Inbox</a></h2>
           
         </div>
 

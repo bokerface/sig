@@ -1,40 +1,33 @@
-
  <div>
-    <x-modal-title title="Letter of Recommendation for Exchange (IRO)"  bg="bgsd-pink" />
+    <x-modal-title title="Letter of Recommendation for Exchange (IRO)"  bg="bg-sigov-pink" />
 
-    <div class="p-4">    
-        @if (session()->has('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
+        <form class="p-4 pt-2 formsd" wire:submit.prevent="handleForm">  
+
+            <div class="form-field">
+                <label for="form5" class="d-block form-label @error('exchange_destination_id') text-danger @enderror">Destination <span class="text-danger">*</span></label>           
+                <div class="input-group mb-3">
+
+                    <select id="form5" wire:model="exchange_destination_id"  class="form-control @error('exchange_destination_id') is-invalid @enderror">
+                        <option value="" selected>Select Destination</option>
+
+                        @foreach ($destinations as $destination)
+                            <option value="{{ $destination->id }}">{{ $destination->destination }}</option>
+                        @endforeach
+                    </select>
+                    <span class="input-group-text" id="password"><i class="fas fa-chevron-down"></i></span>
+                
+                </div>
+
+                @error('exchange_destination_id')
+                    <p class="text-danger mb-2">{{ $message }}</p>
+                @enderror
             </div>
-        @endif
 
- 
-        <form class="overflow-scroll" wire:submit.prevent="handleForm">  
-            <input type="text" wire:model="letter_type_id" />
-
-                {{-- <div class="form-group mb-4" >
-                    <div class="input-style input-style-always-active has-borders validate-field mb-0 pb-0">
-                        <label for="form5" class="color-theme text-uppercase font-700 font-10">Exchange Destination</label>
-                        <select id="form5" wire:model="exchange_destination_id">
-                            <option value="default" disabled selected>Select destination</option>
-                            <option value="1">UK</option>
-                            <option value="2">France</option>
-                            <option value="3">Malaysia</option>
-                            <option value="4">Thailand</option>
-                            <option value="5">USA</option>
-                            <option value="6">Canada</option>
-                            <option value="7">India</option>
-                        </select>
-                        <span><i class="fa fa-chevron-down"></i></span>
-                        <i class="fa fa-check disabled valid color-green-dark"></i>
-                        <i class="fa fa-check disabled invalid color-red-dark"></i>
-                        <em></em>
-                    </div>
-
-                </div> --}}
-            <button type="submit" class="btn btn-md btn-danger rounded-m px-4">Submit</button>
+               
+            <button type="submit" class="btn btn-md bg-sigov-pink rounded-m px-4">Submit</button>
         </form>
-    </div>        
+    
+
+  
 </div>   
         

@@ -1,62 +1,9 @@
 <div>
-    <style>
-        .profile {
-            margin-top: -35%;
-            z-index: 9999;
-            width: 100%;
-        }
     
-        .students-pict img {
-            max-width: 40%;
-        }
-
+    <style>
         .bgsd-gradient {
             background: linear-gradient(to bottom right, #361928 0%, #141118 100%);
-        }
-
-        .title {
-            color:#E43256;
-            display: block;
-        }
-
-        .judul {
-            color:#242424;
-            display: block;
-            font-weight:600;
-        }
-        .profile .row {
-            border-bottom:1px solid #c7c7c7;
-            margin-bottom:5px;
-        }
-
-        .mask {
-            -webkit-mask-image: url('{{ asset('./images/mask.png') }}');
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
-            mask-image: url('{{ asset('./images/mask.png') }}');
-            mask-repeat: no-repeat;
-            -webkit-mask-position: center;
-            mask-position: center;
-            z-index:20;
-            position:relative;
-            background:#3b4e8a;
-        }
-
-        .mask img {
-            width:130px;
-        }
-        .profile-pic {
-            position: relative;
-        }
-        .mask-overlay {
-            background: transparent url('{{ asset('./images/mask-shadow.png') }}') center top no-repeat;
-            height:200px;
-            position:absolute;
-            top:0;
-            width:100%;
-            z-index:0;
-        }
-
+        }       
     </style>
     
     <x-header title="Profile" subtitle="" bg="bgsd-gradient" height="170" icon="" type="large" modal="true"/>
@@ -107,7 +54,7 @@
                 </div>           
             </div>
 
-            <a href="logout" class="btn btn-s mt-2 mb-4 mx-5 btn-full bgsd-pink rounded-m text-uppercase font-900 mt-4">Sign Out</a>
+            <a href="{{ url('logout') }}" class="btn btn-s mt-2 mb-4 mx-5 btn-full bg-sigov-pink rounded-m text-uppercase font-300 mt-4">Sign Out</a>
 
 
         </div>

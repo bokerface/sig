@@ -18,11 +18,11 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('sbadmin/css/sb-admin-2.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
 
-<body  class="bg-gradient-danger">
+<body  class="bg-gradient-purple">
 
     <div class="container">
      
