@@ -12,12 +12,12 @@
             </span>
             <span class="text d-flex align-items-center">Outbound Exchange</span>
         </a>
-        <a href="{{ url('inbound-exchange') }}" class="btn btn-sigov-red text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
+        {{-- <a href="{{ url('inbound-exchange') }}" class="btn btn-sigov-red text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
                 <i class="icon-repeat text-center"></i>
             </span>
             <span class="text d-flex align-items-center">Inbound Exchange</span>
-        </a>
+        </a> --}}
 
     </div>
 

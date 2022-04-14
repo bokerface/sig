@@ -76,6 +76,7 @@
 
         <button type="submit" class="btn btn-md btn-danger rounded-m px-4">Submit</button>
     </form>
+    
 </div> 
 
     

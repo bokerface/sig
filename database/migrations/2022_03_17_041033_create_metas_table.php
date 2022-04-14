@@ -19,6 +19,8 @@ return new class extends Migration
             $table->text('post_type');
             $table->string('key');
             $table->text('value');            
+            $table->tinyInteger('verified')->nullable();            
+            $table->string('comment')->nullable();            
             $table->timestamps();
         });
     }

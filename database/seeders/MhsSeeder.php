@@ -23,5 +23,19 @@ class MhsSeeder extends Seeder
             'status' => '1',
             'created_at' => now(),
         ]);
+        DB::table('v_students')->insert([
+            'studentid' => '20180520002',
+            'fullname' => 'Nila Jihan Shelamita',
+            'email' => 'nila.jihan@umy.ac.id',
+            'status' => '1',
+            'created_at' => now(),
+        ]);
+        DB::table('v_students')->insert([
+            'studentid' => '20180520012',
+            'fullname' => 'Evan Hafiz Nando',
+            'email' => 'evan.hafidz@umy.ac.id',
+            'status' => '1',
+            'created_at' => now(),
+        ]);
     }
 }

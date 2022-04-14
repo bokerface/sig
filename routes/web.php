@@ -65,7 +65,7 @@ Route::middleware('adminAuth')->group(function () {
 
     Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
     Route::get('admin/exchange', \App\Http\Livewire\Admin\AdminExchange::class)->name('adminexchange');
-    // Route::get('admin/exchange/{exchangeid}', \App\Http\Livewire\Admin\AdminExchangeDetail::class)->name('adminexchangedetail');
+    // Route::get('admin/exchange-detail/{id}', \App\Http\Livewire\Admin\AdminExchangeDetail::class)->name('adminexchangedetail');
 
 
     // Route::get('admin/dashboard', [\App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('admindashboard');

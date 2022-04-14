@@ -109,11 +109,7 @@
                             
                         </a>
                         
-                    </li>
-                
-                    
-                
-                    
+                    </li>  
                 
                 </ul>
                 
@@ -175,23 +171,14 @@
         <script src="{{ asset('sbadmin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
-{{-- 
-    <script>
-        Swal.fire({
-        title: 'Error!',
-        text: 'Do you want to continue',
-        icon: 'error',
-        confirmButtonText: 'Cool'
-        })
-    </script> --}}
-
-    <script>
-        // Call the dataTables jQuery plugin
-        $(document).ready(function() {
-        $('#dataTable').DataTable();
-        });
-
+    <script>       
+        window.addEventListener('alert', function (event) {
+            
+            $('.collapse').collapse()
+            
+        }); //Activating Menus
     </script>
+
 
 </body>
 
