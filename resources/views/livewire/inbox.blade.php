@@ -127,25 +127,24 @@
     </div>
     </div>
 
+@foreach ($submissions as $submission)
+
+<a href="{{ url('inbox-detail') }}" class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
+    <div class="item-info text-black">
+
+        <h3 style="text-transform: capitalize">{{ $submission->submission_type }}</h3>
+        
+        <span>{{ $submission->created_at }}</span>
+        <span class="iconsd">&#8942;</span>
+    </div>
+
+</a>
     
-    <a href="inbox-ex-sub.php" class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
-        <div class="item-info text-black">
-            <h3>Exbound Exchange</h3><span>02:30 AM</span>
-            <p>Helo, Folta! Your exbound exchange documents were...</p>
-            <span class="iconsd">&#8942;</span>
-        </div>
+@endforeach
+    
+    
 
-    </a>
-
-    <a href="inbox-ex-sub.php" class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
-        <div class="item-info text-black">
-            <h3>Activation Letter</h3><span>02:30 AM</span>
-            <p>Helo, Folta! Your exbound exchange documents were...</p>
-            <span class="iconsd">&#8942;</span>
-        </div>
-
-    </a>
-
+   
 
     
 </div>

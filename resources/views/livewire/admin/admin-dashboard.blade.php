@@ -2,6 +2,8 @@
     @section('page-title')
     Dashboard
     @endsection
+
+
     
     <!-- Begin Page Content -->
         <!-- Content Row -->
@@ -11,16 +13,16 @@
             <div class="col-xl-3 col-md-6 mb-4">
                 
                 <div class="bg-sigov-red">
-                <div class="card border-left-primary shadow h-100 py-2 bg-sigov-red">
+                <div class="card border-left-danger shadow h-100 py-2 bg-sigov-red">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     EXCHANGE</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">80</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $exchange }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="icon-repeat h1"></i>
                             </div>
                         </div>
                     </div>
@@ -36,10 +38,10 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     LETTER</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $letter }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="icon-file-text h1"></i>
                             </div>
                         </div>
                     </div>
@@ -54,7 +56,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transcript Application
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">25</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $transcript }}</div>
                                 {{-- <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">65</div>
@@ -69,7 +71,7 @@
                                 </div> --}}
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                <i class="icon-printer h1"></i>
                             </div>
                         </div>
                     </div>
@@ -84,10 +86,10 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Secondary Supervisor</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $secondary_supervisor }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                <i class="icon-users h1"></i>
                             </div>
                         </div>
                     </div>

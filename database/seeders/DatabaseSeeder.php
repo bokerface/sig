@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 LetterTypeSeeder::class,
                 ExchangeDestinationSeeder::class,
                 MhsSeeder::class,
+                ExchangeInstitution::class,
             ]
         );
     }

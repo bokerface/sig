@@ -3,62 +3,63 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
-use App\Models\Exchange;
-use App\Models\Meta;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Livewire\WithPagination;
 
 class AdminExchange extends Component
 {
-    public $ids;
-    public $fullname;
-    public $student_id;
-    public $metass;
-    public $modalOpen;
+    public $meta;
+    public $click;
+    public $search;
+    public $paginate = 5;
 
-    public function detail($id)
-    {
-        $exchange =  DB::table('exchanges')
-            ->select('exchanges.student_id', 'v_students.fullname', 'exchanges.created_at')
-            ->where('exchanges.id', '=', $id)
-            ->leftJoin('v_students', 'exchanges.student_id', '=', 'v_students.studentid')
-            ->first();
 
-        $this->ids = $id;
-        $this->student_id = $exchange->student_id;
-        $this->fullname = $exchange->fullname;
-        $this->modalOpen = true;
-
-        $metas = Meta::where(
-            [
-                ['post_id', '=', $id],
-                ['post_type', '=', 'exchange']
-            ]
-        )
-            ->get()
-            ->toArray();
-
-        $this->metass = $metas;
-        // dd($metas);
-    }
-
-    public function download($filename)
-    {
-        // dd($param);
-        return Storage::disk('public')->download($filename);
-    }
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
+        $exchanges = DB::table('submissions')
+                    ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                    ->where('submissions.submission_type','=', 'exchange')
+                    ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')
+                    ->latest()->paginate($this->paginate);
+        
         return view(
             'livewire.admin.admin-exchange',
             [
-                "exchanges" => DB::table('exchanges')
-                    ->select('exchanges.id', 'exchanges.student_id', 'v_students.fullname', 'exchanges.exchange_type', 'exchanges.created_at', 'exchanges.status')
-                    // ->where('exchanges.id', '=', $id)
-                    ->leftJoin('v_students', 'exchanges.student_id', '=', 'v_students.studentid')
-                    ->latest()->get(),
+                "exchanges" => $this->search === null ?                
+                $exchanges:
+                DB::table('submissions')
+                    ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                    ->where('submissions.submission_type','=', 'exchange')
+                    ->orWhere('v_students.fullname', 'like', '%'. $this->search .'%')
+                    ->orWhere('submissions.student_id', 'like', '%'. $this->search .'%')
+                    ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')
+                    ->latest()->paginate($this->paginate),
+
             ]
-        )->layout('components.admin.layouts');
+        )->layout('components.admin.layouts');        
+        
     }
+    
+    public function getMeta($id) 
+    {         
+        $meta =  [
+            'metaContent'=> DB::table('metas')
+                ->select('metas.*')
+                ->where('submission_id', '=', $id)
+                ->get()->toArray(),
+
+            'submission' => DB::table('submissions')
+                ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                ->where('submissions.submission_type','=', 'exchange')
+                ->Where('submissions.id', '=', $id)
+                ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')
+                ->first()            
+        ];         
+        
+        $this->emit('getMeta', $meta);}
+
+    
 }
