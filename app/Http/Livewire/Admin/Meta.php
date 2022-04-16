@@ -38,7 +38,7 @@ class Meta extends Component
             
         $update = DB::table('metas')
         ->where('id', $id)
-        ->update(['verified' => 1, 'comment'=> 'saasdsd']);
+        ->update(['verified' => 1, 'comment'=> $validateData['comment']]);
        
        if($update) { $this->dispatchBrowserEvent('alert'); }
 
@@ -50,7 +50,7 @@ class Meta extends Component
             'select_verified' => 'required'
         ]);
 
-        $update = DB::table('exchanges')
+        $update = DB::table('submissions')
         ->where('id', $id)
         ->update(['status' => $validateData['select_verified']]);
        

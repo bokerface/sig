@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('sbadmin/css/sb-admin-2.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/icomoon/style.css') }}"> 
     @livewireStyles
 </head>
 

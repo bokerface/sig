@@ -3,11 +3,43 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
 
 class AdminTranscript extends Component
 {
+    public $meta;
+    public $click;
+    public $search;
+    public $paginate = 5;
+
+
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public function render()
     {
-        return view('livewire.admin.admin-transcript')->layout('components.admin.layouts');
+        $submissions = DB::table('submissions')
+                    ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                    ->where('submissions.submission_type','=', 'transcript')
+                    ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')
+                    ->latest()->paginate($this->paginate);
+        
+        return view(
+            'livewire.admin.admin-transcript',
+            [
+                "submissions" => $this->search === null ?                
+                $submissions:
+                DB::table('submissions')
+                    ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                    ->where('submissions.submission_type','=', 'transcript')
+                    ->orWhere('v_students.fullname', 'like', '%'. $this->search .'%')
+                    ->orWhere('submissions.student_id', 'like', '%'. $this->search .'%')
+                    ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')
+                    ->latest()->paginate($this->paginate),
+
+            ]
+        )->layout('components.admin.layouts');        
+        
     }
 }

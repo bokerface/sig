@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('metas', function (Blueprint $table) {
+        Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('submission_id');           
-            $table->string('key');
-            $table->text('value');            
-            $table->tinyInteger('verified')->nullable();            
-            $table->string('comment')->nullable();            
+            $table->unsignedBigInteger('student_id');
+            $table->text('submission_type');
+            $table->text('status');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metas');
+        Schema::dropIfExists('submissions');
     }
 };

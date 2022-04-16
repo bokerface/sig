@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\SecondarySupervisor;
+use App\Models\Submission;
 use App\Models\Meta;
 use Illuminate\Support\Facades\Session;
 use Livewire\WithFileUploads;
@@ -29,15 +29,16 @@ class FormSecondarySupervisor extends Component
         $thesis = $this->thesis->store('files', 'public');
         $validateData['thesis'] = $thesis;
 
-        $sec_supervisor = SecondarySupervisor::create([
+        $submission = Submission::create([
             'student_id' => Session::get('user_data.user_id'),           
+            'submission_type' => 'secondary_supervisor',           
             'status' => 0,            
         ])->id;
 
-        if($sec_supervisor) {
+        if($submission) {
 
-           Meta::create([
-                'post_id' => $sec_supervisor,
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'thesis',
                 'value' => $thesis,
                 

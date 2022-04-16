@@ -5,36 +5,26 @@
         <div class="card-body ">  
 
         <h5>{{ $submission['fullname'] }}</h5>
-        <p>{{ $submission['student_id'] }}</p>       
+        <p>{{ $submission['student_id'] }}</p>          
         
                     @foreach ($metas as $meta)
 
-                    <div class="card mb-3">
-                        <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary"> {{ $meta['key'] }}</h6>
-                        </div>
-                    
-                        <div class="card-body">
-
-                                <button title="Download" class="btn btn-sm" wire:click.prevent="download('{{ $meta['value'] }}')"><i class="fas fa-file-pdf"></i></button> 
-                                
-                                
-                                <hr />
-                                <form action="" wire:submit.prevent="verifyField({{ $meta['id'] }})">
-                                    
-                                    <input type="checkbox" id="" class="" wire:model="verified"              
-                                    /> Need Revision  
-                              
-                                   <textarea class="form-control mb-2" wire:model="comment"></textarea>
-
-                                    <button class="btn btn-warning btn-sm">
-                                        Submit Comment
-                                    </button>
-                                </form>          
-                            
-
+                    @if ($meta['key'] !=='exchange_type')
+                        
+                   
+                    <div class="alert alert-abusma">
+                        <div class="row">
+                            <div class="col-md-8">
+                                {{ $meta['key'] }}
+                            </div>
+                            <div class="col-md-4">
+                                <button title="Download" class="btn btn-sm" wire:click.prevent="download('{{ $meta['value'] }}')"><i class="fas fa-file-pdf"></i></button>
+                            </div>
                         </div>
                     </div>
+
+                    @endif
+
 
                     @endforeach   
 

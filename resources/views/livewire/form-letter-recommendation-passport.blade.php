@@ -3,7 +3,20 @@
 
         <form class="p-4 pt-2 formsd" wire:submit.prevent="handleForm">  
 
-            <button type="submit" class="btn btn-md btn-sigov-pink rounded-xl px-4" style="padding:12px;width:100%; font-size:18px !important;">Request Letter</button>
+            <div class="form-field">
+                <label for="form5" class="d-block form-label @error('imigration_office') text-danger @enderror">Country <span class="text-danger">*</span></label>           
+                <div class="input-group mb-3">
+
+                    <input type="text" wire:model="imigration_office" id="" class="form-control mb-2" />
+                </div>
+            </div>
+
+            @error('imigration_office')
+                <p class="text-danger mb-2">{{ $message }}</p>
+            @enderror
+
+            <button type="submit" class="btn btn-md bg-sigov-pink rounded-m px-4">Request</button>
+
         </form>
     
 

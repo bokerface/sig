@@ -5,6 +5,7 @@ use App\Http\Livewire\Auth;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Notification;
 use App\Http\Livewire\Inbox;
+use App\Http\Livewire\InboxDetail;
 use App\Http\Livewire\LetterIndex;
 use App\Http\Livewire\CapacityBuildings;
 use App\Http\Livewire\Exchange;
@@ -37,6 +38,7 @@ Route::middleware('isLoggedIn')->group(function () {
     
     Route::get('notification', Notification::class)->name('notification');
     Route::get('inbox', Inbox::class)->name('inbox');
+    Route::get('inbox-detail', InboxDetail::class)->name('inboxdetail');
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
     Route::get('exchange', Exchange::class)->name('exchange');
     Route::get('outbound-exchange', \App\Http\Livewire\FormOutboundExchange::class)->name('outbound-exchange');
@@ -65,15 +67,11 @@ Route::middleware('adminAuth')->group(function () {
 
     Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
     Route::get('admin/exchange', \App\Http\Livewire\Admin\AdminExchange::class)->name('adminexchange');
-    // Route::get('admin/exchange-detail/{id}', \App\Http\Livewire\Admin\AdminExchangeDetail::class)->name('adminexchangedetail');
+    Route::get('admin/letter', \App\Http\Livewire\Admin\AdminLetter::class)->name('adminletter');
+    Route::get('admin/transcript', \App\Http\Livewire\Admin\AdminTranscript::class)->name('admintranscript');
+    Route::get('admin/secondary-supervisor', \App\Http\Livewire\Admin\AdminSecondarySupervisor::class)->name('adminsecondarysupervisor');
 
 
-    // Route::get('admin/dashboard', [\App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('admindashboard');
-    // Route::get('admin/exchange', [\App\Http\Controllers\Admin\AdminExchange::class, 'index'])->name('adminexchange');
-    // Route::get('admin/exchange/{id}', [\App\Http\Controllers\Admin\AdminExchange::class, 'show'])->name('exchangedetail');
-    Route::get('admin/letter', [\App\Http\Controllers\Admin\Letter::class, 'index'])->name('adminletter');
-    Route::get('admin/transcript', [\App\Http\Controllers\Admin\TranscriptApplication::class, 'index'])->name('admintranscript');
-    Route::get('admin/secondarysupervisor', [\App\Http\Controllers\Admin\FormSecondarySupervisor::class, 'index'])->name('adminsecondarysupervisor');
     Route::get('admin/capacitybuilding', [\App\Http\Controllers\Admin\SecondarySupervisor::class, 'index'])->name('admincapacitybuilding');
     Route::get('admin/logout', [\App\Http\Livewire\Admin\AdminLogin::class, 'logout'])->name('logout');
 

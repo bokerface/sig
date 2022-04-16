@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Letter;
+use App\Models\Submission;
 use App\Models\Meta;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
@@ -17,13 +17,20 @@ class FormLetterActiveStudent extends Component
 
     public function handleForm() 
     {        
-        $letter = Letter::create([
+        $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
-            'letter_type_id' => 3,
+            'submission_type' => 'letter',
             'status' => 0,            
         ])->id;
 
-        if($letter) {           
+        if($letter) {
+            
+            $meta = Meta::create([
+                'submission_id' => $letter,
+                'key' => 'letter_type',
+                'value' => 3, //letter active student
+                
+            ]);
             $this->dispatchBrowserEvent('insert-success');
         }
         
