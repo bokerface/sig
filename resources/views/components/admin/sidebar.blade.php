@@ -3,7 +3,7 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-           <img src="{{ asset('/images/asset/IGOV-merah.png') }}" />
+            <img src="{{ asset('/images/asset/IGOV-merah.png') }}" />
         </a>
 
         <!-- Divider -->
@@ -23,7 +23,7 @@
         <div class="sidebar-heading">
             SERVICES
         </div>
-        
+
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('adminexchange') }}">
                 <i class="fas fa-fw fa-exchange-alt"></i>
@@ -52,22 +52,22 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-         <!-- Heading -->
-         <div class="sidebar-heading">
+        <!-- Heading -->
+        <div class="sidebar-heading">
             OTHER
         </div>
-        
+
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('admincapacitybuilding') }}">
                 <i class="fas fa-fw fa-lightbulb"></i>
                 <span>Capacity Building</span></a>
         </li>
 
-         <!-- Divider -->
-         <hr class="sidebar-divider">
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-         <!-- Heading -->
-         <div class="sidebar-heading">
+        <!-- Heading -->
+        <div class="sidebar-heading">
             ADMINISTRATOR
         </div>
 
@@ -77,6 +77,15 @@
                 <span>Users</span></a>
         </li>
 
+        <div class="sidebar-heading">
+            Exchange Institution
+        </div>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('exchange-institution') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>List of Institutions</span></a>
+        </li>
 
         {{-- <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -99,7 +108,7 @@
         <hr class="sidebar-divider">
 
         <!-- Heading -->
-       
+
 
 
         <!-- Sidebar Toggler (Sidebar) -->
@@ -108,7 +117,7 @@
         </div>
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
-            <img src="{{ asset('images/asset/igovlogo.png') }}" width="100" class="mt-5"/>
+            <img src="{{ asset('images/asset/igovlogo.png') }}" width="100" class="mt-5" />
         </div>
 
     </ul>

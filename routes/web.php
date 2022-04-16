@@ -10,6 +10,7 @@ use App\Http\Livewire\InboxDetail;
 use App\Http\Livewire\LetterIndex;
 use App\Http\Livewire\CapacityBuildings;
 use App\Http\Livewire\Exchange;
+use App\Http\Livewire\ExchangeInstitution;
 use App\Http\Livewire\News;
 use App\Http\Livewire\FormTranscriptApplication;
 use App\Http\Livewire\FormSecondarySupervisor;
@@ -75,4 +76,6 @@ Route::middleware('adminAuth')->group(function () {
 
     Route::get('admin/capacitybuilding', [\App\Http\Controllers\Admin\SecondarySupervisor::class, 'index'])->name('admincapacitybuilding');
     Route::get('admin/logout', [\App\Http\Livewire\Admin\AdminLogin::class, 'logout'])->name('logout');
+
+    Route::get('admin/exchange-institution', ExchangeInstitution::class)->name('exchange-institution');
 });

@@ -4,6 +4,12 @@
     @endsection
     <div class="row">
         <div class="col-md-7">
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
+                Add Institution
+            </button>
+
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="row">
@@ -36,10 +42,8 @@
                         <table class="table table-bordered" id="dataTable" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th width="10">No</th>
-                                    <th width="50">Student Id</th>
                                     <th>Name</th>
-                                    <th>Date</th>
+                                    <th>Destination</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -49,32 +53,59 @@
                                     $i = 1
                                 @endphp
 
-                                @foreach($exchanges as $exchange)
+                                @foreach($institutions as $institution)
 
                                     <tr>
-                                        <td>{{ $i++ }}</td>
-                                        <td>
-                                            <a href="#" wire:click="getMeta({{ $exchange->id }})">
-                                                {{ $exchange->student_id; }}
-                                            </a>
-                                        </td>
-                                        <td>{{ $exchange->fullname; }}</td>
-                                        <td>{{ $exchange->created_at; }}</td>
-                                        <td>{{ $exchange->status; }}</td>
+                                        <td>{{ $institution->institution; }}</td>
+                                        <td>{{ $institution->destination; }}</td>
+                                        <td>{{ $institution->status; }}</td>
                                     </tr>
 
                                 @endforeach
 
                             </tbody>
                         </table>
+                        {{ $institutions->links() }}
 
-                        {{ $exchanges->links() }}
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
             @livewire('admin.meta')
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="col-12">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Institution Form</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="form-group row">
+                                <label for="institution_name" class="col-sm-3">Institution Name</label>
+                                <input type="text" name="institution_name" id="institution_name"
+                                    class="form-control col-sm-9">
+                            </div>
+                            <div class="form-group row">
+                                <label for="destination" class="col-sm-3">Destination</label>
+                                <input type="text" name="destination" id="destination" class="form-control col-sm-9">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add New</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
