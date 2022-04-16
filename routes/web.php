@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Auth;
 use App\Http\Livewire\Profile;
@@ -34,7 +35,7 @@ Route::get('login', Auth::class)->name('login');
 Route::middleware('isLoggedIn')->group(function () {
 
     Route::get('home', Home::class)->name('home');
-    
+
     Route::get('notification', Notification::class)->name('notification');
     Route::get('inbox', Inbox::class)->name('inbox');
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
@@ -53,7 +54,6 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('transcript-application', FormTranscriptApplication::class)->name('transcript-application');
     Route::get('logout', [FormLogin::class, 'logout'])->name('logout');
     Route::get('profile', Profile::class)->name('profile');
-    
 });
 
 
@@ -62,6 +62,7 @@ Route::get('admin', \App\Http\Livewire\Admin\AdminLogin::class)->name('adminlogi
 Route::get('admin/login', \App\Http\Livewire\Admin\AdminLogin::class)->name('adminlogin');
 
 Route::middleware('adminAuth')->group(function () {
+    Route::get('admin/download/{filename}', [FileController::class, 'download'])->name('download-file');
 
     Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
     Route::get('admin/exchange', \App\Http\Livewire\Admin\AdminExchange::class)->name('adminexchange');
@@ -76,9 +77,4 @@ Route::middleware('adminAuth')->group(function () {
     Route::get('admin/secondarysupervisor', [\App\Http\Controllers\Admin\FormSecondarySupervisor::class, 'index'])->name('adminsecondarysupervisor');
     Route::get('admin/capacitybuilding', [\App\Http\Controllers\Admin\SecondarySupervisor::class, 'index'])->name('admincapacitybuilding');
     Route::get('admin/logout', [\App\Http\Livewire\Admin\AdminLogin::class, 'logout'])->name('logout');
-
 });
-
-
-
-

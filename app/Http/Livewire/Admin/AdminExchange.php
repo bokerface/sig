@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Exchange;
 use App\Models\Meta;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AdminExchange extends Component
 {
@@ -28,14 +29,23 @@ class AdminExchange extends Component
         $this->fullname = $exchange->fullname;
         $this->modalOpen = true;
 
-        $metas = DB::table('metas')
-            ->select('metas.*')
-            ->where('post_id', '=', $id)
-            ->where('post_type', '=', 'exchange')
-            ->get();
+        $metas = Meta::where(
+            [
+                ['post_id', '=', $id],
+                ['post_type', '=', 'exchange']
+            ]
+        )
+            ->get()
+            ->toArray();
 
         $this->metass = $metas;
         // dd($metas);
+    }
+
+    public function download($filename)
+    {
+        // dd($param);
+        return Storage::disk('public')->download($filename);
     }
 
     public function render()

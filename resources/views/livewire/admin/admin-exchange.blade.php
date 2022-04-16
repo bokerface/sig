@@ -24,8 +24,6 @@
                         @endphp
 
                         @foreach($exchanges as $exchange)
-
-
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $exchange->student_id; }}</td>
@@ -35,12 +33,12 @@
                                 <td>{{ $exchange->status; }}</td>
                                 <td class="text-center">
                                     <button wire:click.prevent="detail({{ $exchange->id }})"
-                                        class="btn btn-success btn-sm" data-toggle="modal" data-target="#detail"><i
-                                            class="fas fa-reply"></i></button>
+                                        class="btn btn-success btn-sm" data-toggle="modal" data-target="#detail">
+                                        <i class="fas fa-reply"></i>
+                                    </button>
                                     {{-- <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button> --}}
                                 </td>
                             </tr>
-
                         @endforeach
 
                     </tbody>
@@ -80,10 +78,14 @@
                             </tr>
                         </thead>
                         @if($modalOpen)
-                            @foreach($metass as $meta)                        
+                            @foreach($metass as $meta)    
                                 <tr>
-                                    <td>{{ $meta->key }}</td>
-                                    <td><a href="{{ $meta->value }}"><i class="fas fa-file-pdf"></i><a></td>
+                                    <td>{{ $meta['key']}}</td>
+                                    <td>
+                                        <button wire:click.prevent="download('{{ $meta['value'] }}')">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </button>
+                                    </td>
                                     <td class="text-center"><input type="checkbox"></td>
                                     <td><input type="text" class="form-control" /></td>
                                 </tr>    
@@ -97,11 +99,9 @@
                                     <option value="1">Valid</option>
                                     <option value="2">Need Revision</option>
                                 </select>
-
                             </td>
                         </tr>
                     </table>
-
 
                 </div>
                 <div class="modal-footer">
