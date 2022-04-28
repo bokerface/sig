@@ -11,14 +11,15 @@
     <div class="col-12 mx-2">
         <p>{{ $submission->submission_type }}</p>
         <p>{{ $submission->created_at }}</p>
-        {{-- <button class="btn btn-sm btn-danger" wire:click.prevent="download('{{ $submission->additional_file }}')">
-        --}}
+        {{-- <button class="btn btn-sm btn-danger" wire:click.prevent="download('{{ $submission->additional_file }}')">--}}
         {{-- <i class="fas fa-file-pdf"></i> Download --}}
         {{-- </button> --}}
 
-        <a class="btn btn-sm btn-danger"
-            href="{{ url('download?filename='.$submission->additional_file) }}">
-            <i class="fas fa-file-pdf"></i> Download
-        </a>
+        @if(!empty($submission->additional_file))
+            <a class="btn btn-sm btn-danger"
+                href="{{ url('download?filename='.$submission->additional_file) }}">
+                <i class="fas fa-file-pdf"></i> Download
+            </a>
+        @endif
     </div>
 </div>
