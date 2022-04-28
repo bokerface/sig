@@ -4,16 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
-    public function download($filename)
+    public function download(Request $request)
     {
-        $filePath = public_path($filename);
-        dd($filePath);
-        $headers = ['Content-Type: application/pdf'];
-        $fileName = time() . '.pdf';
-
-        return response()->download($filePath, $fileName, $headers);
+        // dd($request->filename);
+        return Storage::download('public/' . $request->filename);
     }
 }

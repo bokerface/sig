@@ -10,8 +10,8 @@
                 Add Institution
             </button> --}}
 
-            <a href="{{ route('add-exchange-institution') }}" class="btn btn-primary mb-3"> Add
-                Institution
+            <a href="{{ route('add-supervisor') }}" class="btn btn-primary mb-3">
+                Add New Supervisor
             </a>
 
             <div class="card shadow mb-4">
@@ -47,8 +47,8 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Destination</th>
-                                    <th>Status</th>
+                                    <th>Description</th>
+                                    <th>Mobile</th>
                                 </tr>
                             </thead>
 
@@ -57,19 +57,19 @@
                                     $i = 1
                                 @endphp
 
-                                @foreach($institutions as $institution)
+                                @foreach($supervisors as $supervisor)
 
                                     <tr>
-                                        <td>{{ $institution->institution; }}</td>
-                                        <td>{{ $institution->destination; }}</td>
-                                        <td>{{ $institution->status; }}</td>
+                                        <td>{{ $supervisor->name; }}</td>
+                                        <td>{{ $supervisor->keterangan; }}</td>
+                                        <td>Mobile</td>
                                     </tr>
 
                                 @endforeach
 
                             </tbody>
                         </table>
-                        {{ $institutions->links() }}
+                        {{ $supervisors->links() }}
 
                     </div>
                 </div>
@@ -79,5 +79,4 @@
             @livewire('admin.meta')
         </div>
     </div>
-
 </div>

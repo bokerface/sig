@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,7 +13,6 @@ class ExchangeInstitution extends Component
     public $click;
     public $search;
     public $paginate = 5;
-
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';

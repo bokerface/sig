@@ -52,99 +52,95 @@
         }
 
         .bgsd-grey {
-		background-color: #F7F7F8;
-	}
+            background-color: #F7F7F8;
+        }
 
-	.text-black-sd {
-		color: #000;
-		font-weight: 500;
+        .text-black-sd {
+            color: #000;
+            font-weight: 500;
 
-	}
+        }
 
-	.item-info {
+        .item-info {
 
-		border-left: solid 5px #FD1049 !important;
+            border-left: solid 5px #FD1049 !important;
 
-	}
+        }
 
-	.sdcustom-btnicon {
-		padding: 0px 10px 0px 0px;
-		display: block !important;
-		padding-left: 0px !important;
-		overflow: hidden;
-		position: relative;
-		color: #ffffff;
-		border-radius: 0px;
-		min-height: 10px !important;
-		margin-bottom: 10px;
-	}
-
-
-	.item-info {
-		padding: 15px;
-	}
-
-	.item-info span {
-		color: #c2c2c2;
-		float: right;
-		right: 15px;
-		top: 15px;
-		font-weight: 400;
-		font-size: medium;
-		position: absolute;
-	}
+        .sdcustom-btnicon {
+            padding: 0px 10px 0px 0px;
+            display: block !important;
+            padding-left: 0px !important;
+            overflow: hidden;
+            position: relative;
+            color: #ffffff;
+            border-radius: 0px;
+            min-height: 10px !important;
+            margin-bottom: 10px;
+        }
 
 
-	.item-info span.iconsd {
-		color: #c2c2c2;
-		float: right;
-		right: 15px;
-		top: 50% !important;
-		font-weight: 700;
-		font-size: large;
-		position: absolute;
-	}
+        .item-info {
+            padding: 15px;
+        }
+
+        .item-info span {
+            color: #c2c2c2;
+            float: right;
+            right: 15px;
+            top: 15px;
+            font-weight: 400;
+            font-size: medium;
+            position: absolute;
+        }
+
+
+        .item-info span.iconsd {
+            color: #c2c2c2;
+            float: right;
+            right: 15px;
+            top: 50% !important;
+            font-weight: 700;
+            font-size: large;
+            position: absolute;
+        }
 
     </style>
 
     <div class="mb-5">
-    <div class="page-title mb-5">
+        <div class="page-title mb-5">
 
-        <div class="page-title page-title-small d-flex justify-content-between">
-            <h2><a href="#" data-back-button><i class="fas fa-chevron-left me-2"></i> Inbox</a></h2>
-          
+            <div class="page-title page-title-small d-flex justify-content-between">
+                <h2><a href="#" data-back-button><i class="fas fa-chevron-left me-2"></i> Inbox</a></h2>
+
+            </div>
+
+            <div class="search-box search-boxsd search-dark bg-search shadow-m border-0 mt-4 rounded-m bottom-0">
+                <i class="icon-search1 ms-n3"></i>
+                <input type="text" class="border-0" placeholder="Search" data-search>
+            </div>
+
         </div>
 
-        <div class="search-box search-boxsd search-dark bg-search shadow-m border-0 mt-4 rounded-m bottom-0">
-            <i class="icon-search1 ms-n3"></i>
-            <input type="text" class="border-0" placeholder="Search" data-search>
+        <div class="sdcustom card header-card shape-rounded" data-card-height="130">
+            <div class="bgsd-gradient card-overlay opacity-95"></div>
         </div>
-
     </div>
 
-    <div class="sdcustom card header-card shape-rounded" data-card-height="130">
-        <div class="bgsd-gradient card-overlay opacity-95"></div>
-    </div>
-    </div>
+    @foreach($submissions as $submission)
 
-@foreach ($submissions as $submission)
+        <a href="{{ url('inbox-detail',$submission->id) }}"
+            class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
+            <div class="item-info text-black">
 
-<a href="{{ url('inbox-detail') }}" class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
-    <div class="item-info text-black">
+                <h3 style="text-transform: capitalize">{{ $submission->submission_type }}</h3>
 
-        <h3 style="text-transform: capitalize">{{ $submission->submission_type }}</h3>
-        
-        <span>{{ $submission->created_at }}</span>
-        <span class="iconsd">&#8942;</span>
-    </div>
+                <span>{{ $submission->created_at }}</span>
+                <span class="iconsd">&#8942;</span>
+            </div>
 
-</a>
-    
-@endforeach
-    
-    
+        </a>
 
-   
+    @endforeach
 
-    
 </div>

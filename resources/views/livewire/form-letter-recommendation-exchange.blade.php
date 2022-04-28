@@ -1,5 +1,5 @@
  <div>
-    <x-modal-title title="Letter of Recommendation for Exchange (IRO)"  bg="bg-sigov-pink" />
+    <x-modal-title title="Letter of Recommendation for Exchange (IRO)"  bg="bg-sigov-red" />
 
         <form class="p-4 pt-2 formsd" wire:submit.prevent="handleForm">  
 

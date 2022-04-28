@@ -9,5 +9,4 @@ class ExchangeInstitution extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $table = 'exchange_institutions';
 }

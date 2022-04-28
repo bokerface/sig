@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\FileController;
+use App\Http\Livewire\AddExchangeInstitution;
+use App\Http\Livewire\AddSupervisor;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Auth;
 use App\Http\Livewire\Profile;
@@ -15,7 +17,8 @@ use App\Http\Livewire\News;
 use App\Http\Livewire\FormTranscriptApplication;
 use App\Http\Livewire\FormSecondarySupervisor;
 use App\Http\Livewire\FormLogin;
-
+use App\Http\Livewire\InstitutionDestination;
+use App\Http\Livewire\Supervisor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +43,8 @@ Route::middleware('isLoggedIn')->group(function () {
 
     Route::get('notification', Notification::class)->name('notification');
     Route::get('inbox', Inbox::class)->name('inbox');
-    Route::get('inbox-detail', InboxDetail::class)->name('inboxdetail');
+    Route::get('inbox-detail/{id}', InboxDetail::class)->name('inboxdetail');
+    Route::get("download", [FileController::class, 'download'])->name('download');
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
     Route::get('exchange', Exchange::class)->name('exchange');
     Route::get('outbound-exchange', \App\Http\Livewire\FormOutboundExchange::class)->name('outbound-exchange');
@@ -73,9 +77,14 @@ Route::middleware('adminAuth')->group(function () {
     Route::get('admin/transcript', \App\Http\Livewire\Admin\AdminTranscript::class)->name('admintranscript');
     Route::get('admin/secondary-supervisor', \App\Http\Livewire\Admin\AdminSecondarySupervisor::class)->name('adminsecondarysupervisor');
 
-
     Route::get('admin/capacitybuilding', [\App\Http\Controllers\Admin\SecondarySupervisor::class, 'index'])->name('admincapacitybuilding');
     Route::get('admin/logout', [\App\Http\Livewire\Admin\AdminLogin::class, 'logout'])->name('logout');
 
     Route::get('admin/exchange-institution', ExchangeInstitution::class)->name('exchange-institution');
+    Route::get('admin/add-exchange-institution', AddExchangeInstitution::class)->name('add-exchange-institution');
+    Route::get('admin/exchange-institution-destination', InstitutionDestination::class)->name('institution-destination');
+    Route::get('admin/add-exchange-institution-destination', AddExchangeInstitution::class)->name('add-exchange-institution-destination');
+    Route::get('admin/supervisor', Supervisor::class)->name('supervisor');
+    Route::get('admin/add-supervisor', AddSupervisor::class)->name('add-supervisor');
+    // Route::post('admin/add-exchange-institution', [ExchangeInstitution::class, 'store'])->name('store-exchange');
 });

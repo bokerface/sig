@@ -6,18 +6,22 @@
     Chantal Mitchell</span>" bg="bg-sigov-red" height="230" icon="icon-repeat" type="large" modal=""/>
     <div class="pt-2">
 
-        <a href="{{ url('outbound-exchange') }}"  class="btn btn-sigov-red text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
+       
+
+          <a href="{{ url('outbound-exchange') }}" class="btn btn-sigov-red dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
-                <i class="icon-repeat text-center"></i>
+                <i class="icon-iro text-center"></i>
             </span>
             <span class="text d-flex align-items-center">Outbound Exchange</span>
         </a>
-        {{-- <a href="{{ url('inbound-exchange') }}" class="btn btn-sigov-red text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
+
+          <a href="{{ url('letter-recommendation-exchange') }}" class="btn btn-sigov-red dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
-                <i class="icon-repeat text-center"></i>
+                <i class="icon-iro text-center"></i>
             </span>
-            <span class="text d-flex align-items-center">Inbound Exchange</span>
-        </a> --}}
+            <span class="text d-flex align-items-center">Letter of Recommendation for Exchange (IRO)</span>
+        </a>
+
 
     </div>
 

@@ -14,9 +14,10 @@ class Meta extends Component
     public $select_verified;
     public $verified;
     public $comment;
-    
+    public $status;
+
     protected $listeners = [
-        'getMeta' => 'showMeta'
+        'getMeta' => 'showMeta',
     ];
 
     public function render()
@@ -24,46 +25,56 @@ class Meta extends Component
         return view('livewire.admin.meta');
     }
 
-    public function showMeta($meta) {
+    public function showMeta($meta)
+    {
+        // dd($meta);
         $this->click = true;
         $this->metas = $meta['metaContent'];
         $this->submission = $meta['submission'];
+        $this->status = $meta['status'];
     }
 
-    public function verifyField($id) {
-
+    public function verifyField($id)
+    {
+        // dd($this->comment);
         $validateData = $this->validate([
             'comment' => 'required'
         ]);
-            
+
         $update = DB::table('metas')
-        ->where('id', $id)
-        ->update(['verified' => 1, 'comment'=> $validateData['comment']]);
-       
-       if($update) { $this->dispatchBrowserEvent('alert'); }
+            ->where('id', $id)
+            ->update(['verified' => 1, 'comment' => $validateData['comment']]);
 
-    }
-
-    public function verify($id) {
-
-        $validateData = $this->validate([
-            'select_verified' => 'required'
-        ]);
-
-        $update = DB::table('submissions')
-        ->where('id', $id)
-        ->update(['status' => $validateData['select_verified']]);
-       
-       if($update) {
+        if ($update) {
             $this->dispatchBrowserEvent('alert');
-         }
-
+        }
     }
+
+    // public function verify($id)
+    // {
+
+    //     $validateData = $this->validate([
+    //         'select_verified' => 'required'
+    //     ]);
+
+    //     $update = DB::table('submissions')
+    //         ->where('id', $id)
+    //         ->update(['status' => $validateData['select_verified']]);
+
+    //     if ($update) {
+    //         $this->dispatchBrowserEvent('alert');
+    //     }
+    // }
 
     public function download($filename)
     {
-        // dd($param);
+        // dd($filename);
         return Storage::disk('public')->download($filename);
     }
 
+    public function image($filename)
+    {
+        // dd($filename);
+        return Storage::disk('public')->download($filename);
+    }
 }

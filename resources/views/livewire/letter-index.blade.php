@@ -5,12 +5,7 @@
 
     <div class="pt-2">
         
-        <a href="{{ url('letter-recommendation-exchange') }}" class="btn btn-sigov-pink text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
-            <span class="icon d-flex justify-content-center align-items-center">
-                <i class="icon-iro text-center"></i>
-            </span>
-            <span class="text d-flex align-items-center">Letter of Recommendation for Exchange (IRO)</span>
-        </a>
+      
 
         <a href="{{ url('letter-recommendation-passport') }}" data-menu="menu-letter-recommendation-passport" class="btn btn-sigov-pink text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
@@ -31,6 +26,13 @@
                 <i class="icon-file-text text-center"></i>
             </span>
             <span class="text d-flex align-items-center">Letter Statement for Internship Program</span>
+        </a>
+
+        <a href="{{ url('letter-dispensation-payment') }}" data-menu="menu-letter-dispensation-payment" class="btn btn-sigov-pink text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
+            <span class="icon d-flex justify-content-center align-items-center">
+                <i class="icon-file-text text-center"></i>
+            </span>
+            <span class="text d-flex align-items-center">Letter of Dispensation for Payment</span>
         </a>
 
        

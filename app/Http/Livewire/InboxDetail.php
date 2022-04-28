@@ -2,13 +2,27 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Submission;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class InboxDetail extends Component
 {
+    public $submission;
+
+    public function mount($id)
+    {
+        $this->submission = Submission::findOrFail($id);
+    }
+
     public function render()
     {
         return view('livewire.inbox-detail')
-        ->layout('components.layoutfront');
+            ->layout('components.layoutfront');
+    }
+
+    public function download($filename)
+    {
+        return Storage::disk('public')->download($filename);
     }
 }

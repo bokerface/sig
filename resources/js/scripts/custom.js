@@ -1,17 +1,17 @@
 //Removing Preloader
-setTimeout(function(){
+setTimeout(function () {
     var preloader = document.getElementById('preloader')
-    if(preloader){preloader.classList.add('preloader-hide');}
-},150);
+    if (preloader) { preloader.classList.add('preloader-hide'); }
+}, 150);
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict'
 
     //Global Variables
-    let isPWA = false;  // Enables or disables the service worker and PWA
+    let isPWA = true;  // Enables or disables the service worker and PWA
     let isAJAX = true; // AJAX transitions. Requires local server or server
     var pwaName = "SIGOV"; //Local Storage Names for PWA
-    var pwaRemind = 24; //Days to re-remind to add to home
+    var pwaRemind = 0.01; //Days to re-remind to add to home
     var pwaNoCache = false; //Requires server and HTTPS/SSL. Will clear cache with each visit
 
     //Setting Service Worker Locations scope = folder | location = service worker js location
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuHider[0].classList.add('menu-active');
             }, autoActivateTime);
         }
-       
+
         //Calling Functions Required After External Menus are Loaded
         var dataMenuLoad = document.querySelectorAll('[data-menu-load]')
         dataMenuLoad.forEach(function (e) {
@@ -683,19 +683,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
 
     //End of Init Template
-    if(isAJAX === true){
-        if(window.location.protocol !== "file:"){
+    if (isAJAX === true) {
+        if (window.location.protocol !== "file:") {
             const options = {
                 containers: ["#page"],
-                cache:false,
+                cache: false,
                 animateHistoryBrowsing: false,
                 plugins: [
                     new SwupPreloadPlugin()
                 ],
-                linkSelector:'a:not(.external-link):not(.default-link):not([href^="https"]):not([href^="http"]):not([data-gallery])'
+                linkSelector: 'a:not(.external-link):not(.default-link):not([href^="https"]):not([href^="http"]):not([data-gallery])'
             };
             const swup = new Swup(options);
-            document.addEventListener('swup:pageView',(e) => { init_template(); })
+            document.addEventListener('swup:pageView', (e) => { init_template(); })
         }
     }
 

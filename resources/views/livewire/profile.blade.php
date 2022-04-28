@@ -9,7 +9,7 @@
     <x-header title="Profile" subtitle="" bg="bgsd-gradient" height="170" icon="" type="large" modal="true"/>
     
     @php
-        $studentid = Session::get('user_data.user_id');
+        $studentid = '20140510199';
         $year = substr($studentid, 0, 4);
         $foto = 'https://krs.umy.ac.id/FotoMhs/' . $year . '/' . $studentid . '.jpg';
     @endphp

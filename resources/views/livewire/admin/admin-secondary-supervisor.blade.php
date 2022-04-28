@@ -4,7 +4,7 @@
     @endsection 
     
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-12">
             <div class="card shadow mb-4">
                 <div class="card-body">  
                     <div class="row">
@@ -38,10 +38,18 @@
                             <thead>
                                 <tr>
                                     <th width="10">No</th>
-                                    <th width="50">Student Id</th>
+                                    <th>Student Id</th>
                                     <th>Name</th>
+                                    <th>Title UG Thesis</th>
+                                    <th>Secondary Supervisor</th>
                                     <th>Date</th>
-                                    <th>Status</th>
+                                    <th>Status
+
+
+                                        {{-- 
+                                            
+                                            --}}
+                                    </th>
                                 </tr>
                             </thead>
         
@@ -57,6 +65,8 @@
                                         <td><a href="#" wire:click="getMeta({{ $submission->id }})">{{ $submission->student_id; }}</a></td>
                                         <td>{{ $submission->fullname; }}</td>
                                         <td>{{ $submission->created_at; }}</td>
+                                        <td></td>
+                                        <td></td>
                                         <td>{{ $submission->status; }}</td>                                      
                                     </tr>
         

@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('submissions', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->text('submission_type');
-            $table->text('status');
-            $table->text('additional_file')->nullable();
+            $table->string('sender');
+            $table->string('receiver');
+            $table->string('message');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('submissions');
+        Schema::dropIfExists('notifications');
     }
 };
