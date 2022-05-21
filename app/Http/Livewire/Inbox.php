@@ -9,12 +9,14 @@ class Inbox extends Component
 {
     public function render()
     {
-        return view('livewire.inbox',
-        [
-            "submissions" => DB::table('submissions')->latest()->get()
-        ]   
+        // dd(session('user_data'));
+        return view(
+            'livewire.inbox',
+            [
+                "submissions" => DB::table('submissions')->latest()->get()
+            ]
 
         )
-        ->layout('components.layoutfront');
+            ->layout('components.layoutfront');
     }
 }

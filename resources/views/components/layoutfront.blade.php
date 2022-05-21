@@ -54,31 +54,22 @@
 
         <div id="footer-bar" class="footer-bar-5 rounded-0">
             <a href="{{ url('inbox') }}"
-                class="{{ (request()->is('inbox')) ? 'active-nav' : '' }}"><i
-                    class="icon-mail"></i></a>
+                class="{{ (request()->is('inbox')) ? 'active-nav' : '' }}">
+                <i class="icon-mail">({{ notif_number() }})</i>
+                <span class="badge badge-pill badge-danger">Danger</span>
+            </a>
             <a href="{{ url('home') }}"
-                class="{{ (request()->is('home')) ? 'active-nav' : '' }}"><i
-                    class="icon-home"></i></a>
+                class="{{ (request()->is('home')) ? 'active-nav' : '' }}">
+                <i class="icon-home"></i>
+            </a>
             <a href="#" data-menu="menu-profile"
-                class="{{ (request()->is('profile')) ? 'active-nav' : '' }}"><i
-                    class="icon-user"></i></a>
+                class="{{ (request()->is('profile')) ? 'active-nav' : '' }}">
+                <i class="icon-user"></i>
+            </a>
         </div>
 
         <div class="page-content">
-
-            {{-- <div class="page-title page-title-large">
-            <h2 data-username="Enabled!" class="greeting-text"></h2>
-            <a href="#" data-menu="menu-main" class="bg-fade-highlight-light shadow-xl preload-img" data-src="images/avatars/5s.png"></a>
-        </div>
-        <div class="card header-card shape-rounded" data-card-height="210">
-            <div class="card-overlay bg-highlight opacity-95"></div>
-            <div class="card-overlay dark-mode-tint"></div>
-            <div class="card-bg preload-img" data-src="images/pictures/20s.jpg"></div>
-        </div> --}}
-
             {{ $slot }}
-
-
         </div>
         <!-- end of page content-->
 
