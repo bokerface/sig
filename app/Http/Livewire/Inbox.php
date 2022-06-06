@@ -19,4 +19,9 @@ class Inbox extends Component
         )
             ->layout('components.layoutfront');
     }
+
+    public function siapi()
+    {
+        echo "api";
+    }
 }

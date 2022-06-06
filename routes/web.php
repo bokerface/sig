@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\DownloadTranscript;
 use App\Http\Livewire\AddExchangeInstitution;
 use App\Http\Livewire\AddSupervisor;
 use App\Http\Livewire\Home;
@@ -11,6 +12,7 @@ use App\Http\Livewire\Inbox;
 use App\Http\Livewire\InboxDetail;
 use App\Http\Livewire\LetterIndex;
 use App\Http\Livewire\CapacityBuildings;
+use App\Http\Livewire\EditSubmission;
 use App\Http\Livewire\Exchange;
 use App\Http\Livewire\ExchangeInstitution;
 use App\Http\Livewire\News;
@@ -44,7 +46,10 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('notification', Notification::class)->name('notification');
     Route::get('inbox', Inbox::class)->name('inbox');
     Route::get('inbox-detail/{id}', InboxDetail::class)->name('inboxdetail');
+    Route::get('edit-submission/{submission_id}', EditSubmission::class)->where('submission_id', '[0-9]+')->name('edit-submission');
     Route::get("download", [FileController::class, 'download'])->name('download');
+    Route::get("download-transcript/{id}", [DownloadTranscript::class, 'downloadPdf'])->name('download-transcript');
+
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
     Route::get('exchange', Exchange::class)->name('exchange');
     Route::get('outbound-exchange', \App\Http\Livewire\FormOutboundExchange::class)->name('outbound-exchange');
@@ -59,6 +64,8 @@ Route::middleware('isLoggedIn')->group(function () {
 
     Route::get('secondary-supervisor', FormSecondarySupervisor::class)->name('secondary-supervisor');
     Route::get('transcript-application', FormTranscriptApplication::class)->name('transcript-application');
+
+
     Route::get('logout', [FormLogin::class, 'logout'])->name('logout');
     Route::get('profile', Profile::class)->name('profile');
 });

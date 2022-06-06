@@ -55,7 +55,8 @@
         <div id="footer-bar" class="footer-bar-5 rounded-0">
             <a href="{{ url('inbox') }}"
                 class="{{ (request()->is('inbox')) ? 'active-nav' : '' }}">
-                <i class="icon-mail">({{ notif_number() }})</i>
+                {{-- <i class="icon-mail">({{ notif_number() }})</i> --}}
+                <i class="icon-mail"></i>
                 <span class="badge badge-pill badge-danger">Danger</span>
             </a>
             <a href="{{ url('home') }}"

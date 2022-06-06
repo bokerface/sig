@@ -134,11 +134,11 @@
             <div class="item-info text-black">
 
                 <h3 style="text-transform: capitalize">{{ $submission->submission_type }}</h3>
+                <p class="mb-0">Hello, {{ Session::get('user_data.fullname') }} ...</p>
 
                 <span>{{ $submission->created_at }}</span>
                 <span class="iconsd">&#8942;</span>
             </div>
-
         </a>
 
     @endforeach
