@@ -19,6 +19,7 @@ class MhsSeeder extends Seeder
         DB::table('v_students')->insert([
             'studentid' => '20180520023',
             'fullname' => 'Putri Indah Ruhama',
+            'dob' => '2002-02-21',
             'email' => 'putri.indah@umy.ac.id',
             'status' => '1',
             'created_at' => now(),
@@ -26,6 +27,7 @@ class MhsSeeder extends Seeder
         DB::table('v_students')->insert([
             'studentid' => '20180520002',
             'fullname' => 'Nila Jihan Shelamita',
+            'dob' => '2002-02-21',
             'email' => 'nila.jihan@umy.ac.id',
             'status' => '1',
             'created_at' => now(),
@@ -33,6 +35,7 @@ class MhsSeeder extends Seeder
         DB::table('v_students')->insert([
             'studentid' => '20180520012',
             'fullname' => 'Evan Hafiz Nando',
+            'dob' => '2002-02-21',
             'email' => 'evan.hafidz@umy.ac.id',
             'status' => '1',
             'created_at' => now(),

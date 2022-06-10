@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menu('modal-success', 'show', 250);
 
             let tID = setTimeout(function () {
-                window.location.href = "/home";
+                window.location.href = "/inbox";
                 window.clearTimeout(tID);		// clear time out.
             }, 2000);
         })

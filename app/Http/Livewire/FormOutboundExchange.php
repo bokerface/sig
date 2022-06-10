@@ -25,7 +25,7 @@ class FormOutboundExchange extends Component
             ->layout('components.layoutfront');
     }
 
-    public function handleForm() 
+    public function handleForm()
     {
         $validateData = $this->validate([
             'curriculum_vitae' => 'required|file|mimes:pdf',
@@ -52,62 +52,60 @@ class FormOutboundExchange extends Component
 
         $submission = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
-            'submission_type' => 'exchange',                       
-            'status' => 0,            
+            'submission_type' => 'exchange',
+            'status' => 0,
         ])->id;
 
-        if($submission) {
+        if ($submission) {
 
-           Meta::create([
-                'submission_id' => $submission,                
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'curriculum_vitae',
-                'value' => $curriculum_vitae,                
+                'value' => $curriculum_vitae,
             ]);
 
-           Meta::create([
-                'submission_id' => $submission,                
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'exchange_type',
                 'value' => 1, // 1 is outbound                
             ]);
 
 
-           Meta::create([
-                'submission_id' => $submission,                
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'motivation_letter',
-                'value' => $motivation_letter,                
+                'value' => $motivation_letter,
             ]);
 
-           Meta::create([
-                'submission_id' => $submission,                
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'passport',
-                'value' => $passport,                
+                'value' => $passport,
             ]);
 
-           Meta::create([
-                'submission_id' => $submission,                
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'certificate',
-                'value' => $certificate,                
+                'value' => $certificate,
             ]);
 
-           Meta::create([
-                'submission_id' => $submission,                
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'photo',
-                'value' => $photo,                
+                'value' => $photo,
             ]);
-           
+
             $this->dispatchBrowserEvent('insert-success');
             $this->resetInput();
-
-            
         }
-
     }
 
-    private function resetInput() {
-        $this->curriculum_vitae = '';    
-        $this->motivation_letter = '';    
-        $this->passport = '';    
-        $this->certificate = '';    
-        $this->photo = '';    
+    private function resetInput()
+    {
+        $this->curriculum_vitae = '';
+        $this->motivation_letter = '';
+        $this->passport = '';
+        $this->certificate = '';
+        $this->photo = '';
     }
 }
