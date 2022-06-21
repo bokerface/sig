@@ -18,11 +18,10 @@ class Comment extends Component
 
     public function verifyField($field_id)
     {
-        // dd($this->comment_value);
+        // dd($this->comment);
         $validateData = $this->validate([
             'comment' => 'required'
         ]);
-
 
         $update = DB::table('metas')
             ->where('id', $field_id)

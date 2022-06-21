@@ -16,7 +16,12 @@ class AdminSubmissionDetail extends Component
 
     public function mount($meta_id)
     {
-        $this->submission = Submission::leftJoin('v_students', 'v_students.studentid', '=', 'submissions.student_id')
+        $this->submission = Submission::select(
+            'submissions.*',
+            'v_students.studentid',
+            'v_students.fullname',
+        )
+            ->leftJoin('v_students', 'v_students.studentid', '=', 'submissions.student_id')
             ->findOrFail($meta_id);
         $this->metas = Meta::select(
             'metas.*',
@@ -29,6 +34,8 @@ class AdminSubmissionDetail extends Component
             ])
             ->leftJoin('fields', 'fields.key', '=', 'metas.key')
             ->get();
+
+        $this->status = $this->submission->status;
 
         // dd($this->submission);
     }

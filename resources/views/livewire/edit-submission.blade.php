@@ -27,6 +27,11 @@
                             <livewire:input-text :item="$item" :label="$item->label" :key="$item->key"
                                 :id_field="$item->id">
                         @endif
+                    @elseif($item->type == 'image')
+                        @if(!empty($item->comment))
+                            <livewire:input-file :item="$item" :label="$item->label" :key="$item->key"
+                                :id_field="$item->id">
+                        @endif
                     @endif
                 @endforeach
             </div>
