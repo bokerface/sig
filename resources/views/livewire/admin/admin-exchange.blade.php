@@ -3,7 +3,7 @@
     Exchange
     @endsection
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-10 offset-md-1">
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="row">
@@ -50,11 +50,11 @@
                                 @endphp
 
                                 @foreach($exchanges as $exchange)
-
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>
-                                            <a href="#" wire:click="getMeta({{ $exchange->id }})">
+                                            <a
+                                                href="{{ route('submission-detail',$exchange->id) }}">
                                                 {{ $exchange->student_id; }}
                                             </a>
                                         </td>
@@ -62,9 +62,7 @@
                                         <td>{{ $exchange->created_at; }}</td>
                                         <td>{{ $exchange->status; }}</td>
                                     </tr>
-
                                 @endforeach
-
                             </tbody>
                         </table>
 
@@ -73,8 +71,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            @livewire('admin.meta')
-        </div>
     </div>
+
+    {{-- <div class="form-group row"> --}}
+    {{-- <label for="catatan" class="col-3">Catatan <span class="text-muted">(Jika perlu --}}
+    {{-- direvisi)</span></label> --}}
+    {{-- <textarea id="catatan" cols="30" rows="1" class="form-control col-9 ckeditor"></textarea> --}}
+    {{-- </div> --}}
 </div>

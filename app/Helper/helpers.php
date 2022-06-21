@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\InputTypeFile;
 use App\Models\Notification;
 
 function notif_number()
@@ -10,3 +11,17 @@ function notif_number()
     ])->count();
     return $notification;
 }
+
+// function fields($item)
+// {
+//     if ($item->type == 'text') {
+//         if (!empty($item->comment)) {
+//             return view('fields.input-type-text', ['item' => $item]);
+//         }
+//     } elseif ($item->type == 'file') {
+//         if (!empty($item->comment)) {
+//             // return view('fields.input-type-file', ['item' => $item]);
+//             return InputTypeFile::class;
+//         }
+//     }
+// }

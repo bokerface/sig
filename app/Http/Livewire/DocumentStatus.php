@@ -59,6 +59,7 @@ class DocumentStatus extends Component
 
         $this->emit('setStatus', $submission->status);
         $this->emitSelf('reload');
+        $this->emit('reload');
     }
 
     public function upload_document($id_submission)

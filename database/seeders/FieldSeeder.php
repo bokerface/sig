@@ -49,7 +49,7 @@ class FieldSeeder extends Seeder
             ->insert([
                 'key' => 'photo',
                 'label' => 'photo',
-                'type' => 'file'
+                'type' => 'image'
             ]);
     }
 }

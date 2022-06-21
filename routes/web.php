@@ -4,6 +4,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\DownloadTranscript;
 use App\Http\Livewire\AddExchangeInstitution;
 use App\Http\Livewire\AddSupervisor;
+use App\Http\Livewire\Admin\Meta;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Auth;
 use App\Http\Livewire\Profile;
@@ -20,7 +21,9 @@ use App\Http\Livewire\FormTranscriptApplication;
 use App\Http\Livewire\FormSecondarySupervisor;
 use App\Http\Livewire\FormLogin;
 use App\Http\Livewire\InstitutionDestination;
+use App\Http\Livewire\SubmissionDetail;
 use App\Http\Livewire\Supervisor;
+use App\Http\Livewire\TestClass;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,7 +68,6 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('secondary-supervisor', FormSecondarySupervisor::class)->name('secondary-supervisor');
     Route::get('transcript-application', FormTranscriptApplication::class)->name('transcript-application');
 
-
     Route::get('logout', [FormLogin::class, 'logout'])->name('logout');
     Route::get('profile', Profile::class)->name('profile');
 });
@@ -80,6 +82,7 @@ Route::middleware('adminAuth')->group(function () {
 
     Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
     Route::get('admin/exchange', \App\Http\Livewire\Admin\AdminExchange::class)->name('adminexchange');
+    Route::get('admin/exchange/{meta_id}', \App\Http\Livewire\Admin\AdminSubmissionDetail::class)->where('meta_id', '[0-9]+')->name('submission-detail');
     Route::get('admin/letter', \App\Http\Livewire\Admin\AdminLetter::class)->name('adminletter');
     Route::get('admin/transcript', \App\Http\Livewire\Admin\AdminTranscript::class)->name('admintranscript');
     Route::get('admin/secondary-supervisor', \App\Http\Livewire\Admin\AdminSecondarySupervisor::class)->name('adminsecondarysupervisor');

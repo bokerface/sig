@@ -15,12 +15,12 @@ class AdminExchange extends Component
     public $status;
     public $paginate = 5;
 
-
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
     protected $listeners = [
         'setStatus' => 'setStatus',
+        'reload' => '$refresh'
     ];
 
     public function render()

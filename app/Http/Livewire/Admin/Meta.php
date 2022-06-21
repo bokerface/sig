@@ -18,11 +18,13 @@ class Meta extends Component
 
     protected $listeners = [
         'getMeta' => 'showMeta',
+        'reload' => '$refresh'
     ];
 
     public function render()
     {
         return view('livewire.admin.meta');
+        $this->emit('reload');
     }
 
     public function showMeta($meta)
