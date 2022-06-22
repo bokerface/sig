@@ -18,8 +18,9 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex flex-row  justify-content-between align-items-center">
-                    <h3 class="judul text-capitalize">{{ $submission->submission_type }} : tampilkan jenis suratnya
-                        apa di sini</h3>
+                    <h3 class="judul text-capitalize">{{ $submission->submission_type }} :
+                        {{ $submission->letter_type }}
+                    </h3>
                 </div>
 
                 <p class="mb-0">to {{ Session::get('user_data.fullname') }}</p>
@@ -70,9 +71,15 @@
                 @endif
 
 
-                {{-- di sini pesan pengajuan sudah diterima --}}
-                <span>{{ $submission->created_at }}</span>
-                Congratulations, we have received your application. Please wait for the admin verification process.
+                @if($submission->submission_type == "capacity_building")
+                    {{-- di sini pesan pengajuan sudah diterima --}}
+                    <span>{{ $submission->created_at }}</span>
+                    Thank you for your participation.
+                @else
+                    {{-- di sini pesan pengajuan sudah diterima --}}
+                    <span>{{ $submission->created_at }}</span>
+                    Congratulations, we have received your application. Please wait for the admin verification process.
+                @endif
 
             </div>
         </div>

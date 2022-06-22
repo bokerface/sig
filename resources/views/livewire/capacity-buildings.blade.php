@@ -64,42 +64,48 @@
     Students Capacity Building)" bg="bgsd-gradient" height="230" icon="far fa-comment-dots" type="large" modal="" />
 
     <div class="p-2">
-        <a href="#" class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-pink bg-gradient-start btn-margins">
+        <a href="{{ route('form-capacity-building',7) }}"
+            class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-pink bg-gradient-start btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
                 <img src="{{ asset('images/asset/hi.png') }}" />
             </span>
             <span class="text d-flex align-items-center text-black-sd">English Booster</span>
         </a>
 
-        <a href="#" class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-cblue1 bg-gradient-start btn-margins">
+        <a href="{{ route('form-capacity-building',8) }}"
+            class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-cblue1 bg-gradient-start btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
                 <img src="{{ asset('images/asset/bulb.png') }}" />
             </span>
             <span class="text d-flex align-items-center text-black-sd">IGOV Creative Hub</span>
         </a>
 
-        <a href="#" class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-cyellow bg-gradient-start btn-margins">
+        <a href="{{ route('form-capacity-building',9) }}"
+            class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-cyellow bg-gradient-start btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
                 <img src="{{ asset('images/asset/cap.png') }}" />
             </span>
             <span class="text d-flex align-items-center text-black-sd">Scholarship Hack 101</span>
         </a>
 
-        <a href="#" class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-ctosca bg-gradient-start btn-margins">
+        <a href="{{ route('form-capacity-building',10) }}"
+            class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-ctosca bg-gradient-start btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
                 <img src="{{ asset('images/asset/mags.png') }}" />
             </span>
             <span class="text d-flex align-items-center text-black-sd">IGOV Hello Research</span>
         </a>
 
-        <a href="#" class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-csoftblue bg-gradient-start btn-margins">
+        <a href="{{ route('form-capacity-building',11) }}"
+            class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-csoftblue bg-gradient-start btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
                 <img src="{{ asset('images/asset/bag.png') }}" />
             </span>
             <span class="text d-flex align-items-center text-black-sd">Digital Enterpreneurship</span>
         </a>
 
-        <a href="#" class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-cbluepastel bg-gradient-start btn-margins">
+        <a href="{{ route('form-capacity-building',12) }}"
+            class="sdcustom-btnicon bgsd-grey bgsd-circleimg-small-cbluepastel bg-gradient-start btn-margins">
             <span class="icon d-flex justify-content-center align-items-center">
                 <img src="{{ asset('images/asset/cert.png') }}" />
             </span>

@@ -4,9 +4,11 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\DownloadTranscript;
 use App\Http\Livewire\AddExchangeInstitution;
 use App\Http\Livewire\AddSupervisor;
+use App\Http\Livewire\Admin\AdminCapacityBuilding;
 use App\Http\Livewire\Admin\Meta;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Auth;
+use App\Http\Livewire\CapacityBuilding;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Notification;
 use App\Http\Livewire\Inbox;
@@ -55,6 +57,7 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get("download-recommendation-passport/{id}", [DownloadTranscript::class, 'download_recommendation_passport'])->name('download_recommendation_passport');
 
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
+    Route::get('capacity-building/{id}', CapacityBuilding::class)->name('form-capacity-building');
     Route::get('exchange', Exchange::class)->name('exchange');
     Route::get('outbound-exchange', \App\Http\Livewire\FormOutboundExchange::class)->name('outbound-exchange');
     Route::get('inbound-exchange', \App\Http\Livewire\FormInboundExchange::class)->name('inbound-exchange');
@@ -81,6 +84,7 @@ Route::get('admin', \App\Http\Livewire\Admin\AdminLogin::class)->name('adminlogi
 Route::get('admin/login', \App\Http\Livewire\Admin\AdminLogin::class)->name('adminlogin');
 
 Route::middleware('adminAuth')->group(function () {
+
     Route::get('admin/download/{filename}', [FileController::class, 'download'])->name('download-file');
 
     Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
@@ -90,7 +94,8 @@ Route::middleware('adminAuth')->group(function () {
     Route::get('admin/transcript', \App\Http\Livewire\Admin\AdminTranscript::class)->name('admintranscript');
     Route::get('admin/secondary-supervisor', \App\Http\Livewire\Admin\AdminSecondarySupervisor::class)->name('adminsecondarysupervisor');
 
-    Route::get('admin/capacitybuilding', [\App\Http\Controllers\Admin\SecondarySupervisor::class, 'index'])->name('admincapacitybuilding');
+    Route::get('admin/capacitybuilding', AdminCapacityBuilding::class)->name('admincapacitybuilding');
+    // Route::get('admin/capacitybuilding', [\App\Http\Controllers\Admin\SecondarySupervisor::class, 'index'])->name('admincapacitybuilding');
     Route::get('admin/logout', [\App\Http\Livewire\Admin\AdminLogin::class, 'logout'])->name('logout');
 
     Route::get('admin/exchange-institution', ExchangeInstitution::class)->name('exchange-institution');
