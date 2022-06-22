@@ -2,25 +2,31 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Meta;
 use Livewire\Component;
 use App\Models\Submission;
+use App\Models\Meta;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\DB;
+use Livewire\WithFileUploads;
 
-class FormLetterRecommendationPassport extends Component
+class FormLetterDispensation extends Component
 {
-    public $imigration_office;
+    public $statement_letter;
+
+    use WithFileUploads;
+
     public function render()
     {
-        return view('livewire.form-letter-recommendation-passport')->layout('components.layoutfront');
+        return view('livewire.form-letter-dispensation')->layout('components.layoutfront');
     }
 
     public function handleForm()
     {
-        $this->validate([
-            'imigration_office' => 'required',
+        $validateData = $this->validate([
+            'statement_letter' => 'required|file|mimes:pdf',
         ]);
+
+        $statement_letter = $this->statement_letter->store('files', 'public');
+        $validateData['statement_letter'] = $statement_letter;
 
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
@@ -32,14 +38,14 @@ class FormLetterRecommendationPassport extends Component
 
             $meta = Meta::create([
                 'submission_id' => $letter,
-                'key' => 'imigration_office',
-                'value' => $this->imigration_office,
+                'key' => 'statement_letter',
+                'value' => $statement_letter,
 
             ]);
             $meta = Meta::create([
                 'submission_id' => $letter,
                 'key' => 'letter_type',
-                'value' => 2, //recommendation passport
+                'value' => 5, //Letter of Dispensation For Payment
 
             ]);
 
