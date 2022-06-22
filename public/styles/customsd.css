@@ -1,0 +1,320 @@
+
+#page, #footer-bar {
+    max-width:500px;
+    margin:0 auto;
+}
+#page {
+    position:relative;
+}
+
+.header.hcustom {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    z-index: 10;
+    padding-top: 20px;
+    padding-right: 20px;
+    border-radius: 0px;
+}
+
+.header .header-icon {
+font-size:16px !important;
+}
+.sdcustom.header-card.shape-rounded {
+    border: none !important;
+    border-radius: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-left:8px;
+    margin-right:8px;
+    background: linear-gradient(to bottom right, #361928 0%, #141118 100%);
+}
+.sdcustom-small.header-card.shape-rounded {
+    border: none !important;
+    border-radius: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-left:8px;
+    margin-right:8px;
+}
+.header.hcustom .header-title.mcustomsd {
+    color: #ffffff !important;
+    font-weight: 300;
+}
+
+.header.sigov .header-icon,
+.header.hcustom  .header-icon{
+    color: #E43256;
+}
+
+.card-bottom.news {
+    left: 17px;
+    right: 17px;
+}
+/* .header .header-title.mcustomsd {
+    color: black !important;
+} */
+
+.bgsd-gradient {
+    background: linear-gradient(to bottom right, #361928 0%, #141118 100%);
+}
+
+
+.bgsd-circleimg-title-large {
+    background-image: url("../images/asset/circle-transparent.png");
+    background-position:  200px -200px;
+    background-repeat: no-repeat;
+} 
+
+.bgsd-circleimg-title-small {
+    background-image: url("../images/asset/circle-transparent-small2.png");
+    background-position: right -40px;
+    background-repeat: no-repeat;
+    background-size: 140px !important;
+}
+.bgsd-circleimg-small {
+    background-image: url("../images/asset/circle-transparent-small.png");
+    background-position:  -65px -20px;
+    background-repeat: no-repeat;
+}
+
+
+.theme-light .bg-gradient-fade2 {
+    background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0) 0%, rgba(240, 240, 240, 0) 30%,
+    rgba(0, 0, 0, 0.3) 40%, 
+    rgba(0, 0, 0, 0.5) 50%, 
+    #1f1f1f 80%, rgba(0, 0, 0, 0.95) 100%);
+
+}
+.bgsdimg-1{
+    background-image: url("../images/asset/Group\ 38.png");
+}
+
+.bgsdimg-2{
+    background-image: url("../images/asset/Group\ 3.png");
+}
+
+.bgsdimg-3{
+    background-image: url("../images/asset/Group\ 4.png");
+}
+
+.textsd-black{
+    color: #000 !important;
+}
+
+.text-pinky {
+    color: #E43256;
+}
+
+.sdcustom-btnicon {
+    padding:5px 10px 5px 5px;
+    display:block !important;
+    padding-left: 80px !important;
+    overflow: hidden;
+    position: relative;
+    color:#ffffff;
+    border-radius:8px;
+    min-height: 70px;
+    margin-bottom:10px;
+}
+
+.sdcustom-btnicon span.icon {
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    width: 60px;
+    height: 100%;
+    color:#fff;
+    font-size: 20px;
+}
+.sdcustom-btnicon span.text {
+    line-height: 1.4em;
+    min-height: 60px;
+    font-size:16px
+}
+
+/* FOrmulir */
+
+.formsd .input-style {
+    margin-bottom:0px !important;
+}
+
+.formsd .input-style.has-borders.input-style-always-active label { 
+    color:#353535 !important;
+}
+
+.formsd .sdtitle-red {
+    color:#bb2020;
+}
+.formsd .form-label {
+    color:#181818;
+    font-size: 14px;
+    font-weight: 600;
+}
+.formsd .text-muted {
+    font-size:12px;
+    font-style: italic;
+    display:block;
+    color:#585858 !important;
+}
+
+/* HOME */
+
+.page-content .page-title {
+    margin: 25px 20px 0px 20px !important;
+    font-weight: 300 !important;
+}
+
+.page-title-small h2 {
+    font-weight: 300 !important;
+    font-size: 17px !important;
+}
+
+.search-box {
+    margin-top: 0px !important;
+    line-height: 0px !important;
+}
+
+.icon-header-home {
+    display: inline-block;
+}
+
+.icon-header-home a {
+    display: inline-block;
+    padding: 7px;
+    margin-left: 8px;
+}
+
+.icon-header-home a i {
+    font-size: 18px;
+}
+
+.bg-search {
+    background-color: rgb(255 255 255 / 9%);
+}
+
+.bg-search input,
+.bg-search input::placeholder {
+    color: rgba(255, 255, 255, 0.644);
+    font-size: 17px !important;
+    font-weight: 300;
+}
+
+.bg-search i {
+    color: #E43256;
+}
+
+.search-box .icon-search1 {
+    position: absolute;
+    left: 0px;
+    line-height: 49px !important;
+    padding: 0px 15px 0px 30px;
+    font-size: 18px;
+}
+
+.page-title-small [data-menu] {
+    position: relative;
+    margin-top:3px;
+    padding-top:9px;
+}
+
+/* PROFILE */
+.profile {
+    margin-top: -35%;
+    z-index: 9999;
+    width: 100%;
+}
+
+.title {
+    color:#E43256;
+    display: block;
+}
+
+.judul {
+    color:#242424;
+    display: block;
+    font-weight:600;
+}
+.students-pict img {
+    max-width: 40%;
+}
+.profile .row {
+    border-bottom:1px solid #c7c7c7;
+    margin-bottom:5px;
+}
+
+.mask {
+    -webkit-mask-image: url('../images/mask.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-image: url('../images/mask.png');
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    z-index:20;
+    position:relative;
+    background:#3b4e8a;
+}
+
+.mask img {
+    width:130px;
+}
+.profile-pic {
+    position: relative;
+}
+.mask-overlay {
+    background: transparent url('../images/mask-shadow.png') center top no-repeat;
+    height:200px;
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:0;
+}
+
+
+.splash-page {
+    height: 100%;
+    background-color: red;
+    /* position: fixed; */
+    width: 100%;
+}
+
+.top-splash {
+    height: 180px;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    margin-bottom: -25%;
+}
+
+.bg-pink {
+    background-color: #E43256;
+}
+
+.bottom-splash {
+    border-top-left-radius: 200px 150px;
+    border-top-right-radius: 200px 150px;
+    height: 80%;
+    z-index: 9999;
+    padding-top: 30%;
+    background: #fff url("../images/asset/ornamen-igov.png") bottom right no-repeat;
+}
+
+.bottom-splash span img {
+    max-width: 75px;
+    margin-bottom: -5px;
+    margin-left: -10px;
+}
+
+.bottom-splash p {
+    font-size: 16px;
+}
+
+
+.logo-splash img {
+    max-width: 60%;
+    text-align: center;
+    margin-bottom: -20%;
+
+}
