@@ -7,6 +7,7 @@ use App\Http\Livewire\AddSupervisor;
 use App\Http\Livewire\Admin\Meta;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\Auth;
+use App\Http\Livewire\CapacityBuilding;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Notification;
 use App\Http\Livewire\Inbox;
@@ -54,6 +55,7 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get("download-transcript/{id}", [DownloadTranscript::class, 'downloadPdf'])->name('download-transcript');
 
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
+    Route::get('capacity-building/{id}', CapacityBuilding::class)->name('form-capacity-building');
     Route::get('exchange', Exchange::class)->name('exchange');
     Route::get('outbound-exchange', \App\Http\Livewire\FormOutboundExchange::class)->name('outbound-exchange');
     Route::get('inbound-exchange', \App\Http\Livewire\FormInboundExchange::class)->name('inbound-exchange');

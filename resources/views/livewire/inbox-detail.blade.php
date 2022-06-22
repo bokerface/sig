@@ -18,8 +18,9 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex flex-row  justify-content-between align-items-center">
-                    <h3 class="judul text-capitalize">{{ $submission->submission_type }} : tampilkan jenis suratnya
-                        apa di sini</h3>
+                    <h3 class="judul text-capitalize">{{ $submission->submission_type }} :
+                        {{ $submission->letter_type }}
+                    </h3>
                 </div>
 
                 <p class="mb-0">to {{ Session::get('user_data.fullname') }}</p>
