@@ -49,24 +49,24 @@
                                     $i = 1
                                 @endphp
 
-                                @foreach($exchanges as $exchange)
+                                @foreach($capacity_buildings as $capacity_building)
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>
                                             <a
-                                                href="{{ route('submission-detail',$exchange->id) }}">
-                                                {{ $exchange->student_id; }}
+                                                href="{{ route('submission-detail',$capacity_building->id) }}">
+                                                {{ $capacity_building->student_id; }}
                                             </a>
                                         </td>
-                                        <td>{{ $exchange->fullname; }}</td>
-                                        <td>{{ $exchange->created_at; }}</td>
-                                        <td>{{ $exchange->status; }}</td>
+                                        <td>{{ $capacity_building->fullname; }}</td>
+                                        <td>{{ $capacity_building->created_at; }}</td>
+                                        <td>{{ $capacity_building->status; }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
-                        {{ $exchanges->links() }}
+                        {{ $capacity_buildings->links() }}
                     </div>
                 </div>
             </div>

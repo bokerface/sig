@@ -11,7 +11,7 @@
                     @foreach($metas as $meta)
                         <div class="alert alert-abusma">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <strong>{{ $meta->label }}</strong>
                                     <br>
                                     @php

@@ -5,9 +5,15 @@ namespace App\Http\Livewire\Admin;
 use App\Models\CapacityBuilding;
 use App\Models\Submission;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AdminCapacityBuilding extends Component
 {
+    public $search;
+    public $paginate = 5;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public $capacity_buildings;
 
     public function mount()
@@ -23,9 +29,10 @@ class AdminCapacityBuilding extends Component
             ->where([
                 ['metas.value', '=', 7]
             ])
-            ->paginate();
+            ->latest()
+            ->paginate($this->paginate);
 
-        dd($this->capacity_buildings);
+        // dd($this->capacity_buildings);
     }
 
     public function render()
