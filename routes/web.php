@@ -52,6 +52,7 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('edit-submission/{submission_id}', EditSubmission::class)->where('submission_id', '[0-9]+')->name('edit-submission');
     Route::get("download", [FileController::class, 'download'])->name('download');
     Route::get("download-transcript/{id}", [DownloadTranscript::class, 'downloadPdf'])->name('download-transcript');
+    Route::get("download-recommendation-passport/{id}", [DownloadTranscript::class, 'download_recommendation_passport'])->name('download_recommendation_passport');
 
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
     Route::get('exchange', Exchange::class)->name('exchange');

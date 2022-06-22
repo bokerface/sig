@@ -27,10 +27,10 @@ class AdminSubmissionDetail extends Component
             'metas.*',
             'fields.label',
             'fields.type',
-        )
-            ->where([
-                ['metas.submission_id', '=', 3],
-                ['metas.key', '!=', 'exchange_type']
+        )->where([
+            ['metas.submission_id', '=', $this->submission->id],
+            ['metas.key', '!=', 'exchange_type'],
+            ['metas.key', '!=', 'letter_type'],
             ])
             ->leftJoin('fields', 'fields.key', '=', 'metas.key')
             ->get();

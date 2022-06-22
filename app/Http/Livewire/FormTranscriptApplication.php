@@ -31,4 +31,6 @@ class FormTranscriptApplication extends Component
 
         return redirect('download-transcript/' . $letter);
     }
+
+    
 }

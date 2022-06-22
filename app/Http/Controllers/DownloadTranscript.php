@@ -31,10 +31,37 @@ class DownloadTranscript extends Controller
 
         // dd($submission);
 
-        return view('download-transcript', compact('data_mhs', 'transcript', 'submission'));
+        // return view('download-transcript', compact('data_mhs', 'transcript', 'submission'));
 
         $pdf = PDF::loadView('download-transcript', compact(
             'transcript',
+            'data_mhs',
+            'submission'
+        ))->output();
+
+        return response()->streamDownload(
+            fn () => print($pdf),
+            "transcript" . Session::get('user_data.user_id') . ".pdf"
+        );
+    }
+
+    public function download_recommendation_passport($id)
+    {
+
+
+        $submission = $this->submission = Submission::findOrFail($id);
+
+
+        $data_mhs = array(
+            'name' => Session::get('user_data.fullname'),
+            'student_id' => Session::get('user_data.user_id')
+        );
+
+        // dd($submission);
+
+        // return view('download-recommendation-passport', compact('data_mhs', 'submission'));
+
+        $pdf = PDF::loadView('download-recommendation-passport', compact(
             'data_mhs',
             'submission'
         ))->output();

@@ -5483,11 +5483,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('insert-success', function (event) {
       menu('modal-success', 'show', 250);
       var tID = setTimeout(function () {
-<<<<<<< HEAD
-        window.location.href = "/home";
-=======
         window.location.href = "/inbox";
->>>>>>> 2b71b10f2b5e350c5fa9ccd76ca352fb0c922d5a
         window.clearTimeout(tID); // clear time out.
       }, 2000);
     }); //Activating Menus

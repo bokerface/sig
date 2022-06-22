@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 class FormLetterRecommendationPassport extends Component
 {
     public $imigration_office;
+
     public function render()
     {
         return view('livewire.form-letter-recommendation-passport')->layout('components.layoutfront');
@@ -41,7 +42,19 @@ class FormLetterRecommendationPassport extends Component
                 'value' => 2, //recommendation passport
             ]);
 
-            $this->dispatchBrowserEvent('insert-success');
+
+            $this->resetInput();
+
+            return redirect('download-recommendation-passport/' . $letter);
         }
+    }
+
+    private function resetInput()
+    {
+        $this->imigration_office = '';
+        $this->motivation_letter = '';
+        $this->passport = '';
+        $this->certificate = '';
+        $this->photo = '';
     }
 }
