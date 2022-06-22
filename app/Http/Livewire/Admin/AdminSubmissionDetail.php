@@ -29,15 +29,16 @@ class AdminSubmissionDetail extends Component
             'fields.type',
         )
             ->where([
-                ['metas.submission_id', '=', 3],
-                ['metas.key', '!=', 'exchange_type']
+                ['metas.submission_id', '=', $this->submission->id],
+                ['metas.key', '!=', 'exchange_type'],
+                ['metas.key', '!=', 'letter_type'],
             ])
             ->leftJoin('fields', 'fields.key', '=', 'metas.key')
             ->get();
 
         $this->status = $this->submission->status;
 
-        // dd($this->submission);
+        // dd($this->metas);
     }
 
     public function render()

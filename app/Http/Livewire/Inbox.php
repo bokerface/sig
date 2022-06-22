@@ -17,10 +17,19 @@ class Inbox extends Component
         // $this->submissions = DB::table('submissions')->latest()->get();
         $this->submissions = Submission::select(
             'submissions.*',
+            'metas.key',
+            'metas.value',
+            'letter_types.name as letter_type',
         )
+            ->leftJoin('metas', function ($join) {
+                $join->on('metas.submission_id', '=', 'submissions.id');
+                $join->where('metas.key', '=', 'letter_type');
+            })
+            ->leftJoin('letter_types', 'letter_types.id', '=', 'metas.value')
             ->latest()
             ->get();
-        // ->leftJoin('metas', 'metas.submission_id', '=', 'submissions.id');
+
+        // dd($this->submissions);
     }
 
     public function render()
