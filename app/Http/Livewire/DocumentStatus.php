@@ -19,10 +19,19 @@ class DocumentStatus extends Component
     public $upload_verification_file;
     public $verification_file;
     public $document_verified;
+    public $verification_file_exist;
 
     protected $listeners = [
         'reload' => '$refresh'
     ];
+
+    public function mount()
+    {
+        $this->verification_file_exist = !empty(Submission::findOrFail($this->submission_id)->additional_file);
+        $this->select_verified = $this->status;
+        // dd($this->select_verified);
+        // dd($this->verification_file_exist);
+    }
 
     public function render()
     {
@@ -40,6 +49,8 @@ class DocumentStatus extends Component
             'select_verified' => "required|numeric|in:1,2"
             // 'select_verified' => "required|numeric"
         ]);
+
+        // dd($submission_id);
 
         $submission = Submission::findOrFail($submission_id);
         $submission->status = $this->select_verified;

@@ -64,6 +64,8 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('letter-recommendation-passport', \App\Http\Livewire\FormLetterRecommendationPassport::class)->name('letter-recommendation-passport');
     Route::get('letter-active-student', \App\Http\Livewire\FormLetterActiveStudent::class)->name('letter-active-student');
     Route::get('letter-internship-program', \App\Http\Livewire\FormLetterInternshipProgram::class)->name('letter-internship-program');
+    Route::get('letter-dispensation', \App\Http\Livewire\FormLetterDispensation::class)->name('letter-dispensation');
+
 
     Route::get('secondary-supervisor', FormSecondarySupervisor::class)->name('secondary-supervisor');
     Route::get('transcript-application', FormTranscriptApplication::class)->name('transcript-application');

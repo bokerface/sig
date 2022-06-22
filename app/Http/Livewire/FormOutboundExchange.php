@@ -95,6 +95,13 @@ class FormOutboundExchange extends Component
                 'value' => $photo,
             ]);
 
+            Meta::create([
+                'submission_id' => $submission,
+                'key' => 'letter_type',
+                'value' => 6, //Letter of Dispensation For Payment
+
+            ]);
+
             $this->dispatchBrowserEvent('insert-success');
             $this->resetInput();
         }

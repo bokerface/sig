@@ -18,7 +18,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex flex-row  justify-content-between align-items-center">
-                    <h3 class="judul">Exchange</h3>
+                    <h3 class="judul text-capitalize">{{ $submission->submission_type }} : tampilkan jenis suratnya
+                        apa di sini</h3>
                 </div>
 
                 <p class="mb-0">to {{ Session::get('user_data.fullname') }}</p>
@@ -31,7 +32,7 @@
                 @if($submission->status == 1)
                     <span>{{ $submission->created_at }}</span>
                     <p class="card-text">
-                        Your documents for {{ $submission->submission_type }} program are ready to
+                        Your documents for {{ $submission->submission_type }} are ready to
                         use. You can download the documents by click link below.
                     </p>
 
@@ -50,7 +51,7 @@
                     {{-- jika perlu revisi --}}
                     <span>{{ $submission->created_at }}</span>
                     <p class="card-text">
-                        Pengajuan Anda perlu direvisi. perliksa kembali field berikut ini : <br>
+                        Your submission needs to be revised. Check the following fields again: <br>
                         @php
                             $a = 1;
                         @endphp
@@ -71,7 +72,7 @@
 
                 {{-- di sini pesan pengajuan sudah diterima --}}
                 <span>{{ $submission->created_at }}</span>
-                Selamat oengajuan Saudara sudah kami terima, dan akan di verifikasi oleh admin
+                Congratulations, we have received your application. Please wait for the admin verification process.
 
             </div>
         </div>

@@ -24,7 +24,11 @@
 
                                         {{-- <i class="fas fa-file-pdf"></i> Download --}}
                                         {{-- </button> --}}
+<<<<<<< HEAD
                                         <a href="{{ route('download-file','asdasd/asdas') }}"
+=======
+                                        <a href="{{ route('download-file','q?filename='.$meta->value) }}"
+>>>>>>> 2b71b10f2b5e350c5fa9ccd76ca352fb0c922d5a
                                             class="btn btn-sm btn-danger">
                                             Download
                                         </a>
@@ -45,6 +49,10 @@
                             </div>
                         </div>
                     @endforeach
+<<<<<<< HEAD
+=======
+                    <livewire:document-status :submission_id="$submission->id" :status="$status" />
+>>>>>>> 2b71b10f2b5e350c5fa9ccd76ca352fb0c922d5a
                 </div>
             </div>
         </div>

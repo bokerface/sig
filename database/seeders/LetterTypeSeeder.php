@@ -31,5 +31,13 @@ class LetterTypeSeeder extends Seeder
             'name' => 'Letter Statement for Iternship Program',
             'created_at' => now()
         ]);
+        DB::table('letter_types')->insert([
+            'name' => 'Letter of Dispensation For Payment',
+            'created_at' => now()
+        ]);
+        DB::table('letter_types')->insert([
+            'name' => 'Outbound Exchange',
+            'created_at' => now()
+        ]);
     }
 }

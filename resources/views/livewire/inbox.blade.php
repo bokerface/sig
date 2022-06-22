@@ -133,10 +133,11 @@
             class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
             <div class="item-info text-black">
 
-                <h3 style="text-transform: capitalize">{{ $submission->submission_type }}</h3>
+                <h5 style="text-transform: capitalize">tampilkan jenis suratnya
+                    apa di sini</h5>
                 <p class="mb-0">Hello, {{ Session::get('user_data.fullname') }} ...</p>
 
-                <span>{{ $submission->created_at }}</span>
+                <span style="font-size:12px;">{{ $submission->created_at }}</span>
                 <span class="iconsd">&#8942;</span>
             </div>
         </a>

@@ -10,7 +10,11 @@ class FileController extends Controller
 {
     public function download(Request $request)
     {
-        dd($request->filename);
-        return Storage::download('public/' . $request->filename);
+        // dd($request->filename);
+        if (Storage::exists('public/' . $request->filename)) {
+            return Storage::download('public/' . $request->filename);
+        }
+        abort(404);
+        // return response()->view('errors.404');
     }
 }
