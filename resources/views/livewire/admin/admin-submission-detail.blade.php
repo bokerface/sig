@@ -21,7 +21,7 @@
                                     @if(in_array($meta->type,$downloadable))
                                         <a href="{{ route('download-file','q?filename='.$meta->value) }}"
                                             class="btn btn-sm btn-danger">
-                                            Download
+                                            Download File
                                         </a>
                                     @else
                                         <span>{{ $meta->value }}</span>
