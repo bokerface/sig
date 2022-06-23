@@ -1,6 +1,6 @@
 <div>
 
-    <x-modal-title title="Capacity Building" bg="bg-sigov-red" />
+    <x-modal-title title="{{ $letter_type->name }}" bg="bg-sigov-red" />
 
 
     <form class="p-4 pt-2 formsd" wire:submit.prevent="handleForm" enctype="multipart/form-data">
