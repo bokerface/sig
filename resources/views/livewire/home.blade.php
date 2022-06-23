@@ -47,20 +47,30 @@ endif;
                 <div class="splide__slide">
                     <div class="card rounded-m mx-2 text-center shadow-m" data-card-height="170" style="height:170px;">
                         <a href="{{ url('news') }}">
-                            <img src="./images/asset/pic1.jpg">
+                            <img src="./images/asset/news2.jpg">
                             <div class="card-bottom news d-flex align-items-end">
                                 <h1 class="font-18 font-400 pb-2 text-white text-start">
-                                    Vaccinations from UMY is now Different than Before</h1>
+                                    IGOV UMY held a talk show entitled “Overcome Dizziness With Other Dizziness”</h1>
                             </div>
                             <div class="card-overlay bg-gradient-fade2"></div>
                         </a>
                     </div>
                 </div>
-
-            </div>
+                <div class="splide__slide">
+                    <div class="card rounded-m mx-2 text-center shadow-m" data-card-height="170" style="height:170px;">
+                        <a href="{{ url('news') }}">
+                            <img src="./images/asset/news1.jpg">
+                            <div class="card-bottom news d-flex align-items-end">
+                                <h1 class="font-18 font-400 pb-2 text-white text-start">
+                                    Asia University Summer School Program has started with a bang</h1>
+                            </div>
+                            <div class="card-overlay bg-gradient-fade2"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>           
         </div>
     </div>
-
 
     <div class="content mb-2">
         <h5 class="float-start font-16 font-500"><b>SIGOV</b> Services</h5>
@@ -124,7 +134,7 @@ endif;
 
     <div class="row mb-4 mt-4">
         <div class="col-4 pe-0 rounded-s">
-            <a href="#" data-menu="menu-detail-capacity-building">
+            <a href="{{ route('form-capacity-building', 7) }}" data-menu="menu-detail-capacity-building">
                 <div class="card card-style me-0 bgsdimg-1 rounded-s" data-card-height="200" style="height:200px;">                
                     <div class="card-bottom p-3">
                         <h5 class="color-white font-500 textsd-black">
@@ -142,7 +152,7 @@ endif;
        
         <div class="col-8 ps-0">
             <div class="card card-style bgsdimg-2 mb-2 rounded-s" data-card-height="95"  style="height:95px;">
-                <a href="#" data-menu="menu-detail-capacity-building">
+                <a href="{{ route('form-capacity-building', 8) }}" data-menu="menu-detail-capacity-building">
                     <div class="card-bottom p-3">
                         <h5 class="color-white font-500 font-14 mb-n1 textsd-black">
                             IGOV <br>Creative Hub
@@ -154,7 +164,7 @@ endif;
                 </div>
             </div>
             <div class="card card-style bgsdimg-3 mb-2 rounded-s" data-card-height="95"  style="height:95px;">
-                <a href="#" data-menu="menu-detail-capacity-building">
+                <a href="{{ route('form-capacity-building', 9) }}" data-menu="menu-detail-capacity-building">
                     <div class="card-bottom p-3">
                         <h5 class="color-white font-500 font-14 mb-n1 textsd-black">
                             Scholarship <br>Hack 101
@@ -162,7 +172,7 @@ endif;
                     </div>
                 </a>
                 <div class="card-overlay opacity-60">
-                    <img src="./images/asset/graduation-cap.png" class="float-end p-3 mt-3" width="80">>
+                    <img src="./images/asset/graduation-cap.png" class="float-end p-3 mt-3" width="80">
                 </div>
             </div>
         </div>

@@ -58,6 +58,7 @@ class Auth extends Component
                     $user_data = [
                         "user_id" => $mahasiswa->studentid,
                         "fullname" => $mahasiswa->fullname,
+                        "dateofbirth" => $mahasiswa->dateofbirth,
                         "email" => $mahasiswa->email,
                         "role" => 3,
                         "isLoggedIn" => true

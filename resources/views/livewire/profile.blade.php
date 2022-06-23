@@ -58,13 +58,7 @@
             <a href="{{ url('logout') }}"
                 class="btn btn-s mt-2 mb-4 mx-5 btn-full bg-sigov-pink rounded-m text-uppercase font-300 mt-4">Sign
                 Out</a>
-
-
         </div>
-
-
-
-
 
     </div>
 

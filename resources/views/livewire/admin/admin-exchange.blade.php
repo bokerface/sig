@@ -3,7 +3,7 @@
     Exchange
     @endsection
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-8 offset-md-2">
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="row">
@@ -37,8 +37,8 @@
                             <thead>
                                 <tr>
                                     <th width="10">No</th>
-                                    <th width="50">Student Id</th>
-                                    <th>Name</th>
+                                    <th style="width:150px;">Student Id</th>
+                                    <th  style="width:50%;">Name</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
@@ -60,7 +60,17 @@
                                         </td>
                                         <td>{{ $exchange->fullname; }}</td>
                                         <td>{{ $exchange->created_at; }}</td>
-                                        <td>{{ $exchange->status; }}</td>
+                                        <td>
+                                            @if($exchange->status == 0)
+
+                                                Awaiting Verification
+                                                
+                                            @else
+
+                                                Verified
+
+                                            @endif
+                                            </td>
                                     </tr>
                                 @endforeach
                             </tbody>

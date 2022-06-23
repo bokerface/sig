@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('student_id');
             $table->text('submission_type');
+            $table->integer('letter_types')->nullable();
             $table->text('status');
             $table->text('additional_file')->nullable();
             $table->timestamps();

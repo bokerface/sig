@@ -4,7 +4,7 @@
     @endsection 
     
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-12">
             <div class="card shadow mb-4">
                 <div class="card-body">  
                     <div class="row">
@@ -38,9 +38,10 @@
                             <thead>
                                 <tr>
                                     <th width="10">No</th>
-                                    <th width="50">Student Id</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
+                                    <th style="width:28%">Letter Type</th>
+                                    <th style="width:150px">Student Id</th>
+                                    <th style="width:32%">Name</th>
+                                    <th style="width:250px">Date</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -54,10 +55,23 @@
         
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td><a href="#" wire:click="getMeta({{ $submission->id }})">{{ $submission->student_id; }}</a></td>
+                                        <td>{{ $submission->name; }}</td>
+                                        <td>
+                                            <a
+                                            href="{{ route('submission-detail',$submission->id) }}">
+                                            {{ $submission->student_id; }}
+                                        </a>
+                                        
+                                        </td>
                                         <td>{{ $submission->fullname; }}</td>
                                         <td>{{ $submission->created_at; }}</td>
-                                        <td>{{ $submission->status; }}</td>                                      
+                                        <td>  
+                                            @if($submission->status == 0)
+                                                Awaiting Verification                                                
+                                            @else
+                                                Verified
+                                            @endif
+                                        </td>                                      
                                     </tr>
         
                                 @endforeach
@@ -70,9 +84,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
+        {{-- <div class="col-md-5">
             @livewire('admin.meta')
-        </div>
+        </div> --}}
     </div>
 </div>
             

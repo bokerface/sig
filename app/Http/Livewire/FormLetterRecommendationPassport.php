@@ -27,6 +27,7 @@ class FormLetterRecommendationPassport extends Component
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
             'status' => 0,
+            'letter_types' => 2,
         ])->id;
 
         if ($letter) {

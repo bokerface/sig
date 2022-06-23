@@ -18,8 +18,9 @@ class MhsSeeder extends Seeder
     {
         DB::table('v_students')->insert([
             'studentid' => '20180520023',
-            'fullname' => 'Putri Indah Ruhama',
-            'email' => 'putri.indah@umy.ac.id',
+            'fullname' => 'Puteri Syifa Ruhama',
+            'email' => 'puteri.syifa.ruhama@umy.ac.id',
+            'dateofbirth' => '2000-01-21 00:00:00.000',
             'status' => '1',
             'created_at' => now(),
         ]);

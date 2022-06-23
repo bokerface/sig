@@ -20,7 +20,8 @@ class FormLetterActiveStudent extends Component
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
-            'status' => 0,            
+            'status' => 0,    
+            'letter_types' => 3,        
         ])->id;
 
         if($letter) {
@@ -31,7 +32,9 @@ class FormLetterActiveStudent extends Component
                 'value' => 3, //letter active student
                 
             ]);
-            $this->dispatchBrowserEvent('insert-success');
+            // $this->dispatchBrowserEvent('insert-success');
+
+            return redirect('download-letter-active-student/' . $letter);
         }
         
     }

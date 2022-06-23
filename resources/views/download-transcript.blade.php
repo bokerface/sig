@@ -4,22 +4,58 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" --}}
-    {{-- integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
 
+    <style>
+    html { margin-left: 1.5cm;
+          margin-top: 1cm;
+          margin-right: 1.5cm;
+          margin-bottom: 1cm
+      }   
+      body {
+        margin: 0;
+        box-shadow: 0;
+        padding:0;
+        }
+        p.justify {
+          text-align: justify;
+        }
+
+        table.table {
+            border:1px solid rgb(168, 158, 158);
+            padding:0;
+            border-spacing: 0px;
+            border-collapse: separate;
+        }
+
+        .table th {
+          vertical-align: top;
+          border-top:1px solid rgb(136, 132, 132);
+          padding:5px;
+          margin:0;
+          background:rgb(91, 89, 89);
+          color:#fff;
+          vertical-align: middle;
+        }
+        .table td {
+          vertical-align: top;
+          border-top:1px solid rgb(174, 168, 168);
+          padding:5px;
+          margin:0;
+        }
+        .table tr:nth-child(odd) td {
+            background:rgb(235, 241, 239);
+        }
+        .text-center {
+          text-align:center;
+        }
+
+    </style>
 </head>
 
 <body>
-    <div class="container">
-
-
-        <div class="row">
-            <div class="col-12">
-                <div class="p-5">IGOV UMY</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+   
+    <img style="width:100%;margin-bottom:0.7cm;" src="{{ public_path('images/asset/kop-surat-igov.jpg') }}" alt="">
+    <br />
                 <h3 class="text-center"><u>TRANSKRIP AKADEMIK <i>(ACADEMIC TRANSCRIPT)</i></u></h3>
                 <table>
                     <tr>
@@ -34,7 +70,7 @@
                     </tr>
                     <tr>
                         <td><u>Tempat dan Tanggal Lahir</u></td>
-                        <td> : {{ $data_mhs['name'] }}</td>
+                        <td> : {{ $data_mhs['dateofbirth'] }}</td>
                     </tr>
                     <tr>
                         <td><i>Place and Date of Birth</i></td>
@@ -75,45 +111,42 @@
                     </tr>
                 </table>
                 <h3>DAFTAR NILAI <i>(LIST OF GRADES)</i></h3>
-                <table class="table table-bordered table-striped">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>No <br> <i>Number</i></th>
-                            <th>Nama Mata Kuliah</th>
-                            <th><i>Subjects</i></th>
-                            <th>SKS <br> <i>Credit</i></th>
-                            <th>Nilai <br> <i>Grades</i></th>
+                            <th style="text-align: center;">No <br> <i>Number</i></th>
+                            <th style="text-align: left;">Nama Mata Kuliah</th>
+                            <th style="text-align: right;"><i>Subjects</i></th>
+                            <th style="text-align: center;">SKS <br> <i>Credit</i></th>
+                            <th style="text-align: center;">Nilai <br> <i>Grades</i></th>
                             {{-- <th>Score</th> --}}
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($transcript->Data as $data)
                             <tr>
-                                <td>{{ $data->Urut }}</td>
-                                <td>{{ $data->NamaMK }}</td>
-                                <td>{{ $data->NamaMKEng }}</td>
-                                <td>{{ $data->SKS }}</td>
-                                <td>{{ $data->NilaiHuruf }}</td>
+                                <td style="text-align: center;">{{ $data->Urut }}</td>
+                                <td style="text-align: left;">{{ $data->NamaMK }}</td>
+                                <td style="text-align: right;">{{ $data->NamaMKEng }}</td>
+                                <td style="text-align: center;">{{ $data->SKS }}</td>
+                                <td style="text-align: center;">{{ $data->NilaiHuruf }}</td>
                                 {{-- <td>{{ $data->BobotNilai }}</td> --}}
                             </tr>
                         @endforeach
                         <tr>
                             <td colspan="3">Total</td>
-                            <td colspan="2">Total Credit</td>
+                            <td>Total Credit</td>
                             <td>Total Score</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
+   
         <hr>
-        <div class="row">
-            <div class="col-12">
+  
                 <div class="p-5">This document generated automatically from sigov.umy.ac.id at
                     {{ $submission->created_at }}</div>
-            </div>
-        </div>
-    </div>
+        
+        
 </body>
 
 </html>

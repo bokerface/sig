@@ -12,7 +12,10 @@
                         <div class="alert alert-abusma">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <strong>{{ $meta->label }}</strong>
+                                    @php
+                                        $key = str_replace("_"," ", $meta->key);
+                                    @endphp
+                                    <strong class="text-capitalize">{{ $key }}</strong>
                                     <br>
                                     @php
                                         $downloadable = ['file','image'];

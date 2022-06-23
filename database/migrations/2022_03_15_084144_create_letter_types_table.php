@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('letter_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('submission_type');
             $table->timestamps();
         });
     }

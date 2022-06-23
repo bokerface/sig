@@ -19,9 +19,10 @@ class AdminLetter extends Component
     {
 
         $submissions = DB::table('submissions')
-                    ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                    ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status', 'submissions.letter_types', 'letter_types.name')
                     ->where('submissions.submission_type','=', 'letter')
-                    ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')
+                    ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
+                    ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')                    
                     ->latest()->paginate($this->paginate);
 
         return view('livewire.admin.admin-letter',
@@ -30,8 +31,9 @@ class AdminLetter extends Component
             "submissions" => $this->search === null ?                
             $submissions:
             DB::table('submissions')
-                ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status', 'submissions.letter_types', 'letter_types.name')
                 ->where('submissions.submission_type','=', 'letter')
+                ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
                 ->orWhere('v_students.fullname', 'like', '%'. $this->search .'%')
                 ->orWhere('submissions.student_id', 'like', '%'. $this->search .'%')
                 ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')

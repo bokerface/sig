@@ -24,7 +24,7 @@ class FormLogin extends Component
 
     public function login()
     {
-        $email = 'nila.jihan@umy.ac.id';
+        $email = 'puteri.syifa.ruhama@umy.ac.id';
         
         $data = [
             'username' => $email,
@@ -32,8 +32,9 @@ class FormLogin extends Component
         ];
 
         $user_data = [
-            "user_id" => '20180520002',
-            "fullname" => 'Nila Jihan Shelamita',
+            "user_id" => '20180520023',
+            "fullname" => 'Puteri Syifa Ruhama',
+            "dateofbirth" => 'January 21, 2003',
             "email" => $email,
             "role" => 3,
             "isLoggedIn" => true

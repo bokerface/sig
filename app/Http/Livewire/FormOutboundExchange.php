@@ -54,6 +54,7 @@ class FormOutboundExchange extends Component
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'exchange',
             'status' => 0,
+            'letter_types' => 6, 
         ])->id;
 
         if ($submission) {
@@ -66,8 +67,8 @@ class FormOutboundExchange extends Component
 
             Meta::create([
                 'submission_id' => $submission,
-                'key' => 'exchange_type',
-                'value' => 1, // 1 is outbound                
+                'key' => 'letter_type',
+                'value' => 6, // 1 is outbound                
             ]);
 
 

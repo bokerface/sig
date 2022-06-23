@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Http;
 use PDF;
 use Illuminate\Support\Facades\Session;
 use App\Models\Submission;
+use Illuminate\Support\Facades\DB;
 
 class DownloadTranscript extends Controller
 {
@@ -26,10 +27,11 @@ class DownloadTranscript extends Controller
 
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
-            'student_id' => Session::get('user_data.user_id')
+            'student_id' => Session::get('user_data.user_id'),
+            'dateofbirth' => Session::get('user_data.dateofbirth')
         );
 
-        // dd($submission);
+        // dd($transcript);
 
         // return view('download-transcript', compact('data_mhs', 'transcript', 'submission'));
 
@@ -48,9 +50,11 @@ class DownloadTranscript extends Controller
     public function download_recommendation_passport($id)
     {
 
-
         $submission = $this->submission = Submission::findOrFail($id);
-
+        $meta = $this->meta =DB::table('metas')
+                ->select('metas.*')
+                ->where('submission_id', '=', $id)
+                ->get()->toArray();
 
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
@@ -59,9 +63,35 @@ class DownloadTranscript extends Controller
 
         // dd($submission);
 
-        // return view('download-recommendation-passport', compact('data_mhs', 'submission'));
+        return view('download-recommendation-passport', compact('data_mhs', 'submission', 'meta'));
 
         $pdf = PDF::loadView('download-recommendation-passport', compact(
+            'data_mhs',
+            'submission'
+        ))->output();
+
+        return response()->streamDownload(
+            fn () => print($pdf),
+            "transcript" . Session::get('user_data.user_id') . ".pdf"
+        );
+    }
+
+    public function download_letter_active_student($id)
+    {
+
+
+        $submission = $this->submission = Submission::findOrFail($id);
+        
+        $data_mhs = array(
+            'name' => Session::get('user_data.fullname'),
+            'student_id' => Session::get('user_data.user_id')
+        );
+
+        // dd($submission);
+
+        return view('download-letter-active-student', compact('data_mhs', 'submission'));
+
+        $pdf = PDF::loadView('download-letter-active-student', compact(
             'data_mhs',
             'submission'
         ))->output();

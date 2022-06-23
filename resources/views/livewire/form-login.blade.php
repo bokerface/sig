@@ -11,8 +11,6 @@
 
     </div>
 
-
-
     <div class="content mb-0 p-2 px-3">
 
         @if(Session::has("success"))

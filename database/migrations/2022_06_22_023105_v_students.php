@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('studentid');
             $table->string('fullname');
             $table->string('email');
+            $table->datetime('dateofbirth');
             $table->tinyInteger('status');
             $table->timestamps();
         });

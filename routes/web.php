@@ -55,6 +55,7 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get("download", [FileController::class, 'download'])->name('download');
     Route::get("download-transcript/{id}", [DownloadTranscript::class, 'downloadPdf'])->name('download-transcript');
     Route::get("download-recommendation-passport/{id}", [DownloadTranscript::class, 'download_recommendation_passport'])->name('download_recommendation_passport');
+    Route::get("download-letter-active-student/{id}", [DownloadTranscript::class, 'download_letter_active_student'])->name('download_letter-active-student');
 
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
     Route::get('capacity-building/{id}', CapacityBuilding::class)->name('form-capacity-building');

@@ -1,0 +1,13 @@
+internship
+active student
+harus upload manuak
+
+field tambahan diisi admin 
+no surat
+thn akademik (letter recommendation)
+
+field surat active student ditambahi
+keperluan (purpose)
+
+balasannya exchange stelah diverifikasi adalah 
+menunggu panggilan wawancara

@@ -16,13 +16,15 @@
         box-shadow: 0;
         padding:0;
         }
-
         p.justify {
           text-align: justify;
         }
 
         td {
           vertical-align: top;
+        }
+        .text-center {
+          text-align:center;
         }
     </style>
 </head>
@@ -31,7 +33,7 @@
    
     <img style="width:100%;margin-bottom:0.7cm;" src="{{ public_path('images/asset/kop-surat-igov.jpg') }}" alt="">
     <br />
-    <table style="width:100%">
+    {{-- <table style="width:100%">
       <tr>
         <td style="width:20pt">No</td>
         <td> : 169/IGOV/XI/2022</td>
@@ -39,18 +41,16 @@
       </tr>
       <tr>
         <td>Hal</td>
-        <td colspan="2"> : Rekomendasi Pembuatan Paspor</td>
+        <td colspan="2"> : Keterangan Mahasiswa Aktif</td>
       </tr>
       <tr>
         <td>Lamp</td>
         <td colspan="2"> : -</td>
       </tr>
-    </table>
-    
-    <p>Kepada Yth. <br />
-    <span style="font-weight:bold">{{ $meta[0]->value }}</span>
-    <br />
-    di tempat</p>
+    </table> --}}
+
+    <h4 class="text-center">Surat Keterangan Mahasiswa Aktif</h4>
+  
 
     <p style="text-align:center"> <img style="width:70%" src="{{ public_path('images/asset/basmalah.jpg') }}" alt=""></p>
 
@@ -92,9 +92,9 @@
       </tr>
     </table>
     
-      <p class="justify">Bahwa yang bersangkutan benar sebagai mahasiswa International Program of Government Affairs and Administration (IGOV) Universitas Muhammadiyah Yogyakarta, yang akan melakukan Student Exchange Program dan memerlukan Paspor untuk kepentingan tersebut.</p>
+    <p class="justify">Bahwa yang bersangkutan benar sebagai <strong>mahasiswa aktif</strong> International Program of Government Affairs and Administration (IGOV) Universitas Muhammadiyah Yogyakart.</p>
 
-       <p class="justify">Demikian surat rekomendasi ini kami buat, atas kerjasama Bapak/Ibu kami ucapkan terima kasih.</p>
+    <p class="justify">Demikian surat rekomendasi ini kami buat, atas kerjasama Bapak/Ibu kami ucapkan terima kasih.</p>
 
         <p style="font-style: :italic">Wassalamu’alaikum Wr.Wb</p>
 
