@@ -14,29 +14,37 @@ class AdminCapacityBuilding extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $capacity_buildings;
+    // public $capacity_buildings;
 
     public function mount()
     {
-        $this->capacity_buildings = Submission::select(
-            'submissions.*',
-        )
-            ->leftJoin('metas', function ($join) {
-                $join->on('metas.submission_id', '=', 'submissions.id');
-                $join->where('metas.key', '=', 'letter_type');
-            })
-            ->leftJoin('letter_types', 'letter_types.id', '=', 'metas.value')
-            ->where([
-                ['metas.value', '=', 7]
-            ])
-            ->latest()
-            ->paginate($this->paginate);
+        // $this->capacity_buildings = Submission::select(
+        //     'submissions.*',
+        //     'v_students.fullname'
+        // )
+        //     ->leftJoin('v_students', 'v_students.studentid', '=', 'submissions.student_id')
+        //     ->wherein('letter_types', [7, 8, 9, 10, 11, 12])
+        //     ->latest()
+        //     ->paginate($this->paginate);
 
         // dd($this->capacity_buildings);
     }
 
     public function render()
     {
-        return view('livewire.admin.admin-capacity-building')->layout('components.admin.layouts');
+        return view(
+            'livewire.admin.admin-capacity-building',
+            [
+                'capacity_buildings' => Submission::select(
+                    'submissions.*',
+                    'v_students.fullname'
+                )
+                    ->leftJoin('v_students', 'v_students.studentid', '=', 'submissions.student_id')
+                    ->wherein('letter_types', [7, 8, 9, 10, 11, 12])
+                    ->latest()
+                    ->paginate($this->paginate)
+            ]
+        )
+            ->layout('components.admin.layouts');
     }
 }

@@ -40,6 +40,7 @@ class CapacityBuilding extends Component
             [
                 'student_id' => Session::get('user_data.user_id'),
                 'submission_type' => 'capacity_building',
+                'letter_types' => $this->letter_type->id,
                 'status' => 0
             ]
         );

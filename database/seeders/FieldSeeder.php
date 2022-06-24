@@ -51,5 +51,17 @@ class FieldSeeder extends Seeder
                 'label' => 'photo',
                 'type' => 'image'
             ]);
+        DB::table('fields')
+            ->insert([
+                'key' => 'thesis',
+                'label' => 'thesis',
+                'type' => 'file'
+            ]);
+        DB::table('fields')
+            ->insert([
+                'key' => 'proof',
+                'label' => 'proof',
+                'type' => 'file'
+            ]);
     }
 }

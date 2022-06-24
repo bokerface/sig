@@ -20,6 +20,8 @@ class DocumentStatus extends Component
     public $verification_file;
     public $document_verified;
     public $verification_file_exist;
+    public $submission_type;
+    public $letter_type;
 
     protected $listeners = [
         'reload' => '$refresh'
@@ -29,6 +31,8 @@ class DocumentStatus extends Component
     {
         $this->verification_file_exist = !empty(Submission::findOrFail($this->submission_id)->additional_file);
         $this->select_verified = $this->status;
+        $this->submission_type = Submission::findOrFail($this->submission_id)->submission_type;
+        $this->letter_type = Submission::findOrFail($this->submission_id)->letter_types;
         // dd($this->select_verified);
         // dd($this->verification_file_exist);
     }
