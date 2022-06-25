@@ -1,6 +1,6 @@
 <div>
     @section('page-title')
-    Exchange Detail
+    {{ $submission->letter_type ? '' : $submission->submission_type }}
     @endsection
     <div>
         <div class="col-md-10 offset-md-1">

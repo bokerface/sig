@@ -37,6 +37,7 @@ class FormSecondarySupervisor extends Component
         $submission = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'secondary_supervisor',
+            // 'letter_type'=>'',
             'status' => 0,
         ])->id;
 

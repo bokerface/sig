@@ -13,6 +13,7 @@ class AdminSubmissionDetail extends Component
     public $submission;
     public $comment;
     public $status;
+    public $submission_name;
 
     public function mount($meta_id)
     {
@@ -20,8 +21,10 @@ class AdminSubmissionDetail extends Component
             'submissions.*',
             'v_students.studentid',
             'v_students.fullname',
+            'letter_types.name as letter_type'
         )
             ->leftJoin('v_students', 'v_students.studentid', '=', 'submissions.student_id')
+            ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
             ->findOrFail($meta_id);
         $this->metas = Meta::select(
             'metas.*',
@@ -37,6 +40,8 @@ class AdminSubmissionDetail extends Component
             ->get();
 
         $this->status = $this->submission->status;
+
+
 
         // dd($this->metas);
     }
