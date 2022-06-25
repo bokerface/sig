@@ -86,7 +86,7 @@ class DocumentStatus extends Component
         $this->emit('reload');
     }
 
-    public function upload_document($id_submission)
+    public function verify_with_file($id_submission)
     {
         $this->validate([
             'upload_verification_file' => 'required|file|mimes:pdf'
