@@ -32,20 +32,22 @@ class FormLetterDispensation extends Component
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
             'status' => 0,
+            'letter_types' => 5,  
         ])->id;
 
         if ($letter) {
 
-            $meta = Meta::create([
+             Meta::create([
                 'submission_id' => $letter,
                 'key' => 'statement_letter',
                 'value' => $statement_letter,
 
             ]);
-            $meta = Meta::create([
+             Meta::create([
                 'submission_id' => $letter,
                 'key' => 'letter_type',
-                'value' => 5, //Letter of Dispensation For Payment
+                'value' => 5, 
+                //Letter of Dispensation For Payment
 
             ]);
 

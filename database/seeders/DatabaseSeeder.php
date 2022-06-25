@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 ExchangeDestinationSeeder::class,
                 MhsSeeder::class,
                 ExchangeInstitution::class,
+                FieldSeeder::class,
             ]
         );
     }

@@ -10,13 +10,19 @@ use Illuminate\Support\Facades\DB;
 
 class FormLetterActiveStudent extends Component
 {
+    public $purpose;
+
     public function render()
     {
         return view('livewire.form-letter-active-student')->layout('components.layoutfront');
     }
 
     public function handleForm() 
-    {        
+    {  
+        $validateData = $this->validate([
+            'purpose' => 'required',
+        ]);
+
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
@@ -32,9 +38,17 @@ class FormLetterActiveStudent extends Component
                 'value' => 3, //letter active student
                 
             ]);
-            // $this->dispatchBrowserEvent('insert-success');
 
-            return redirect('download-letter-active-student/' . $letter);
+            $meta = Meta::create([
+                'submission_id' => $letter,
+                'key' => 'purpose',
+                'value' => $this->purpose,
+
+            ]);
+
+            $this->dispatchBrowserEvent('insert-success');
+
+            // return redirect('download-letter-active-student/' . $letter);
         }
         
     }
