@@ -3,7 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Lib\CustomNotification;
+use App\Models\Meta;
 use App\Models\Submission;
+use App\Models\Supervisor;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -16,12 +18,17 @@ class DocumentStatus extends Component
     public $select_verified;
     public $submission_id;
     public $status;
-    public $upload_verification_file;
     public $verification_file;
     public $document_verified;
     public $verification_file_exist;
     public $submission_type;
     public $letter_type;
+    public $supervisor_list;
+
+    public $letter_number;
+    public $year_of_academic;
+    public $upload_verification_file;
+    public $selected_supervisor;
 
     protected $listeners = [
         'reload' => '$refresh'
@@ -33,6 +40,8 @@ class DocumentStatus extends Component
         $this->select_verified = $this->status;
         $this->submission_type = Submission::findOrFail($this->submission_id)->submission_type;
         $this->letter_type = Submission::findOrFail($this->submission_id)->letter_types;
+        $this->supervisor_list = Supervisor::all();
+
         // dd($this->select_verified);
         // dd($this->verification_file_exist);
     }
@@ -96,5 +105,59 @@ class DocumentStatus extends Component
     {
         // dd($filename);
         return Storage::disk('public')->download($filename);
+    }
+
+    public function verify_recommendation_for_exchange($id_submission)
+    {
+        $this->validate([
+            'letter_number' => 'string|required',
+            'year_of_academic' => 'numeric|required'
+        ]);
+
+        Meta::create(
+            [
+                'submission_id' => $id_submission,
+                'key' => 'letter_number',
+                'value' => $this->letter_number
+            ]
+        );
+
+        Meta::create(
+            [
+                'submission_id' => $id_submission,
+                'key' => 'year_of_academic',
+                'value' => $this->year_of_academic
+            ]
+        );
+    }
+
+    public function verify_recommendation_for_passport($id_submission)
+    {
+        $this->validate([
+            'letter_number' => 'string|required',
+        ]);
+
+        Meta::create(
+            [
+                'submission_id' => $id_submission,
+                'key' => 'letter_number',
+                'value' => $this->letter_number
+            ]
+        );
+    }
+
+    public function verify_secondary_supervisor($id_submission)
+    {
+        $this->validate([
+            'selected_supervisor' => 'exists:supervisors,id'
+        ]);
+
+        Meta::create(
+            [
+                'submission_id' => $id_submission,
+                'key' => 'supervisor',
+                'value' => $this->letter_number
+            ]
+        );
     }
 }
