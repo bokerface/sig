@@ -27,7 +27,13 @@
                                             Download File
                                         </a>
                                     @else
-                                        <span>{{ $meta->value }}</span>
+                                        @if($meta->key == 'exchange_destination')
+                                            <span>{{ destination_name($meta->value) }}</span>
+                                        @elseif($meta->key == 'exchange_institution')
+                                            <span>{{ institution_name($meta->value) }}</span>
+                                        @else
+                                            <span>{{ $meta->value }}</span>
+                                        @endif
                                     @endif
                                 </div>
                                 <livewire:comment :field_id="$meta->id" :comment="$meta->comment" :key="$meta->id" />

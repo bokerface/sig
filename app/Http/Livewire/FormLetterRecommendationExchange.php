@@ -41,6 +41,7 @@ class FormLetterRecommendationExchange extends Component
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
+            'letter_type' => 1,
             'status' => 0,
         ])->id;
 

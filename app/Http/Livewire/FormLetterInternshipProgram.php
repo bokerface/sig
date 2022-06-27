@@ -29,6 +29,7 @@ class FormLetterInternshipProgram extends Component
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
+            // 'letter_type' => 0,
             'status' => 0,
         ])->id;
 

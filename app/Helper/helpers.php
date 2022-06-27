@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Livewire\InputTypeFile;
+use App\Models\ExchangeDestination;
+use App\Models\ExchangeInstitution;
 use App\Models\Notification;
 
 function notif_number()
@@ -10,6 +12,18 @@ function notif_number()
         ['message', '=', 'Diterima']
     ])->count();
     return $notification;
+}
+
+function destination_name($destination_id)
+{
+    $exchange_destination = ExchangeDestination::findOrFail($destination_id);
+    return $exchange_destination->destination;
+}
+
+function institution_name($institution_id)
+{
+    $exchange_institution = ExchangeInstitution::findOrFail($institution_id);
+    return $exchange_institution->institution;
 }
 
 // function fields($item)

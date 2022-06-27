@@ -111,5 +111,23 @@ class FieldSeeder extends Seeder
                 'label' => 'Statement letter from parents',
                 'type' => 'file'
             ]);
+        DB::table('fields')
+            ->insert([
+                'key' => 'imigration_office',
+                'label' => 'Imigration Office',
+                'type' => 'text'
+            ]);
+        DB::table('fields')
+            ->insert([
+                'key' => 'exchange_destination',
+                'label' => 'Exchange Destination',
+                'type' => 'select'
+            ]);
+        DB::table('fields')
+            ->insert([
+                'key' => 'exchange_institution',
+                'label' => 'Exchange Institution',
+                'type' => 'select'
+            ]);
     }
 }

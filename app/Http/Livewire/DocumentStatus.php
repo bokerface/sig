@@ -156,7 +156,7 @@ class DocumentStatus extends Component
             [
                 'submission_id' => $id_submission,
                 'key' => 'supervisor',
-                'value' => $this->letter_number
+                'value' => $this->selected_supervisor
             ]
         );
     }
