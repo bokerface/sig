@@ -22,7 +22,8 @@ class FormTranscriptApplication extends Component
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'transcript',
-            'status' => 0, 
+            'letter_types' => 15,
+            'status' => 0,
         ])->id;
 
         // if($letter) {
@@ -31,6 +32,4 @@ class FormTranscriptApplication extends Component
 
         return redirect('download-transcript/' . $letter);
     }
-
-    
 }
