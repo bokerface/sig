@@ -4,7 +4,7 @@ harus upload manuak
 
 field tambahan diisi admin 
 no surat
-thn akademik (letter recommendation)
+thn akademik (letter recommendation) 
 
 field surat active student ditambahi
 keperluan (purpose)

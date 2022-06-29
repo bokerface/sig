@@ -14,7 +14,7 @@
       body {
         margin: 0;
         box-shadow: 0;
-        padding:0;
+        padding:0;        
         }
         p.justify {
           text-align: justify;
@@ -35,12 +35,14 @@
           background:rgb(91, 89, 89);
           color:#fff;
           vertical-align: middle;
+          font-size:11pt;
         }
         .table td {
           vertical-align: top;
           border-top:1px solid rgb(174, 168, 168);
-          padding:5px;
+          padding:1px;
           margin:0;
+          font-size:11pt;
         }
         .table tr:nth-child(odd) td {
             background:rgb(235, 241, 239);

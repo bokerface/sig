@@ -65,6 +65,12 @@ class FieldSeeder extends Seeder
             ]);
         DB::table('fields')
             ->insert([
+                'key' => 'title',
+                'label' => 'Title UG Thesis ',
+                'type' => 'text'
+            ]);
+        DB::table('fields')
+            ->insert([
                 'key' => 'purpose',
                 'label' => 'Purpose',
                 'type' => 'text'
