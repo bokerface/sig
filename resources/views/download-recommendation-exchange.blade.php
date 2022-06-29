@@ -7,7 +7,7 @@
 
     <style>
     html { margin-left: 1.5cm;
-          margin-top: 0.2cm;
+          margin-top: 0.8cm;
           margin-right: 1.5cm;
           margin-bottom: 1cm
       }   
@@ -73,7 +73,7 @@
     <br />
     di tempat</p>
 
-    <p style="text-align:center"> <img style="width:70%" src="{{ public_path('images/asset/basmalah.jpg') }}" alt=""></p>
+    <p style="text-align:center"> <img style="width:150px" src="{{ public_path('images/asset/basmalah.jpg') }}" alt=""></p>
 
     <p style="font-style: :italic">Assalamu’alaikum Wr.Wb</p>
 
@@ -83,7 +83,7 @@
     <p class="justify">Maka untuk itu, kami menyampaikan permohonan Surat Keputusan (SK) program Student Exchange untuk mahasiswa dibawah ini: </p>
     
   
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="width:100%">
       <tr>
         <th style="width:2%;">No.</th>      
         <th style="width:20%;">Nama</th>      
@@ -102,14 +102,14 @@
 
         <p style="font-style: :italic">Wassalamu’alaikum Wr.Wb</p>
 
-        <table>
+        <table style="width:100%">
           <tr>
-            <td style="width:70%">
+            <td style="width:60%">
               &nbsp;
             </td>
-            <td style="text-align:center;width:30%;">
+            <td style="text-align:center;width:40%;">
               <p>Mengetahui, <br>Direktur IGOV</p>              
-              <div class="barcode">{!! DNS2D::getBarcodeHTML('http://localhost/verify/1', 'QRCODE', 4, 4) !!}</div>
+              <div class="barcode">{!! DNS2D::getBarcodeHTML('http://localhost/verify/1', 'QRCODE', 2.5, 2.5) !!}</div>
               <p><u style="font-weight:bold">Sakir Ridho Wijaya, S.IP., M.IP</u><br>
                 NIK. 19891106201604 163 156
               </p>           

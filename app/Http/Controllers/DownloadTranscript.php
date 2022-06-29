@@ -72,7 +72,7 @@ class DownloadTranscript extends Controller
 
         return response()->streamDownload(
             fn () => print($pdf),
-            "transcript" . Session::get('user_data.user_id') . ".pdf"
+            "recommendation-passport-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
 
@@ -98,7 +98,7 @@ class DownloadTranscript extends Controller
 
         return response()->streamDownload(
             fn () => print($pdf),
-            "transcript" . Session::get('user_data.user_id') . ".pdf"
+            "active-student-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
 
@@ -118,16 +118,17 @@ class DownloadTranscript extends Controller
 
         // dd($submission);
 
-        return view('download-recommendation-exchange', compact('data_mhs', 'submission', 'meta'));
+        // return view('download-recommendation-exchange', compact('data_mhs', 'submission', 'meta'));
 
         $pdf = PDF::loadView('download-recommendation-exchange', compact(
             'data_mhs',
-            'submission'
+            'submission',
+            'meta'
         ))->output();
 
         return response()->streamDownload(
             fn () => print($pdf),
-            "transcript" . Session::get('user_data.user_id') . ".pdf"
+            "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
 }
