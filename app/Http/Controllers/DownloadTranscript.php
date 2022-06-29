@@ -101,4 +101,33 @@ class DownloadTranscript extends Controller
             "transcript" . Session::get('user_data.user_id') . ".pdf"
         );
     }
+
+    public function download_recommendation_exchange($id)
+    {
+
+        $submission = $this->submission = Submission::findOrFail($id);
+        $meta = $this->meta =DB::table('metas')
+                ->select('metas.*')
+                ->where('submission_id', '=', $id)
+                ->get()->toArray();
+
+        $data_mhs = array(
+            'name' => Session::get('user_data.fullname'),
+            'student_id' => Session::get('user_data.user_id')
+        );
+
+        // dd($submission);
+
+        return view('download-recommendation-exchange', compact('data_mhs', 'submission', 'meta'));
+
+        $pdf = PDF::loadView('download-recommendation-exchange', compact(
+            'data_mhs',
+            'submission'
+        ))->output();
+
+        return response()->streamDownload(
+            fn () => print($pdf),
+            "transcript" . Session::get('user_data.user_id') . ".pdf"
+        );
+    }
 }

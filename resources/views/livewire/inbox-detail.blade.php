@@ -51,8 +51,15 @@
                             <hr>
                         @else
                             <p class="card-text">
-                               Your letter is already to download.
+                               Your letter is already to download.                               
                             </p>
+                            <p>
+                                <a class="btn btn-sm btn-sigov-pink"
+                                href="{{ url('download-recommendation-exchange/' . $submission->id) }}">
+                                <i class="fas fa-file-pdf"></i> Download Document
+                                </a>
+                            </p> 
+
                         @endif
                     @elseif($submission->letter_types == 6)
                         <span>{{ $submission->created_at }}</span>

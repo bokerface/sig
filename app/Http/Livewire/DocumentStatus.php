@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Carbon\Carbon;
 
 class DocumentStatus extends Component
 {
@@ -123,7 +124,7 @@ class DocumentStatus extends Component
     {
         $this->validate([
             'letter_number' => 'string|required',
-            'year_of_academic' => 'numeric|required'
+            'year_of_academic' => 'string|required'
         ]);
 
         Meta::create(
@@ -139,6 +140,14 @@ class DocumentStatus extends Component
                 'submission_id' => $id_submission,
                 'key' => 'year_of_academic',
                 'value' => $this->year_of_academic
+            ]
+        );
+
+        Meta::create(
+            [
+                'submission_id' => $id_submission,
+                'key' => 'letter_publish_date',
+                'value' => Carbon::now()
             ]
         );
     }
