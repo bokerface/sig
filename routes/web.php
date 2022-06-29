@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\DownloadTranscript;
+use App\Http\Controllers\ValidSubmissionController;
 use App\Http\Livewire\AddExchangeInstitution;
 use App\Http\Livewire\AddSupervisor;
 use App\Http\Livewire\Admin\AdminCapacityBuilding;
@@ -43,6 +44,7 @@ use Illuminate\Support\Facades\Route;
 //ROUTE FOR STUDENT
 Route::get('/', Auth::class)->name('front');
 Route::get('login', Auth::class)->name('login');
+Route::get('check-submission/{submission_id}', [ValidSubmissionController::class, 'show'])->name('check-submission')->where('submission_id', '[0-9]+');
 
 Route::middleware('isLoggedIn')->group(function () {
 
