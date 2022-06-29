@@ -24,6 +24,8 @@ class DocumentStatus extends Component
     public $submission_type;
     public $letter_type;
     public $supervisor_list;
+    public $letter_number_empty;
+    public $year_of_academic_empty;
 
     public $letter_number;
     public $year_of_academic;
@@ -41,6 +43,16 @@ class DocumentStatus extends Component
         $this->submission_type = Submission::findOrFail($this->submission_id)->submission_type;
         $this->letter_type = Submission::findOrFail($this->submission_id)->letter_types;
         $this->supervisor_list = Supervisor::all();
+        $this->letter_number_empty = empty(Meta::where([
+            ['submission_id', '=', $this->submission_id],
+            ['key', '=', 'letter_number']
+        ])
+            ->first());
+        $this->year_of_academic_empty = empty(Meta::where([
+            ['submission_id', '=', $this->submission_id],
+            ['key', '=', 'year_of_academic']
+        ])
+            ->first());
 
         // dd($this->select_verified);
         // dd($this->verification_file_exist);
