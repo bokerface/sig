@@ -20,7 +20,7 @@
             @if($submission_type == 'exchange')
 
             @elseif($submission_type == 'letter')
-                @if($letter_type == "1")
+                @if($letter_type == 1)
                     <form wire:submit.prevent="verify_recommendation_for_exchange({{ $submission_id }})">
                         <div class="my-2">
                             <label for="inputfile" class="form-label @error('letter_number') text-danger @enderror">
@@ -41,7 +41,7 @@
                             <label for="inputfile" class="form-label @error('year_of_academic') text-danger @enderror">
                                 <div class="d-flex flex-row justify-content-between">
                                     <div class="d-flex flex-row">
-                                        Nomor Surat <span class="text-danger">*</span>
+                                        Tahun Akademik <span class="text-danger">*</span>
                                     </div>
                                 </div>
                             </label>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </form>
-                @elseif($letter_type == "2")
+                @elseif($letter_type == 2)
                     <form wire:submit.prevent="verify_recommendation_for_passport({{ $submission_id }})">
                         <div class="my-2">
                             <label for="inputfile" class="form-label @error('letter_number') text-danger @enderror">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </form>
-                @elseif(in_array($letter_type,[3,4,5]))
+                @elseif(in_array($letter_type,[3,4,5,13]))
                     @if($verification_file_exist == false)
                         <form wire:submit.prevent="verify_with_file({{ $submission_id }})">
                             <div class="my-2">

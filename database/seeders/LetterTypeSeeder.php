@@ -75,5 +75,20 @@ class LetterTypeSeeder extends Seeder
             'submission_type' => 'capacity_building',
             'created_at' => now()
         ]);
+        DB::table('letter_types')->insert([
+            'name' => ' Letter Statement for Internship Program',
+            'submission_type' => 'letter',
+            'created_at' => now()
+        ]);
+        DB::table('letter_types')->insert([
+            'name' => 'Secondary Supervisor',
+            'submission_type' => 'secondary_supervisor',
+            'created_at' => now()
+        ]);
+        DB::table('letter_types')->insert([
+            'name' => 'Transcript',
+            'submission_type' => 'transcript',
+            'created_at' => now()
+        ]);
     }
 }
