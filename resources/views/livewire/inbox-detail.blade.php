@@ -31,12 +31,13 @@
 
                 {{-- disini jika sudah ok --}}
                 @if($submission->status == 1)
+                    
                     @php
                         $with_downloadable = [1,2,3,4,5];
                         $capacity_building = [7,8,9,10,11,12];
                     @endphp
 
-                    @if(in_array($submission->letter_types,$with_downloadable))
+                    @if(in_array($submission->letter_types,$with_downloadable)) 
                         @if(!empty($submission->additional_file))
                             <span>{{ $submission->created_at }}</span>
                             <p class="card-text">
@@ -48,6 +49,10 @@
                                 <i class="fas fa-file-pdf"></i> Download Document
                             </a>
                             <hr>
+                        @else
+                            <p class="card-text">
+                               Your letter is already to download.
+                            </p>
                         @endif
                     @elseif($submission->letter_types == 6)
                         <span>{{ $submission->created_at }}</span>

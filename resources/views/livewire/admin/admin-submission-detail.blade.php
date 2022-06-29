@@ -8,14 +8,19 @@
                 <div class="card-body">
                     <h5>{{ $submission->fullname }}</h5>
                     <p>{{ $submission->studentid }}</p>
+
+                   
                     @foreach($metas as $meta)
+
+                        {{-- {{ $meta->label }} --}}
+                    
                         <div class="alert alert-abusma">
                             <div class="row">
-                                <div class="col-md-3">
-                                    @php
+                                <div class="col-md-5">
+                                    {{-- @php
                                         $key = str_replace("_"," ", $meta->key);
-                                    @endphp
-                                    <strong class="text-capitalize">{{ $key }}</strong>
+                                    @endphp --}}
+                                    <strong class="text-capitalize">{{ $meta->label }}</strong>
                                     <br>
                                     @php
                                         $downloadable = ['file','image'];
