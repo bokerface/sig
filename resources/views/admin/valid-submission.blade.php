@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Check Submission</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('sbadmin/vendor/fontawesome-free/css/all.min.css') }}"
@@ -35,9 +35,18 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="p-5">
 
+                                    <pre>
+                                        {{ print_r($submission) }} 
+                                    </pre>
+
+                                    <pre>
+                                        @foreach ($metas as $meta)
+                                            {{ print_r($meta) }}
+                                        @endforeach
+                                    </pre>
 
                                 </div>
                             </div>
