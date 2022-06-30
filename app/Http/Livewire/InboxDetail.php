@@ -13,6 +13,9 @@ class InboxDetail extends Component
     public $submission;
     public $metas;
 
+    // data for specific submission
+    public $supervisor;
+
     public function mount($id)
     {
         $this->submission = Submission::select(
@@ -26,7 +29,18 @@ class InboxDetail extends Component
             ->leftJoin('letter_types', 'letter_types.id', '=', 'metas.value')
             ->findOrFail($id);
         $this->metas = Meta::where('submission_id', '=', $id)->get();
-        // dd($this->submission);
+
+        if ($this->submission->letter_types == 14) {
+            $this->supervisor = Meta::where(
+                [
+                    ['submission_id', '=', $id],
+                    ['key', '=', 'supervisor']
+                ]
+            )
+                ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
+                ->first();
+        }
+        // dd($this->supervisor);
     }
 
     public function render()

@@ -31,13 +31,13 @@
 
                 {{-- disini jika sudah ok --}}
                 @if($submission->status == 1)
-                    
+
                     @php
                         $with_downloadable = [1,2,3,4,5,13];
                         $capacity_building = [7,8,9,10,11,12];
                     @endphp
 
-                    @if(in_array($submission->letter_types,$with_downloadable)) 
+                    @if(in_array($submission->letter_types,$with_downloadable))
                         @if(!empty($submission->additional_file))
                             <span>{{ $submission->created_at }}</span>
                             <p class="card-text">
@@ -51,22 +51,22 @@
                             <hr>
                         @else
                             <p class="card-text">
-                               Your letter is already to download.                               
+                                Your letter is already to download.
                             </p>
 
                             @php
                                 if($submission->letter_types == '1') {
-                                    $letter = 'download-recommendation-exchange';
-                                } elseif($submission->letter_types == '2')  {
-                                    $letter = 'download-recommendation-passport';
+                                $letter = 'download-recommendation-exchange';
+                                } elseif($submission->letter_types == '2') {
+                                $letter = 'download-recommendation-passport';
                                 }
                             @endphp
                             <p>
                                 <a class="btn btn-sm btn-sigov-pink"
-                                href="{{ url( $letter . '/' . $submission->id) }}">
-                                <i class="fas fa-file-pdf"></i> Download Document
+                                    href="{{ url( $letter . '/' . $submission->id) }}">
+                                    <i class="fas fa-file-pdf"></i> Download Document
                                 </a>
-                            </p> 
+                            </p>
 
                         @endif
                     @elseif($submission->letter_types == 6)
@@ -83,9 +83,11 @@
                         <hr>
                     @elseif($submission->letter_types == 14)
                         <span>{{ $submission->created_at }}</span>
-                        <p class="card-text">
-                            Supervisor Profile
-                        </p>
+                        <br>
+                        <span class="card-text"> Supervisor Profile </span>
+                        @if(!empty($supervisor))
+                            <p>Name : {{ $supervisor->name }}</p>
+                        @endif
                         <hr>
                     @endif
                 @endif
