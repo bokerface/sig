@@ -1,154 +1,159 @@
-<!doctype html>
-<html lang="en">
+@extends('layout-letter')
+@section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-size: 11pt;
+        margin-top: 2.4cm;
+        margin-left: 1.2cm;
+        margin-right: 1.2cm;
+        margin-bottom: 2.4cm;
+      }
+    .table-transcript {
+        border-spacing: 0px;
+        border-collapse: separate;
+        border-bottom :1px solid #b9b9b9;
+    }
+    .table-transcript th {        
+       background:#b9b9b9;
+    }
+    .table-transcript th, .table-transcript td {        
+        padding:2px;
+        font-size:10pt;
+    }
+    .table-transcript tr:nth-child(even) td {        
+        background:#e9e9e9
+    }
+    .table-transcript th.no-border, .table-transcript td.no-border {        
+        border-right:none;
+    }
 
-    <style>
-    html { margin-left: 1.5cm;
-          margin-top: 1cm;
-          margin-right: 1.5cm;
-          margin-bottom: 1cm
-      }   
-      body {
-        margin: 0;
-        box-shadow: 0;
-        padding:0;        
-        }
-        p.justify {
-          text-align: justify;
-        }
-
-        table.table {
-            border:1px solid rgb(168, 158, 158);
-            padding:0;
-            border-spacing: 0px;
-            border-collapse: separate;
-        }
-
-        .table th {
-          vertical-align: top;
-          border-top:1px solid rgb(136, 132, 132);
-          padding:5px;
-          margin:0;
-          background:rgb(91, 89, 89);
-          color:#fff;
-          vertical-align: middle;
-          font-size:11pt;
-        }
-        .table td {
-          vertical-align: top;
-          border-top:1px solid rgb(174, 168, 168);
-          padding:1px;
-          margin:0;
-          font-size:11pt;
-        }
-        .table tr:nth-child(odd) td {
-            background:rgb(235, 241, 239);
-        }
-        .text-center {
-          text-align:center;
-        }
-
-    </style>
-</head>
-
-<body>
+    .judul-transkrip tr:nth-child(even) td {
+        padding-bottom:4px;
+    }
+</style> 
+<h3 class="text-center"><u>TRANSKRIP AKADEMIK <i>(ACADEMIC TRANSCRIPT)</i></u></h3>
+<table class="judul-transkrip">
+    <tr>
+        <td><u>Nama</u></td>
+        <td> : {{ $data_mhs['name'] }}</td>
+    </tr>
+    <tr>
+        <td><i>Name</i></td>
+    </tr>
+    <tr>
+        <td><u>Tempat dan Tanggal Lahir</u></td>
+        <td> : {{ $data_mhs['dateofbirth'] }}</td>
+    </tr>
+    <tr>
+        <td><i>Place and Date of Birth</i></td>
+    </tr>
    
-    <img style="width:100%;margin-bottom:0.7cm;" src="{{ public_path('images/asset/kop-surat-igov.jpg') }}" alt="">
-    <br />
-                <h3 class="text-center"><u>TRANSKRIP AKADEMIK <i>(ACADEMIC TRANSCRIPT)</i></u></h3>
-                <table>
-                    <tr>
-                        <td><u>Nama</u></td>
-                        <td> : {{ $data_mhs['name'] }}</td>
-                    </tr>
-                    <tr>
-                        <td><i>Name</i></td>
-                    </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>
-                    <tr>
-                        <td><u>Tempat dan Tanggal Lahir</u></td>
-                        <td> : {{ $data_mhs['dateofbirth'] }}</td>
-                    </tr>
-                    <tr>
-                        <td><i>Place and Date of Birth</i></td>
-                    </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>
-                    <tr>
-                        <td><u>Nomor Mahasiswa</u></td>
-                        <td> : {{ $data_mhs['student_id'] }}</td>
-                    </tr>
-                    <tr>
-                        <td><i>Student Number</i></td>
-                    </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>
-                    <tr>
-                        <td><u>Program Studi</u></td>
-                        <td> : Ilmu Pemerintahan (Kelas Internasional)</td>
-                    </tr>
-                    <tr>
-                        <td><i>Department</i></td>
-                        <td><i>Governmental Science (International Class/ IGOV)</i></td>
-                    </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>
-                    <tr>
-                        <td><u>Universitas</u></td>
-                        <td> : Universitas Muhammadiyah Yogyakarta</td>
-                    </tr>
-                    <tr>
-                        <td><i>University</i></td>
-                    </tr>
-                    <tr>
-                        <td><br></td>
-                    </tr>
-                </table>
-                <h3>DAFTAR NILAI <i>(LIST OF GRADES)</i></h3>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th style="text-align: center;">No <br> <i>Number</i></th>
-                            <th style="text-align: left;">Nama Mata Kuliah</th>
-                            <th style="text-align: right;"><i>Subjects</i></th>
-                            <th style="text-align: center;">SKS <br> <i>Credit</i></th>
-                            <th style="text-align: center;">Nilai <br> <i>Grades</i></th>
-                            {{-- <th>Score</th> --}}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($transcript->Data as $data)
-                            <tr>
-                                <td style="text-align: center;">{{ $data->Urut }}</td>
-                                <td style="text-align: left;">{{ $data->NamaMK }}</td>
-                                <td style="text-align: right;">{{ $data->NamaMKEng }}</td>
-                                <td style="text-align: center;">{{ $data->SKS }}</td>
-                                <td style="text-align: center;">{{ $data->NilaiHuruf }}</td>
-                                {{-- <td>{{ $data->BobotNilai }}</td> --}}
-                            </tr>
-                        @endforeach
-                        <tr>
-                            <td colspan="3">Total</td>
-                            <td>Total Credit</td>
-                            <td>Total Score</td>
-                        </tr>
-                    </tbody>
-                </table>
-   
-        <hr>
+    <tr>
+        <td><u>Nomor Mahasiswa</u></td>
+        <td> : {{ $data_mhs['student_id'] }}</td>
+    </tr>
+    <tr>
+        <td><i>Student Number</i></td>
+    </tr>
   
-                <div class="p-5">This document generated automatically from sigov.umy.ac.id at
-                    {{ $submission->created_at }}</div>
-        
-        
-</body>
+    <tr>
+        <td><u>Program Studi</u></td>
+        <td> : Ilmu Pemerintahan (Kelas Internasional)</td>
+    </tr>
+    <tr>
+        <td><i>Department</i></td>
+        <td><i>&nbsp;&nbsp;Governmental Science (International Class/ IGOV)</i></td>
+    </tr>
 
-</html>
+    <tr>
+        <td><u>Universitas</u></td>
+        <td> : Universitas Muhammadiyah Yogyakarta</td>
+    </tr>
+    <tr>
+        <td><i>University</i></td>
+    </tr>
+
+</table>
+<h4 class="text-center" style="line-height:1em; margin:0; margin-bottom:4px;">DAFTAR NILAI <i>(LIST OF GRADES)</i></h4>
+
+<table class="table-transcript">
+    <thead>
+        <tr>
+            <th style="text-align: center;">No</th>
+            <th class="no-border" style="text-align: left;">Nama Mata Kuliah</th>
+            <th style="text-align: right;"><i>Subjects</i></th>
+            <th style="text-align: center;">SKS <br> <i>Credit</i></th>
+            <th class="no-border" style="text-align: center;">Nilai <br> <i>Grades</i></th>
+            {{-- <th>Score</th> --}}
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($transcript->Data as $data)
+        <tr>
+            <td style="text-align: center;">{{ $data->Urut }}</td>
+            <td class="no-border" style="text-align: left;">{{ $data->NamaMK }}</td>
+            <td style="text-align: right; font-style:italic;">{{ $data->NamaMKEng }}</td>
+            <td style="text-align: center;">{{ $data->SKS }}</td>
+            <td class="no-border" style="text-align: center;">{{ $data->NilaiHuruf }}</td>
+            {{-- <td>{{ $data->BobotNilai }}</td> --}}
+        </tr>
+        @endforeach
+       
+    </tbody>
+</table>
+
+@php
+    
+    $sum = array_sum(array_column($transcript->Data, 'SKS'));
+
+@endphp
+<table>
+    <tr>
+        <td style="width:200px;"><u>Jumlah SKS</u></td>
+        <td> : {{ $sum }}</td>
+    </tr>
+    <tr>
+        <td><i>Total of Credit</i></td>
+    </tr>
+
+    <tr>
+        <td><u>IP Kumulatif</u></td>
+        <td> : {!! round($transcript->Data[0]->IPK,2) !!} of 4.0</td>
+    </tr>
+    <tr>
+        <td><i>Grade Point Average</i></td>
+        {{-- <td>&nbsp;&nbsp;<i>{!! round($transcript->Data[0]->IPK,2) !!} of 4.0</i></td> --}}
+    </tr>
+
+</table>
+
+<table style="width:100%">
+    <tr>
+        <td style="width:60%">
+            &nbsp;
+        </td>
+        <td style="text-align:center;width:40%;">
+
+            @php
+            $date = \Carbon\Carbon::parse($meta[0]->value);
+            @endphp           
+
+            <p>Yogyakarta, {{ $date->format('j F Y') }} <br>Director of IGOV</p>
+            <div class="barcode">{!! DNS2D::getBarcodeHTML(url('check-submission/' . $submission->id), 'QRCODE', 2.5, 2.5) !!}
+            </div>
+            <p><u style="font-weight:bold">Sakir Ridho Wijaya, S.IP., M.IP</u><br>
+                NIK. 19891106201604 163 156
+            </p>
+        </td>
+    </tr>
+</table>
+
+{{-- <hr>
+
+<div class="p-5">This document generated automatically from sigov.umy.ac.id at
+    {{ $submission->created_at }}
+</div> --}}
+
+
+@stop

@@ -23,40 +23,81 @@
     @livewireStyles
 </head>
 
+
+
 <body class="bg-gradient-purple">
 
     <div class="container">
 
 
-        <div>
-            <div class="col-md-12">
+        <div class="col-md-12">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="p-5">
-
-                                    <pre>
-                                        {{ print_r($submission) }} 
-                                    </pre>
-
-                                    <pre>
-                                        @foreach ($metas as $meta)
-                                            {{ print_r($meta) }}
-                                        @endforeach
-                                    </pre>
-
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <img src="{{ asset('images/logo.png') }}" width="200" class="pt-5 pb-5 mb-5"/>                                      
                                 </div>
+
+                                @if ($submission)
+
+                                <h1 class="text-center my-4 h2" style="color:green;">Valid!</h1>
+
+                                <table class="table table-bordered table-striped">
+                                
+                                <tr>
+                                    <td>Publish Date</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Topics</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Student Name</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Student Id</td>
+                                    <td></td>
+                                </tr>
+                              
+                                </table>	
+                          
+                                    
+                                @else
+
+                                <h1 class="text-center my-4 h2" style="color:red;">Not Valid!</h1>
+                                    
+                                @endif
+    
+                               
+{{--                                 
+                                <pre>
+                                    {{ print_r($submission) }} 
+                                </pre>
+
+                                <pre>
+                                    @foreach ($metas as $meta)
+                                        {{ print_r($meta) }}
+                                    @endforeach
+                                </pre> --}}
+                               
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+    
         </div>
+        
     </div>
+
+    
 
 
     <!-- Bootstrap core JavaScript-->

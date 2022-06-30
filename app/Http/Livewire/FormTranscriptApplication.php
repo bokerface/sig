@@ -4,7 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\Submission;
 use Illuminate\Support\Facades\Session;
-use PDF;
+use App\Models\Meta;
+use Carbon\Carbon;
 
 use Livewire\Component;
 
@@ -26,9 +27,16 @@ class FormTranscriptApplication extends Component
             'status' => 0,
         ])->id;
 
-        // if($letter) {
-        //     $this->dispatchBrowserEvent('insert-success');    
-        // }
+        if($letter) {
+            Meta::create(
+                [
+                    'submission_id' => $letter,
+                    'key' => 'letter_publish_date',
+                    'value' => Carbon::now()
+                ]
+            );   
+
+        }
 
         return redirect('download-transcript/' . $letter);
     }

@@ -46,7 +46,9 @@ class FormLetterRecommendationPassport extends Component
 
             $this->resetInput();
 
-            return redirect('download-recommendation-passport/' . $letter);
+            $this->dispatchBrowserEvent('insert-success');
+
+            // return redirect('download-recommendation-passport/' . $letter);
         }
     }
 

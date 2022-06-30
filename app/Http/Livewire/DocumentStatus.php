@@ -165,6 +165,13 @@ class DocumentStatus extends Component
                 'value' => $this->letter_number
             ]
         );
+        Meta::create(
+            [
+                'submission_id' => $id_submission,
+                'key' => 'letter_publish_date',
+                'value' => Carbon::now()
+            ]
+        );
     }
 
     public function verify_secondary_supervisor($id_submission)

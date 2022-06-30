@@ -33,7 +33,7 @@
                 @if($submission->status == 1)
                     
                     @php
-                        $with_downloadable = [1,2,3,4,5];
+                        $with_downloadable = [1,2,3,4,5,13];
                         $capacity_building = [7,8,9,10,11,12];
                     @endphp
 
@@ -53,9 +53,17 @@
                             <p class="card-text">
                                Your letter is already to download.                               
                             </p>
+
+                            @php
+                                if($submission->letter_types == '1') {
+                                    $letter = 'download-recommendation-exchange';
+                                } elseif($submission->letter_types == '2')  {
+                                    $letter = 'download-recommendation-passport';
+                                }
+                            @endphp
                             <p>
                                 <a class="btn btn-sm btn-sigov-pink"
-                                href="{{ url('download-recommendation-exchange/' . $submission->id) }}">
+                                href="{{ url( $letter . '/' . $submission->id) }}">
                                 <i class="fas fa-file-pdf"></i> Download Document
                                 </a>
                             </p> 
@@ -64,7 +72,7 @@
                     @elseif($submission->letter_types == 6)
                         <span>{{ $submission->created_at }}</span>
                         <p class="card-text">
-                            Outbound Exchange
+                            Your submission is verified. We will contact you soon.
                         </p>
                         <hr>
                     @elseif(in_array($submission->letter_types,$capacity_building))
@@ -123,7 +131,7 @@
                 @else
                     {{-- di sini pesan pengajuan sudah diterima --}}
                     <span>{{ $submission->created_at }}</span>
-                    Congratulations, we have received your application. Please wait for the admin verification process.
+                    We have received your application. Please wait for the admin verification process.
                 @endif
 
             </div>
