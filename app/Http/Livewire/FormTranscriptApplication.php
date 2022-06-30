@@ -23,7 +23,7 @@ class FormTranscriptApplication extends Component
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'transcript',
-            'letter_types' => 15,
+            'letter_types' => 14,
             'status' => 0,
         ])->id;
 
