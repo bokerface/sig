@@ -23,12 +23,9 @@
     @livewireStyles
 </head>
 
-
-
 <body class="bg-gradient-purple">
 
     <div class="container">
-
 
         <div class="col-md-12">
 
@@ -40,64 +37,59 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img src="{{ asset('images/logo.png') }}" width="200" class="pt-5 pb-5 mb-5"/>                                      
+                                    <img src="{{ asset('images/logo.png') }}" width="200"
+                                        class="pt-5 pb-5 mb-5" />
                                 </div>
 
-                                @if ($submission)
+                                @if($submission)
 
-                                <h1 class="text-center my-4 h2" style="color:green;">Valid!</h1>
+                                    <h1 class="text-center my-4 h2" style="color:green;">Valid!</h1>
 
-                                <table class="table table-bordered table-striped">
-                                
-                                <tr>
-                                    <td>Publish Date</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Topics</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Student Name</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Student Id</td>
-                                    <td></td>
-                                </tr>
-                              
-                                </table>	
-                          
-                                    
+                                    <table class="table table-bordered table-striped">
+
+                                        <tr>
+                                            <td>Publish Date</td>
+                                            <td>
+                                                @php
+                                                    $date =\Carbon\Carbon::parse($submission->created_at)->locale('en');
+                                                    $date->settings(['formatFunction' => 'translatedFormat']);
+                                                @endphp
+                                                {{ $date->format('j F Y') }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Topics</td>
+                                            <td>{{ $submission->letter_type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Student Name</td>
+                                            <td>{{ $submission->fullname }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Student Id</td>
+                                            <td>{{ $submission->studentid }}</td>
+                                        </tr>
+
+                                    </table>
+
+
                                 @else
 
-                                <h1 class="text-center my-4 h2" style="color:red;">Not Valid!</h1>
-                                    
-                                @endif
-    
-                               
-{{--                                 
-                                <pre>
-                                    {{ print_r($submission) }} 
-                                </pre>
+                                    <h1 class="text-center my-4 h2" style="color:red;">Not Valid!</h1>
 
-                                <pre>
-                                    @foreach ($metas as $meta)
-                                        {{ print_r($meta) }}
-                                    @endforeach
-                                </pre> --}}
-                               
+                                @endif
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-    
+
         </div>
-        
+
     </div>
 
-    
+
 
 
     <!-- Bootstrap core JavaScript-->
