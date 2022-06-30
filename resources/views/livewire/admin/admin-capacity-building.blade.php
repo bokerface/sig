@@ -39,6 +39,7 @@
                                     <th width="10">No</th>
                                     <th width="50">Student Id</th>
                                     <th>Name</th>
+                                    <th>Topic</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
@@ -59,6 +60,7 @@
                                             </a>
                                         </td>
                                         <td>{{ $capacity_building->fullname; }}</td>
+                                        <td>{{ $capacity_building->letter_type; }}</td>
                                         <td>{{ $capacity_building->created_at; }}</td>
                                         <td>{{ $capacity_building->status; }}</td>
                                     </tr>

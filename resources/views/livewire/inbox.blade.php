@@ -130,20 +130,20 @@
 
     @foreach($submissions as $submission)
 
-    @if ($submission->submission_type != 'transcript')
-        <a href="{{ url('inbox-detail',$submission->id) }}"
-            class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
-            <div class="item-info text-black">
+        @if($submission->submission_type != 'transcript')
+            <a href="{{ url('inbox-detail',$submission->id) }}"
+                class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
+                <div class="item-info text-black">
 
-                <h5 style="text-transform: capitalize">{{ $submission->letter_type }}</h5>
-                <p class="mb-0">Hello, {{ Session::get('user_data.fullname') }} ...</p>
+                    <h5 style="text-transform: capitalize">{{ $submission->letter_type }}</h5>
+                    <p class="mb-0">Hello, {{ Session::get('user_data.fullname') }} ...</p>
 
-                <span style="font-size:12px;">{{ $submission->created_at }}</span>
-                <span class="iconsd">&#8942;</span>
-            </div>
-        </a>
+                    <span style="font-size:12px;">{{ $submission->created_at }}</span>
+                    <span class="iconsd">&#8942;</span>
+                </div>
+            </a>
 
-        @endif 
+        @endif
 
     @endforeach
 

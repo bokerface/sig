@@ -30,7 +30,7 @@ class InboxDetail extends Component
             ->findOrFail($id);
         $this->metas = Meta::where('submission_id', '=', $id)->get();
 
-        if ($this->submission->letter_types == 14) {
+        if ($this->submission->letter_types == 13) {
             $this->supervisor = Meta::where(
                 [
                     ['submission_id', '=', $id],

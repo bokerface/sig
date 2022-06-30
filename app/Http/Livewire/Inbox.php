@@ -10,6 +10,7 @@ class Inbox extends Component
 {
     public $letter_type;
     public $submissions;
+    // public $search;
 
     public function mount()
     {
@@ -18,10 +19,14 @@ class Inbox extends Component
         $this->submissions = Submission::select(
             'submissions.*',
             'letter_types.name as letter_type'
-        )            
+        )
             ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
+            // ->when(!empty($search), function ($query) {
+            // return $query->where('letter_types.name', 'likes', '%' . $this->search . '%');
+            // })
             ->latest()
             ->get();
+
 
         // $this->submissions = Submission::select(
         //     'submissions.*',

@@ -37,9 +37,11 @@ class AdminCapacityBuilding extends Component
             [
                 'capacity_buildings' => Submission::select(
                     'submissions.*',
-                    'v_students.fullname'
+                    'v_students.fullname',
+                    'letter_types.name as letter_type'
                 )
                     ->leftJoin('v_students', 'v_students.studentid', '=', 'submissions.student_id')
+                    ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
                     ->wherein('letter_types', [7, 8, 9, 10, 11, 12])
                     ->latest()
                     ->paginate($this->paginate)

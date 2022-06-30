@@ -33,7 +33,7 @@
                 @if($submission->status == 1)
 
                     @php
-                        $with_downloadable = [1,2,3,4,5,13];
+                        $with_downloadable = [1,2,3,4,5];
                         $capacity_building = [7,8,9,10,11,12];
                     @endphp
 
@@ -78,10 +78,10 @@
                     @elseif(in_array($submission->letter_types,$capacity_building))
                         <span>{{ $submission->created_at }}</span>
                         <p class="card-text">
-                            Capacity Building
+                            We will contact you soon.
                         </p>
                         <hr>
-                    @elseif($submission->letter_types == 14)
+                    @elseif($submission->letter_types == 13)
                         <span>{{ $submission->created_at }}</span>
                         <br>
                         <span class="card-text"> Supervisor Profile </span>
@@ -92,7 +92,7 @@
                     @endif
                 @endif
 
-                @if($submission->letter_types == 15)
+                @if($submission->letter_types == 14)
                     <span>{{ $submission->created_at }}</span>
                     <p class="card-text">
                         Transcript

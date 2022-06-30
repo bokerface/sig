@@ -5,7 +5,8 @@
 
         <div class="form-field">
             <label for="form5" class="d-block form-label @error('imigration_office') text-danger @enderror">Name
-                Immigration Office. (Exp: Kantor Imigrasi Yogyakarta) <span class="text-danger">*</span></label>
+                Immigration Office. (E.g: Kantor Imigrasi Kelas I TPI Yogyakarta) <span
+                    class="text-danger">*</span></label>
             <div class="input-group mb-3">
                 <input type="text" wire:model="imigration_office" id="" class="form-control mb-2" />
             </div>
