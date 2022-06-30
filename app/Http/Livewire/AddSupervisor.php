@@ -8,7 +8,9 @@ use Livewire\Component;
 class AddSupervisor extends Component
 {
     public $name;
-    public $note;
+    public $profile;
+    public $phone_number;
+    public $email;
 
     public function render()
     {
@@ -20,12 +22,16 @@ class AddSupervisor extends Component
     {
         $this->validate([
             'name' => 'required|string',
-            'note' => 'required|string',
+            'profile' => 'required|string',
+            'phone_number' => 'required|numeric',
+            'email' => 'required|email',
         ]);
 
         Supervisor::create([
             'name' => $this->name,
-            'keterangan' => $this->note,
+            'keterangan' => $this->profile,
+            'phone' => $this->phone_number,
+            'email' => $this->email,
         ]);
 
         return redirect()->to(route('supervisor'));

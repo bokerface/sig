@@ -26,17 +26,47 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <label for="note"
-                                class="col-4 {{ $errors->has('note') ? 'text-danger' : '' }}">
-                                Description
+                            <label for="profile"
+                                class="col-4 {{ $errors->has('profile') ? 'text-danger' : '' }}">
+                                Profile
                             </label>
-                            <textarea wire:model="note" id="note" class="form-control col-8" cols="30"
+                            <textarea wire:model="profile" id="profile" class="form-control col-8" cols="30"
                                 rows="3"></textarea>
                         </div>
                         <div class="d-flex flex-row">
                             <div class="col-4"></div>
                             <small class="text-danger col-8 m-0">
-                                {{ $errors->first('note') }}
+                                {{ $errors->first('profile') }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="phone_number"
+                                class="col-4 my-auto align-self-center {{ $errors->has('phone_number') ? 'text-danger' : '' }}">
+                                Phone Number
+                            </label>
+                            <input type="number" wire:model="phone_number" id="phone_number" class="form-control col-8">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="col-4"></div>
+                            <small class="text-danger col-8 m-0">
+                                {{ $errors->first('phone_number') }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="email"
+                                class="col-4 my-auto align-self-center {{ $errors->has('email') ? 'text-danger' : '' }}">
+                                Email
+                            </label>
+                            <input type="email" wire:model="email" id="email" class="form-control col-8">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="col-4"></div>
+                            <small class="text-danger col-8 m-0">
+                                {{ $errors->first('email') }}
                             </small>
                         </div>
                     </div>
