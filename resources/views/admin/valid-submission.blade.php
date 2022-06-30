@@ -27,14 +27,14 @@
 
     <div class="container">
 
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
 
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
+                       
+                        <div class="col-lg-12">
                             <div class="p-5">
                                 <div class="text-center">
                                     <img src="{{ asset('images/logo.png') }}" width="200"
