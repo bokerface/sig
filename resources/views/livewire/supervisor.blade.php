@@ -3,7 +3,7 @@
     Exchange
     @endsection
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-12">
 
             <!-- Button trigger modal -->
             {{-- <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
@@ -47,8 +47,9 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Description</th>
                                     <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Profile</th>
                                 </tr>
                             </thead>
 
@@ -61,8 +62,9 @@
 
                                     <tr>
                                         <td>{{ $supervisor->name; }}</td>
+                                        <td>{{ $supervisor->phone; }}</td>
+                                        <td>{{ $supervisor->email; }}</td>                                
                                         <td>{{ $supervisor->keterangan; }}</td>
-                                        <td>Mobile</td>
                                     </tr>
 
                                 @endforeach

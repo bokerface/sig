@@ -93,11 +93,7 @@
                 <i class="fas fa-fw fa-users"></i>
                 <span>List of Institutions</span></a>
         </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ route('institution-destination') }}">
-                <i class="fas fa-fw fa-users"></i>
-                <span>List of Destinations</span></a>
-        </li>
+     
 
         {{-- <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
