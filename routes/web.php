@@ -104,8 +104,8 @@ Route::middleware('adminAuth')->group(function () {
 
     Route::get('admin/exchange-institution', ExchangeInstitution::class)->name('exchange-institution');
     Route::get('admin/add-exchange-institution', AddExchangeInstitution::class)->name('add-exchange-institution');
-    Route::get('admin/exchange-institution-destination', InstitutionDestination::class)->name('institution-destination');
-    Route::get('admin/add-exchange-institution-destination', AddExchangeInstitution::class)->name('add-exchange-institution-destination');
+    // Route::get('admin/exchange-destination', ExchangeDestination::class)->name('exchange-destination');
+    // Route::get('admin/add-exchange-destination', AddExchangeDEstination::class)->name('add-exchange-destination');
     Route::get('admin/supervisor', Supervisor::class)->name('supervisor');
     Route::get('admin/add-supervisor', AddSupervisor::class)->name('add-supervisor');
     // Route::post('admin/add-exchange-institution', [ExchangeInstitution::class, 'store'])->name('store-exchange');
