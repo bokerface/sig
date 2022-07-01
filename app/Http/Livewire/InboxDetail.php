@@ -40,7 +40,7 @@ class InboxDetail extends Component
                 ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
                 ->first();
         }
-        // dd($this->supervisor);
+        // dd($this->submission);
     }
 
     public function render()

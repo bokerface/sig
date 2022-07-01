@@ -10,7 +10,7 @@ class Inbox extends Component
 {
     public $letter_type;
     public $submissions;
-    // public $search;
+    public $search;
 
     public function mount()
     {
@@ -26,6 +26,7 @@ class Inbox extends Component
             // })
             ->latest()
             ->get();
+
 
 
         // $this->submissions = Submission::select(

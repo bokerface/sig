@@ -112,13 +112,17 @@
 
             <div class="page-title page-title-small d-flex justify-content-between">
                 <h2><a href="#" data-back-button><i class="fas fa-chevron-left me-2"></i> Inbox</a></h2>
-
             </div>
 
-            <div class="search-box search-boxsd search-dark bg-search shadow-m border-0 mt-4 rounded-m bottom-0">
+            <div class="search-box search-boxsd  search-dark bg-search shadow-m border-0 mt-4 rounded-m bottom-0">
                 <i class="icon-search1 ms-n3"></i>
-                <input type="text" class="border-0" placeholder="Search" data-search>
+                <input type="text" wire:model.defer="search" class="border-0" placeholder="Search">
             </div>
+
+            {{-- <div class="form-group m-3"> --}}
+            {{-- <input type="text" class="border-0 rounded-start p-1" wire:model.defer="search" id=""> --}}
+            {{-- <button class="bg-primary rounded-end text-light p-1">Search</button> --}}
+            {{-- </div> --}}
 
         </div>
 
