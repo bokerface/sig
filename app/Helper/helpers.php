@@ -14,6 +14,25 @@ function notif_number()
     return $notification;
 }
 
+function admin_notif_number()
+{
+    $notification = Notification::where([
+        ['receiver', '=', "Admin"],
+    ])->count();
+    return $notification;
+}
+
+function admin_notif_number_list()
+{
+    $notification = Notification::where([
+        ['receiver', '=', "Admin"],
+    ])
+        // ->limit(5)
+        // ->latest()
+        ->get();
+    return $notification;
+}
+
 function destination_name($destination_id)
 {
     $exchange_destination = ExchangeDestination::findOrFail($destination_id);

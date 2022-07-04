@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use Livewire\Component;
 use App\Models\Exchange;
 use App\Models\Meta;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Livewire\WithFileUploads;
 
 class FormInboundExchange extends Component
-{    
+{
     public $curriculum_vitae;
     public $motivation_letter;
     public $passport;
@@ -24,7 +25,7 @@ class FormInboundExchange extends Component
             ->layout('components.layoutfront');
     }
 
-    public function handleForm() 
+    public function handleForm()
     {
         $validateData = $this->validate([
             'curriculum_vitae' => 'required|file|mimes:pdf',
@@ -33,7 +34,7 @@ class FormInboundExchange extends Component
             'certificate' => 'required|file|mimes:pdf',
             'photo' => 'required|image|max:1024',
         ]);
-        
+
 
         $curriculum_vitae = $this->curriculum_vitae->store('files', 'public');
         $validateData['curriculum_vitae'] = $curriculum_vitae;
@@ -52,58 +53,65 @@ class FormInboundExchange extends Component
 
         $exchange = Exchange::create([
             'student_id' => Session::get('user_data.user_id'),
-            'exchange_type' => 2, 
-            'status' => 0,            
+            'exchange_type' => 2,
+            'status' => 0,
         ])->id;
 
-        if($exchange) {
+        if ($exchange) {
 
-           Meta::create([
+            Meta::create([
                 'post_id' => $exchange,
                 'key' => 'curriculum_vitae',
                 'value' => $curriculum_vitae,
-                
+
             ]);
 
-           Meta::create([
+            Meta::create([
                 'post_id' => $exchange,
                 'key' => 'motivation_letter',
                 'value' => $motivation_letter,
-                
+
             ]);
 
-           Meta::create([
+            Meta::create([
                 'post_id' => $exchange,
                 'key' => 'passport',
                 'value' => $passport,
-                
+
             ]);
 
-           Meta::create([
+            Meta::create([
                 'post_id' => $exchange,
                 'key' => 'certificate',
                 'value' => $certificate,
-                
+
             ]);
 
-           Meta::create([
+            Meta::create([
                 'post_id' => $exchange,
                 'key' => 'photo',
                 'value' => $photo,
-                
+
             ]);
-           
+
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
+
             $this->dispatchBrowserEvent('insert-success');
             $this->resetInput();
         }
-
     }
 
-    private function resetInput() {
-        $this->curriculum_vitae = '';    
-        $this->motivation_letter = '';    
-        $this->passport = '';    
-        $this->certificate = '';    
-        $this->photo = '';    
+    private function resetInput()
+    {
+        $this->curriculum_vitae = '';
+        $this->motivation_letter = '';
+        $this->passport = '';
+        $this->certificate = '';
+        $this->photo = '';
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use App\Models\Submission;
 use App\Models\Meta;
 use Livewire\Component;
@@ -17,8 +18,8 @@ class FormLetterActiveStudent extends Component
         return view('livewire.form-letter-active-student')->layout('components.layoutfront');
     }
 
-    public function handleForm() 
-    {  
+    public function handleForm()
+    {
         $validateData = $this->validate([
             'purpose' => 'required',
         ]);
@@ -26,17 +27,17 @@ class FormLetterActiveStudent extends Component
         $letter = Submission::create([
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
-            'status' => 0,    
-            'letter_types' => 3,        
+            'status' => 0,
+            'letter_types' => 3,
         ])->id;
 
-        if($letter) {
-            
+        if ($letter) {
+
             $meta = Meta::create([
                 'submission_id' => $letter,
                 'key' => 'letter_type',
                 'value' => 3, //letter active student
-                
+
             ]);
 
             $meta = Meta::create([
@@ -46,10 +47,16 @@ class FormLetterActiveStudent extends Component
 
             ]);
 
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
+
             $this->dispatchBrowserEvent('insert-success');
 
             // return redirect('download-letter-active-student/' . $letter);
         }
-        
     }
 }

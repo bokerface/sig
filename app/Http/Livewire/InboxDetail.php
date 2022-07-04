@@ -18,6 +18,8 @@ class InboxDetail extends Component
 
     public function mount($id)
     {
+
+
         $this->submission = Submission::select(
             'submissions.*',
             'letter_types.name as letter_type'

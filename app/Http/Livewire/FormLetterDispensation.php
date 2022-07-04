@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use Livewire\Component;
 use App\Models\Submission;
 use App\Models\Meta;
@@ -32,24 +33,31 @@ class FormLetterDispensation extends Component
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'letter',
             'status' => 0,
-            'letter_types' => 5,  
+            'letter_types' => 5,
         ])->id;
 
         if ($letter) {
 
-             Meta::create([
+            Meta::create([
                 'submission_id' => $letter,
                 'key' => 'statement_letter',
                 'value' => $statement_letter,
 
             ]);
-             Meta::create([
+            Meta::create([
                 'submission_id' => $letter,
                 'key' => 'letter_type',
-                'value' => 5, 
+                'value' => 5,
                 //Letter of Dispensation For Payment
 
             ]);
+
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
 
             $this->dispatchBrowserEvent('insert-success');
         }

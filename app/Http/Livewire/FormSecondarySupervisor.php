@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use Livewire\Component;
 use App\Models\Submission;
 use App\Models\Meta;
@@ -54,6 +55,12 @@ class FormSecondarySupervisor extends Component
                 'key' => 'proof',
                 'value' => $proof,
             ]);
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
 
             $this->dispatchBrowserEvent('insert-success');
             $this->resetInput();

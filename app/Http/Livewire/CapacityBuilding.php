@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use Illuminate\Support\Facades\Session;
 
 use App\Models\LetterType;
@@ -69,6 +70,13 @@ class CapacityBuilding extends Component
                     'value' => $this->motivation
                 ]
             );
+
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
 
             $this->dispatchBrowserEvent('insert-success');
             $this->resetInput();

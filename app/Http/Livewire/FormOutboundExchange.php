@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use Livewire\Component;
 use App\Models\Submission;
 use App\Models\Meta;
@@ -54,7 +55,7 @@ class FormOutboundExchange extends Component
             'student_id' => Session::get('user_data.user_id'),
             'submission_type' => 'exchange',
             'status' => 0,
-            'letter_types' => 6, 
+            'letter_types' => 6,
         ])->id;
 
         if ($submission) {
@@ -102,6 +103,13 @@ class FormOutboundExchange extends Component
                 'value' => 6, //Letter of Dispensation For Payment
 
             ]);
+
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
 
             $this->dispatchBrowserEvent('insert-success');
             $this->resetInput();

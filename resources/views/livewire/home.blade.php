@@ -1,30 +1,30 @@
-<div>               
+<div>
 
 
-@php
-$fullname = Session::get('user_data.fullname');
-$wordcount = str_word_count($fullname);
+    @php
+        $fullname = Session::get('user_data.fullname');
+        $wordcount = str_word_count($fullname);
 
-if($wordcount > 1) :
+        if($wordcount > 1) :
 
-    $expl = explode( ' ', $fullname);
+        $expl = explode( ' ', $fullname);
 
-    $name = $expl[0];
+        $name = $expl[0];
 
-else :
+        else :
 
-    $name = $fullname;
+        $name = $fullname;
 
-endif;
+        endif;
 
-@endphp
+    @endphp
 
     <div class="page-title mb-5">
 
         <div class="page-title page-title-small d-flex justify-content-between">
             <h2 class="font-18 font-300">Hi, {{ $name }} </h2>
-            <span class="icon-header-home d-flex align-items-center">                
-                <a href="#" class="text-pinky"  data-menu="menu-profile"><i class="icon-user"></i></a>
+            <span class="icon-header-home d-flex align-items-center">
+                <a href="#" class="text-pinky" data-menu="menu-profile"><i class="icon-user"></i></a>
                 <a href="{{ url('notification') }}" class="text-pinky"><i class="icon-bell"></i></a>
             </span>
         </div>
@@ -36,7 +36,7 @@ endif;
 
     </div>
 
-    <div class="sdcustom card header-card shape-rounded" data-card-height="140"  style="height:140px;">
+    <div class="sdcustom card header-card shape-rounded" data-card-height="140" style="height:140px;">
         <div class="bgsd-gradient card-overlay opacity-95"></div>
     </div>
 
@@ -68,7 +68,7 @@ endif;
                         </a>
                     </div>
                 </div>
-            </div>           
+            </div>
         </div>
     </div>
 
@@ -83,10 +83,10 @@ endif;
                 <div class="rounded-s shadow-m text-center bg-sigov-red text-white">
                     <i class="icon-repeat py-3 d-block font-30"></i>
                 </div>
-                
+
             </a>
             <div class="text-center mt-3">
-                    <h6 class="font-12">Exchange</h6>
+                <h6 class="font-12">Exchange</h6>
             </div>
 
         </div>
@@ -95,18 +95,18 @@ endif;
                 <div class="rounded-s shadow-m text-center bg-sigov-pink text-white">
                     <i class="icon-file-text py-3 d-block font-30"></i>
                 </div>
-                
+
             </a>
             <div class="text-center mt-3">
-                    <h6 class="font-12">Letter</h6>
-                </div>
+                <h6 class="font-12">Letter</h6>
+            </div>
         </div>
         <div class="splide__slide ps-1 col-3">
             <a href="{{ url('transcript-application') }}" class="btn p-0 d-block">
                 <div class="rounded-s shadow-m text-center bg-primary text-white">
                     <i class="icon-printer py-3 d-block font-30 text-white"></i>
                 </div>
-               
+
             </a>
             <div class="text-center mt-3">
                 <h6 class="font-12">Transcript Application</h6>
@@ -128,20 +128,22 @@ endif;
 
     <div class="content mb-2">
         <h5 class="float-start font-16 font-500"><b>Students</b> Capacity Building </h5>
-        <a class="float-end font-12 color-highlight mt-n1" href="{{ url('capacity-buildings') }}">View All</a>
+        <a class="float-end font-12 color-highlight mt-n1" href="{{ url('capacity-buildings') }}">View
+            All</a>
         <div class="clearfix"></div>
     </div>
 
     <div class="row mb-4 mt-4">
         <div class="col-4 pe-0 rounded-s">
-            <a href="{{ route('form-capacity-building', 7) }}" data-menu="menu-detail-capacity-building">
-                <div class="card card-style me-0 bgsdimg-1 rounded-s" data-card-height="200" style="height:200px;">                
+            <a href="{{ route('form-capacity-building', 7) }}"
+                data-menu="menu-detail-capacity-building">
+                <div class="card card-style me-0 bgsdimg-1 rounded-s" data-card-height="200" style="height:200px;">
                     <div class="card-bottom p-3">
                         <h5 class="color-white font-500 textsd-black">
                             English <br>Booster
                         </h5>
                     </div>
-                
+
                     <div class="card-overlay text-center">
                         <img src="./images/hihello.png" class="p-4 mt-4">
                     </div>
@@ -149,10 +151,11 @@ endif;
             </a>
         </div>
 
-       
+
         <div class="col-8 ps-0">
-            <div class="card card-style bgsdimg-2 mb-2 rounded-s" data-card-height="95"  style="height:95px;">
-                <a href="{{ route('form-capacity-building', 8) }}" data-menu="menu-detail-capacity-building">
+            <div class="card card-style bgsdimg-2 mb-2 rounded-s" data-card-height="95" style="height:95px;">
+                <a href="{{ route('form-capacity-building', 8) }}"
+                    data-menu="menu-detail-capacity-building">
                     <div class="card-bottom p-3">
                         <h5 class="color-white font-500 font-14 mb-n1 textsd-black">
                             IGOV <br>Creative Hub
@@ -163,8 +166,9 @@ endif;
                     <img src="./images/asset/lightbulb.png" class="float-end p-4" width="80">
                 </div>
             </div>
-            <div class="card card-style bgsdimg-3 mb-2 rounded-s" data-card-height="95"  style="height:95px;">
-                <a href="{{ route('form-capacity-building', 9) }}" data-menu="menu-detail-capacity-building">
+            <div class="card card-style bgsdimg-3 mb-2 rounded-s" data-card-height="95" style="height:95px;">
+                <a href="{{ route('form-capacity-building', 9) }}"
+                    data-menu="menu-detail-capacity-building">
                     <div class="card-bottom p-3">
                         <h5 class="color-white font-500 font-14 mb-n1 textsd-black">
                             Scholarship <br>Hack 101
@@ -177,5 +181,5 @@ endif;
             </div>
         </div>
     </div>
-      
+
 </div>

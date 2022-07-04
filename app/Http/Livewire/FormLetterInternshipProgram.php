@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use App\Models\Submission;
 use App\Models\Meta;
 use Livewire\Component;
@@ -59,6 +60,13 @@ class FormLetterInternshipProgram extends Component
                 'value' => 4, //recommendation exchange
 
             ]);
+
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
 
             $this->dispatchBrowserEvent('insert-success');
         }

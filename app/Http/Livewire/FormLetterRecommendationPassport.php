@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use App\Models\Meta;
 use Livewire\Component;
 use App\Models\Submission;
@@ -43,6 +44,12 @@ class FormLetterRecommendationPassport extends Component
                 'value' => 2, //recommendation passport
             ]);
 
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
 
             $this->resetInput();
 

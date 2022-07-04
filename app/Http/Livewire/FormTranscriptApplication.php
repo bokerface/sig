@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Lib\CustomNotification;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Session;
 use App\Models\Meta;
@@ -27,15 +28,20 @@ class FormTranscriptApplication extends Component
             'status' => 0,
         ])->id;
 
-        if($letter) {
+        if ($letter) {
             Meta::create(
                 [
                     'submission_id' => $letter,
                     'key' => 'letter_publish_date',
                     'value' => Carbon::now()
                 ]
-            );   
-
+            );
+            $notification = new CustomNotification;
+            $notification->sender = 'System';
+            $notification->receiver = "Admin";
+            $notification->status = 0;
+            $notification->message = "Pengajuan Baru";
+            $notification->send_notification();
         }
 
         return redirect('download-transcript/' . $letter);
