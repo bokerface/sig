@@ -15,17 +15,18 @@ class FormLogin extends Component
         ->layout('components.layoutnologin');
     }
 
-    public $error, $email, $password;
+    public $error, $username, $password;
    
 
     protected $rules = [
         'password' => 'required',
-        'email' => 'required',
+        'username' => 'required|email',
     ];
 
     protected $messages = [
         'password.required' => 'Please enter password',
-        'email.required' => 'Please enter username',
+        'username.required' => 'Please enter your email',
+        'username.email' => 'Please enter valid email',
     ];
 
 
@@ -38,20 +39,52 @@ class FormLogin extends Component
             'password' => $this->password,
         ];
 
-        // $user_data = [
-        //     "user_id" => '20180520023',
-        //     "fullname" => 'Puteri Syifa Ruhama',
-        //     "dateofbirth" => 'January 21, 2003',
-        //     "email" => $email,
-        //     "role" => 3,
-        //     "isLoggedIn" => true
-        // ];
+        $params = http_build_query($data);
+        $body = array('http' =>
+        array(
+            'method' => 'POST',
+            'header' => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $params
+        ));
+        $context = stream_context_create($body);
+        $link = file_get_contents('https://sso.umy.ac.id/api/Authentication/Login', false, $context);
+        $json = json_decode($link);
 
-        // Session::put("user_data", $user_data);
+        $ceknum = $json->{'code'};
 
-        // return redirect()->to(route('home'));
+        if ($ceknum == 0) {
 
-        
+            $user = DB::table('v_students')
+            ->where('email', '=', $this->username)
+            ->first();
+
+            if($user) {
+                $user_data = [
+                    "user_id" =>  $user->studentid,
+                    "fullname" =>  $user->fullname,
+                    "dateofbirth" =>  $user->dateofbirth,
+                    "placeofbirth" =>  $user->placeofbirth,
+                    "email" => $user->email,
+                    // "user_id" =>  $user->STUDENTID,
+                    // "fullname" =>  $user->FULLNAME,
+                    // "dateofbirth" =>  $user->DATEOFBIRTH,
+                    // "placeofbirth" =>  $user->PLACEOFBIRTH,
+                    // "email" => $user->EMAIL,
+                    "role" => 3,
+                    "isLoggedIn" => true
+                ];
+
+                Session::put("user_data", $user_data);
+                
+                return redirect()->to(route('home'));
+
+            } else {
+                return back()->with('error', 'You are not allowed to access this apps.');
+            }
+        } else {
+            return back()->with('error', 'Wrong username or password.');
+        }
+  
     }
 
     public function logout() 
