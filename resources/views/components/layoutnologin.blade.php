@@ -17,6 +17,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
 
     <style>
+        html, body {
+            background: #ffffff;
+        }
         .igovclass {
 
             min-height: 50vh;

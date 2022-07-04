@@ -128,7 +128,7 @@
 
         </div>
 
-        <div class="sdcustom card header-card shape-rounded" data-card-height="130">
+        <div class="sdcustom card header-card shape-rounded" data-card-height="130" style="height:130px;">
             <div class="bgsd-gradient card-overlay opacity-95"></div>
         </div>
     </div>

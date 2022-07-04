@@ -28,9 +28,9 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="icon-user"></i></span>
-                <input type="text" wire:model="email" class="form-control" placeholder="puteri.syifa.ruhama@mail.umy.ac.id" aria-label="Email" aria-describedby="basic-addon1">
+                <input type="text" wire:model="username" class="form-control @error('username')  {! is-invalid !} @enderror" placeholder="yourname@mail.umy.ac.id" aria-label="Email" aria-describedby="basic-addon1">
 
-                @error('email')
+                @error('username')
                 <div class="invalid-feedback">
                     <i class="fa fa-times invalid color-sigov-red"></i> {{ $message }}
                 </div>
@@ -40,7 +40,7 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="password"><i class="icon-unlock"></i></span>
-                <input type="text" wire:model="password" class="form-control" placeholder="**********" aria-label="Password" aria-describedby="password">
+                <input type="password" wire:model="password" class="form-control @error('password')  {! is-invalid !} @enderror" placeholder="KRS Password" aria-label="Password" aria-describedby="password">
 
                 @error('password')
                 <div class="invalid-feedback">
