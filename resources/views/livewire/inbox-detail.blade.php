@@ -129,10 +129,12 @@
                 @if($submission->submission_type == "capacity_building")
                     {{-- di sini pesan pengajuan sudah diterima --}}
                     <span>{{ $submission->created_at }}</span>
+                    <br>
                     Thank you for your participation.
                 @else
                     {{-- di sini pesan pengajuan sudah diterima --}}
                     <span>{{ $submission->created_at }}</span>
+                    <br>
                     We have received your application. Please wait for the admin verification process.
                 @endif
 

@@ -8,24 +8,26 @@ use Illuminate\Support\Facades\DB;
 
 class Inbox extends Component
 {
+    protected $listeners = ['refreshComponent' => '$refresh'];
     public $letter_type;
-    public $submissions;
-    // public $search;
+    // public $submissions;
+    public $search;
 
     public function mount()
     {
-        $this->letter_type = '';
+        // $this->letter_type = '';
         // $this->submissions = DB::table('submissions')->latest()->get();
-        $this->submissions = Submission::select(
-            'submissions.*',
-            'letter_types.name as letter_type'
-        )
-            ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
-            // ->when(!empty($search), function ($query) {
-            // return $query->where('letter_types.name', 'likes', '%' . $this->search . '%');
-            // })
-            ->latest()
-            ->get();
+        // $this->submissions = Submission::select(
+        //     'submissions.*',
+        //     'letter_types.name as letter_type'
+        // )
+        //     ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
+        //     ->when(!empty($this->search), function ($query) {
+        //         return $query->where('letter_types.name', 'LIKE', '%' . $this->search . '%');
+        //     })
+        //     ->latest()
+        //     ->get();
+
 
 
         // $this->submissions = Submission::select(
@@ -48,8 +50,27 @@ class Inbox extends Component
     public function render()
     {
         // dd(session('user_data'));
-        return view('livewire.inbox')
+        return view(
+            'livewire.inbox',
+            [
+                'submissions' => Submission::select(
+                    'submissions.*',
+                    'letter_types.name as letter_type'
+                )
+                    ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
+                    ->when(!empty($this->search), function ($query) {
+                        return $query->where('letter_types.name', 'LIKE', '%' . $this->search . '%');
+                    })
+                    ->latest()
+                    ->get()
+            ]
+        )
             ->layout('components.layoutfront');
+    }
+
+    public function search()
+    {
+        dd($this->search);
     }
 
     public function siapi()
