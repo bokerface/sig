@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class FormLogin extends Component
@@ -22,27 +23,33 @@ class FormLogin extends Component
         'email' => 'required',
     ];
 
-    public function login()
+    protected $messages = [
+        'password.required' => 'Please enter password',
+        'email.required' => 'Please enter username',
+    ];
+
+
+    public function login(Request $request)
     {
-        $email = 'puteri.syifa.ruhama@umy.ac.id';
-        
+        $this->validate();
+
         $data = [
-            'username' => $email,
-            'password' => 'pass',
+            'username' => $this->username,
+            'password' => $this->password,
         ];
 
-        $user_data = [
-            "user_id" => '20180520023',
-            "fullname" => 'Puteri Syifa Ruhama',
-            "dateofbirth" => 'January 21, 2003',
-            "email" => $email,
-            "role" => 3,
-            "isLoggedIn" => true
-        ];
+        // $user_data = [
+        //     "user_id" => '20180520023',
+        //     "fullname" => 'Puteri Syifa Ruhama',
+        //     "dateofbirth" => 'January 21, 2003',
+        //     "email" => $email,
+        //     "role" => 3,
+        //     "isLoggedIn" => true
+        // ];
 
-        Session::put("user_data", $user_data);
+        // Session::put("user_data", $user_data);
 
-        return redirect()->to(route('home'));
+        // return redirect()->to(route('home'));
 
         
     }

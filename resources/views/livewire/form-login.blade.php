@@ -21,6 +21,7 @@
         @if(Session::has("error"))
         <p class="alert alert-danger my-2">
             {{ Session::get('error') }}
+            error
         </p>
         @endif
 
@@ -28,7 +29,7 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="icon-user"></i></span>
-                <input type="text" wire:model="email" class="form-control" placeholder="puteri.syifa.ruhama@mail.umy.ac.id" aria-label="Email" aria-describedby="basic-addon1">
+                <input type="text" wire:model="email" class="form-control" placeholder="yourname@mail.umy.ac.id" aria-label="Email" aria-describedby="basic-addon1">
 
                 @error('email')
                 <div class="invalid-feedback">
@@ -40,7 +41,7 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="password"><i class="icon-unlock"></i></span>
-                <input type="text" wire:model="password" class="form-control" placeholder="**********" aria-label="Password" aria-describedby="password">
+                <input type="text" wire:model="password" class="form-control" placeholder="KRS Password" aria-label="Password" aria-describedby="password">
 
                 @error('password')
                 <div class="invalid-feedback">
