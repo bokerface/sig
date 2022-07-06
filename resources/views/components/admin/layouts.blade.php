@@ -75,7 +75,7 @@
                                         </div>
                                         <div>
                                             <div class="small text-gray-500">{{ $list->created_at }}</div>
-                                            <span class="font-weight-bold">{{ $list->message }}</span>
+                                            <span class="font-weight-bold">Pengajuan Baru</span>
                                         </div>
                                     </a>
                                 @endforeach
