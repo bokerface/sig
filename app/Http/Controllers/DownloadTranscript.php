@@ -32,7 +32,8 @@ class DownloadTranscript extends Controller
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
             'student_id' => Session::get('user_data.user_id'),
-            'dateofbirth' => Session::get('user_data.dateofbirth')
+            'dateofbirth' => Session::get('user_data.dateofbirth'),
+            'placeofbirth' => Session::get('user_data.placeofbirth')
         );
 
         // dd($transcript);
@@ -137,4 +138,5 @@ class DownloadTranscript extends Controller
             "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
+
 }

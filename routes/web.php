@@ -60,13 +60,15 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get("download-recommendation-exchange/{id}", [DownloadTranscript::class, 'download_recommendation_exchange'])->name('download_recommendation_exchange');
     Route::get("download-letter-active-student/{id}", [DownloadTranscript::class, 'download_letter_active_student'])->name('download_letter-active-student');
 
+    Route::get("readwp", [DownloadTranscript::class, 'readwp'])->name('readwp');
+
     Route::get('capacity-buildings', CapacityBuildings::class)->name('capacity-buildings');
     Route::get('capacity-building/{id}', CapacityBuilding::class)->name('form-capacity-building');
     Route::get('exchange', Exchange::class)->name('exchange');
     Route::get('outbound-exchange', \App\Http\Livewire\FormOutboundExchange::class)->name('outbound-exchange');
     Route::get('inbound-exchange', \App\Http\Livewire\FormInboundExchange::class)->name('inbound-exchange');
 
-    Route::get('news', News::class)->name('news');
+    Route::get('news/{id}', News::class)->name('news');
     Route::get('letter', LetterIndex::class)->name('letter');
     Route::get('letter-recommendation-exchange', \App\Http\Livewire\FormLetterRecommendationExchange::class)->name('letter-recommendation-exchange');
     Route::get('letter-recommendation-passport', \App\Http\Livewire\FormLetterRecommendationPassport::class)->name('letter-recommendation-passport');

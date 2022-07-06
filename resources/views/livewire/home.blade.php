@@ -1,5 +1,18 @@
 <div>
 
+    <style>
+        .search-button {
+        color: rgba(255, 255, 255, 0.644);
+        font-size: 17px !important;
+        font-weight: 300;
+        width: 100%;
+        text-align: left;
+        padding: 9px 30px;
+        margin-top: 10px;
+        cursor:text !important;
+        }
+    </style>
+
 
     @php
         $fullname = Session::get('user_data.fullname');
@@ -25,14 +38,15 @@
             <h2 class="font-18 font-300">Hi, {{ $name }} </h2>
             <span class="icon-header-home d-flex align-items-center">
                 <a href="#" class="text-pinky" data-menu="menu-profile"><i class="icon-user"></i></a>
-                <a href="{{ url('notification') }}" class="text-pinky"><i class="icon-bell"></i></a>
+                {{-- <a href="{{ url('notification') }}" class="text-pinky"><i class="icon-bell"></i></a> --}}
             </span>
         </div>
 
-        <div class="search-box search-boxsd search-dark bg-search shadow-m border-0 mt-4 rounded-m bottom-0">
-            <i class="icon-search1 ms-n3"></i>
-            <input type="text" class="border-0" placeholder="Search" data-search>
-        </div>
+        {{-- <div class="search-box search-boxsd search-dark bg-search shadow-m border-0 mt-4 rounded-m bottom-0">
+            <i class="icon-search1 ms-n3"></i> --}}
+            {{-- <input type="text" class="border-0" placeholder="Search" data-search> --}}
+            <button data-menu="menu-search" class="btn bg-search rounded-m search-button"><i class="icon-search1 ms-n3"></i> Search</button>
+        {{-- </div> --}}
 
     </div>
 
@@ -40,37 +54,8 @@
         <div class="bgsd-gradient card-overlay opacity-95"></div>
     </div>
 
-    <!-- Homepage Slider-->
-    <div class="splide single-slider slider-no-arrows homepage-slider mt-5" id="single-slider-1">
-        <div class="splide__track">
-            <div class="splide__list">
-                <div class="splide__slide">
-                    <div class="card rounded-m mx-2 text-center shadow-m" data-card-height="170" style="height:170px;">
-                        <a href="{{ url('news') }}">
-                            <img src="./images/asset/news2.jpg">
-                            <div class="card-bottom news d-flex align-items-end">
-                                <h1 class="font-18 font-400 pb-2 text-white text-start">
-                                    IGOV UMY held a talk show entitled “Overcome Dizziness With Other Dizziness”</h1>
-                            </div>
-                            <div class="card-overlay bg-gradient-fade2"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="splide__slide">
-                    <div class="card rounded-m mx-2 text-center shadow-m" data-card-height="170" style="height:170px;">
-                        <a href="{{ url('news') }}">
-                            <img src="./images/asset/news1.jpg">
-                            <div class="card-bottom news d-flex align-items-end">
-                                <h1 class="font-18 font-400 pb-2 text-white text-start">
-                                    Asia University Summer School Program has started with a bang</h1>
-                            </div>
-                            <div class="card-overlay bg-gradient-fade2"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @livewire('blog-posts')
+   
 
     <div class="content mb-2">
         <h5 class="float-start font-16 font-500"><b>SIGOV</b> Services</h5>

@@ -119,13 +119,6 @@
                 <input type="text" wire:model="search" class="border-0" placeholder="Search">
             </div>
 
-            {{-- <div class="d-flex m-3"> --}}
-            {{-- <input type="text" class="border-0 rounded-start p-1 col-10" wire:model.defer="search" id=""> --}}
-            {{-- <button class="rounded-end text-light p-1 col-2 bg-search" wire:click="$emit('refreshComponent')"> --}}
-            {{-- <i class="icon-search1"></i> Search --}}
-            {{-- </button> --}}
-            {{-- </div> --}}
-
         </div>
 
         <div class="sdcustom card header-card shape-rounded" data-card-height="130" style="height:130px;">

@@ -12,11 +12,11 @@
 
     <x-modal-title title="Inbox" bg="bgsd-gradient" />
 
-    <div class="col-12 mx-2">
+    <div class="col-12 ps-3 pe-4">
 
         {{-- @if($submission->submission_type == 'transcript') --}}
-        <div class="card">
-            <div class="card-body">
+        <div class="card" style="border-radius:15px;">
+            <div class="card-body p-4">
                 <div class="d-flex flex-row  justify-content-between align-items-center">
                     <h3 class="judul text-capitalize">{{ $submission->submission_type }} :
                         {{ $submission->letter_type }}
@@ -42,12 +42,15 @@
                             <span>{{ $submission->created_at }}</span>
                             <p class="card-text">
                                 Your documents for {{ $submission->submission_type }} are ready to
-                                use. You can download the documents by click link below.
-                            </p>
-                            <a class="btn btn-sm btn-sigov-pink"
+                                use. You can download the documents by click link below. <br>
+
+                                <a class="btn btn-xs mt-2 btn-sigov-pink"
                                 href="{{ url('download?filename='.$submission->additional_file) }}">
                                 <i class="fas fa-file-pdf"></i> Download Document
                             </a>
+                            
+                            </p>
+                            
                             <hr>
                         @else
                             <p class="card-text">
@@ -84,9 +87,11 @@
                     @elseif($submission->letter_types == 13)
                         <span>{{ $submission->created_at }}</span>
                         <br>
-                        <span class="card-text"> Supervisor Profile </span>
+                        <span class="card-text"> Congratulation, your secondary supervisor: </span>
                         @if(!empty($supervisor))
-                            <p>Name : {{ $supervisor->name }}</p>
+                            <p>Name : {{ $supervisor->name }}<br>
+                            Mobile : {{ $supervisor->phone }}<br>
+                            Email : {{ $supervisor->email }}</p>
                         @endif
                         <hr>
                     @endif

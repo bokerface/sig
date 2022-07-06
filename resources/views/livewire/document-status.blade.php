@@ -90,7 +90,7 @@
                                 class="form-label @error('upload_verification_file') text-danger @enderror">
                                 <div class="d-flex flex-row justify-content-between">
                                     <div class="d-flex flex-row">
-                                        Verification File <span class="text-danger">*</span>
+                                        Scanned letter <span class="text-danger">*</span>
                                     </div>
                                     @if($document_verified)
                                         <button title="Download" class="btn btn-sm btn-danger"

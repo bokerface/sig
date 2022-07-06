@@ -15,6 +15,10 @@ class FieldSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('fields')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         DB::table('fields')
             ->insert([
                 'key' => 'curriculum_vitae',
@@ -95,20 +99,32 @@ class FieldSeeder extends Seeder
             ]);
         DB::table('fields')
             ->insert([
-                'key' => 'company',
-                'label' => 'Company',
+                'key' => 'company_destination',
+                'label' => 'Company Destination',
                 'type' => 'text'
             ]);
         DB::table('fields')
             ->insert([
-                'key' => 'duration',
-                'label' => 'Duration (months)',
+                'key' => 'company_division',
+                'label' => 'Company Division',
                 'type' => 'text'
             ]);
         DB::table('fields')
             ->insert([
-                'key' => 'send_to',
-                'label' => 'Send to (surat ditujukan kepada)',
+                'key' => 'start_date',
+                'label' => 'Start Date (Y-m-d)',
+                'type' => 'date'
+            ]);
+        DB::table('fields')
+            ->insert([
+                'key' => 'end_date',
+                'label' => 'End Date (Y-m-d)',
+                'type' => 'date'
+            ]);
+        DB::table('fields')
+            ->insert([
+                'key' => 'your_mobile',
+                'label' => 'Your mobile number',
                 'type' => 'text'
             ]);
         DB::table('fields')

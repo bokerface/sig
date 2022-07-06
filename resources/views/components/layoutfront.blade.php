@@ -49,13 +49,13 @@
 
         <!-- header and footer bar go here-->
         <div class="header sigov  header-fixed header-auto-show header-logo-app">
-            <a href="index.html" class="header-title mcustomsd text-white">SIGOV</a>
+            <a href="/" class="header-title mcustomsd text-white">SIGOV</a>
         </div>
 
         <div id="footer-bar" class="footer-bar-5 rounded-0">
             <a href="{{ url('inbox') }}"
                 class="{{ (request()->is('inbox')) ? 'active-nav' : '' }}">
-                <i class="icon-mail">({{ notif_number() }})</i>
+                <i class="icon-mail"></i><em class="badge bg-yellow-dark">{{ notif_number() }}</em>
                 {{-- <i class="icon-mail"></i> --}}
                 <span class="badge badge-pill badge-danger">Danger</span>
             </a>
@@ -67,6 +67,7 @@
                 class="{{ (request()->is('profile')) ? 'active-nav' : '' }}">
                 <i class="icon-user"></i>
             </a>
+
         </div>
 
         <div class="page-content">
@@ -110,6 +111,13 @@
     <div id="menu-profile" class="menu menu-box-right" data-menu-height="cover" data-menu-width="cover"
         data-menu-effect="menu-over">
         @livewire('profile')
+    </div>
+
+    <!-- Modal search -->
+
+    <div id="menu-search" class="menu menu-box-left" data-menu-height="cover" data-menu-width="cover"
+        data-menu-effect="menu-over">
+        @livewire('search')
     </div>
 
 

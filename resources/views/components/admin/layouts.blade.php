@@ -64,7 +64,15 @@
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
-                                    Alerts Center
+                                   @if (admin_notif_number() < 1)
+
+                                    No New Notification
+                                       
+                                   @else
+                                       
+                                    {{ admin_notif_number()  }} Notification(s)
+                                       
+                                   @endif 
                                 </h6>
                                 @foreach(admin_notif_number_list() as $list)
                                     <a class="dropdown-item d-flex align-items-center" href="#">

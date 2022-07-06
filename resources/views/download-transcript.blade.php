@@ -41,9 +41,17 @@
     <tr>
         <td><i>Name</i></td>
     </tr>
+
+    @php
+    $date = \Carbon\Carbon::parse($data_mhs['dateofbirth'])->locale('id');
+    $date->settings(['formatFunction' => 'translatedFormat']);
+    @endphp
+  
+
+
     <tr>
         <td><u>Tempat dan Tanggal Lahir</u></td>
-        <td> : {{ $data_mhs['dateofbirth'] }}</td>
+        <td> : {{ $data_mhs['placeofbirth'] }}, {{ $date->format('j F Y') }}</td>
     </tr>
     <tr>
         <td><i>Place and Date of Birth</i></td>

@@ -58,10 +58,7 @@
         }
 
     </style>
-    <x-header title="Student Capacity Building" subtitle="Students Capacity Building is a place where
-    students can improve their skills and capabilities
-    in blablablablabla (Short description about
-    Students Capacity Building)" bg="bgsd-gradient" height="230" icon="far fa-comment-dots" type="large" modal="" />
+<x-header title="Student Capacity Building" subtitle="Student Capacity Building is a program that designed to improve student's abilities and capabilities.transc" bg="bgsd-gradient" height="230" icon="far fa-comment-dots" type="large" modal="" />
 
     <div class="p-2">
         <a href="{{ route('form-capacity-building',7) }}"
