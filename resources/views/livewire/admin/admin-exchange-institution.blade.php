@@ -1,6 +1,6 @@
 <div>
     @section('page-title')
-    Exchange
+    Exchange Institution
     @endsection
     <div class="row">
         <div class="col-md-7">

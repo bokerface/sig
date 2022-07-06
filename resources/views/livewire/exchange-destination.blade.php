@@ -1,6 +1,6 @@
 <div>
     @section('page-title')
-    Exchange
+    Exchange Destination
     @endsection
     <div class="row">
         <div class="col-md-12">
@@ -10,8 +10,8 @@
                 Add Institution
             </button> --}}
 
-            <a href="{{ route('add-exchange-institution') }}" class="btn btn-primary mb-3"> Add
-                Institution
+            <a href="{{ route('add-exchange-destination') }}" class="btn btn-primary mb-3">
+                Add Destination
             </a>
 
             <div class="card shadow mb-4">
@@ -46,7 +46,6 @@
                         <table class="table table-bordered" id="dataTable" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Institution Name</th>
                                     <th>Country</th>
                                     {{-- <th>Status</th> --}}
                                 </tr>
@@ -57,11 +56,10 @@
                                     $i = 1
                                 @endphp
 
-                                @foreach($institutions as $institution)
+                                @foreach($destinations as $destination)
 
                                     <tr>
-                                        <td>{{ $institution->institution; }}</td>
-                                        <td>{{ $institution->destination; }}</td>
+                                        <td>{{ $destination->destination; }}</td>
                                         {{-- <td>{{ $institution->status; }}</td> --}}
                                     </tr>
 
@@ -69,7 +67,7 @@
 
                             </tbody>
                         </table>
-                        {{ $institutions->links() }}
+                        {{ $destinations->links() }}
 
                     </div>
                 </div>

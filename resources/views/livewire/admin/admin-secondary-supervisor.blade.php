@@ -66,9 +66,9 @@
                                                 wire:click="getMeta({{ $submission->id }})">{{ $submission->student_id; }}</a>
                                         </td>
                                         <td>{{ $submission->fullname; }}</td>
+                                        <td>{{ title_ug_thesis($submission->id) }}</td>
+                                        <td>{{ supervisor_name($submission->id) }}</td>
                                         <td>{{ $submission->created_at; }}</td>
-                                        <td></td>
-                                        <td></td>
                                         <td>{{ $submission->status; }}</td>
                                     </tr>
 

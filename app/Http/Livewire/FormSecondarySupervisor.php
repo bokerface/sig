@@ -46,6 +46,12 @@ class FormSecondarySupervisor extends Component
 
             Meta::create([
                 'submission_id' => $submission,
+                'key' => 'title',
+                'value' => $this->title,
+            ]);
+
+            Meta::create([
+                'submission_id' => $submission,
                 'key' => 'thesis',
                 'value' => $thesis,
             ]);

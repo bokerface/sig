@@ -3,6 +3,7 @@
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\DownloadTranscript;
 use App\Http\Controllers\ValidSubmissionController;
+use App\Http\Livewire\AddExchangeDestination;
 use App\Http\Livewire\AddExchangeInstitution;
 use App\Http\Livewire\AddSupervisor;
 use App\Http\Livewire\Admin\AdminCapacityBuilding;
@@ -18,6 +19,7 @@ use App\Http\Livewire\LetterIndex;
 use App\Http\Livewire\CapacityBuildings;
 use App\Http\Livewire\EditSubmission;
 use App\Http\Livewire\Exchange;
+use App\Http\Livewire\ExchangeDestination;
 use App\Http\Livewire\ExchangeInstitution;
 use App\Http\Livewire\News;
 use App\Http\Livewire\FormTranscriptApplication;
@@ -106,8 +108,8 @@ Route::middleware('adminAuth')->group(function () {
 
     Route::get('admin/exchange-institution', ExchangeInstitution::class)->name('exchange-institution');
     Route::get('admin/add-exchange-institution', AddExchangeInstitution::class)->name('add-exchange-institution');
-    // Route::get('admin/exchange-destination', ExchangeDestination::class)->name('exchange-destination');
-    // Route::get('admin/add-exchange-destination', AddExchangeDEstination::class)->name('add-exchange-destination');
+    Route::get('admin/exchange-destination', ExchangeDestination::class)->name('exchange-destination');
+    Route::get('admin/add-exchange-destination', AddExchangeDestination::class)->name('add-exchange-destination');
     Route::get('admin/supervisor', Supervisor::class)->name('supervisor');
     Route::get('admin/add-supervisor', AddSupervisor::class)->name('add-supervisor');
     // Route::post('admin/add-exchange-institution', [ExchangeInstitution::class, 'store'])->name('store-exchange');

@@ -3,6 +3,7 @@
 use App\Http\Livewire\InputTypeFile;
 use App\Models\ExchangeDestination;
 use App\Models\ExchangeInstitution;
+use App\Models\Meta;
 use App\Models\Notification;
 
 function notif_number()
@@ -20,6 +21,31 @@ function admin_notif_number()
         ['receiver', '=', "Admin"],
     ])->count();
     return $notification;
+}
+
+function title_ug_thesis($submission_id)
+{
+    $title = Meta::where([
+        ['submission_id', '=', $submission_id],
+        ['key', '=', 'title'],
+    ])
+        ->first()
+        ->value;
+
+    return $title;
+}
+
+function supervisor_name($submission_id)
+{
+    $supervisor = Meta::where([
+        ['submission_id', '=', $submission_id],
+        ['key', '=', 'supervisor'],
+    ])
+        ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
+        ->first()
+        ->name;
+
+    return $supervisor;
 }
 
 function admin_notif_number_list()
