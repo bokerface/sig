@@ -15,6 +15,10 @@ class ExchangeDestinationSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('exchange_destinations')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         DB::table('exchange_destinations')->insert([
             'destination' => 'England',
             'status' => '1',

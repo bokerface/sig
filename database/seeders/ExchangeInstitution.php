@@ -15,6 +15,10 @@ class ExchangeInstitution extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('exchange_institutions')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         DB::table('exchange_institutions')->insert([
             'destination_id' => '1',
             'institution' => 'University of Liverpool',

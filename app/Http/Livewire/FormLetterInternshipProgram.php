@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\DB;
 class FormLetterInternshipProgram extends Component
 {
     public $company_destination;
-    public $duration;
-    public $send_to;
+    public $company_division;
+    public $start_date;
+    public $end_date;
+    public $your_mobile;
     public function render()
     {
         return view('livewire.form-letter-internship-program')->layout('components.layoutfront');
@@ -23,8 +25,10 @@ class FormLetterInternshipProgram extends Component
     {
         $this->validate([
             'company_destination' => 'required',
-            'duration' => 'required',
-            'send_to' => 'required',
+            'company_division' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'your_mobile' => 'required',
         ]);
 
         $letter = Submission::create([
@@ -40,25 +44,31 @@ class FormLetterInternshipProgram extends Component
                 'submission_id' => $letter,
                 'key' => 'company_destination',
                 'value' => $this->company_destination,
-
             ]);
             $meta = Meta::create([
                 'submission_id' => $letter,
-                'key' => 'duration',
-                'value' => $this->duration,
-
+                'key' => 'company_division',
+                'value' => $this->company_division,
             ]);
             $meta = Meta::create([
                 'submission_id' => $letter,
-                'key' => 'send_to',
-                'value' => $this->send_to,
-
+                'key' => 'start_date',
+                'value' => $this->start_date,
+            ]);
+            $meta = Meta::create([
+                'submission_id' => $letter,
+                'key' => 'end_date',
+                'value' => $this->end_date,
+            ]);
+            $meta = Meta::create([
+                'submission_id' => $letter,
+                'key' => 'your_mobile',
+                'value' => $this->your_mobile,
             ]);
             $meta = Meta::create([
                 'submission_id' => $letter,
                 'key' => 'letter_type',
                 'value' => 4, //recommendation exchange
-
             ]);
 
             $notification = new CustomNotification;

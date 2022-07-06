@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('submission_type');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }
