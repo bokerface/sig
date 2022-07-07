@@ -72,8 +72,8 @@
                     <div class="rounded-s shadow-m text-center bg-sigov-red text-white">
                         <i class="icon-repeat py-3 d-block font-30"></i>
                     </div>
-
                 </a>
+
                 <div class="text-center mt-3">
                     <h6 class="font-12">Exchange</h6>
                 </div>
@@ -84,8 +84,8 @@
                     <div class="rounded-s shadow-m text-center bg-sigov-pink text-white">
                         <i class="icon-file-text py-3 d-block font-30"></i>
                     </div>
-
                 </a>
+
                 <div class="text-center mt-3">
                     <h6 class="font-12">Letter</h6>
                 </div>
@@ -95,8 +95,8 @@
                     <div class="rounded-s shadow-m text-center bg-primary text-white">
                         <i class="icon-printer py-3 d-block font-30 text-white"></i>
                     </div>
-
                 </a>
+
                 <div class="text-center mt-3">
                     <h6 class="font-12">Transcript Application</h6>
                 </div>
@@ -110,7 +110,6 @@
                 <div class="text-center mt-3">
                     <h6 class="font-12">Secondary Supervisor</h6>
                 </div>
-
             </div>
 
         </div>

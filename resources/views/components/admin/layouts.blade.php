@@ -64,18 +64,19 @@
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
-                                   @if (admin_notif_number() < 1)
+                                    @if(admin_notif_number() < 1)
 
-                                    No New Notification
-                                       
-                                   @else
-                                       
-                                    {{ admin_notif_number()  }} Notification(s)
-                                       
-                                   @endif 
+                                        No New Notification
+
+                                    @else
+
+                                        {{ admin_notif_number() }} Notification(s)
+
+                                    @endif
                                 </h6>
                                 @foreach(admin_notif_number_list() as $list)
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="{{ route('read-notif',$list->id) }}">
                                         <div class="mr-3">
                                             <div class="icon-circle bg-primary">
                                                 <i class="fas fa-file-alt text-white"></i>

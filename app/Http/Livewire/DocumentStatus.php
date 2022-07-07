@@ -87,6 +87,7 @@ class DocumentStatus extends Component
         $notification->sender = 'Admin';
         $notification->receiver = $submission->student_id;
         $notification->status = 0;
+        $notification->submission_id = $submission_id;
         if ($this->select_verified == 1) {
             $notification->message = "Diterima";
         } else {

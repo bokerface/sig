@@ -10,7 +10,8 @@ function notif_number()
 {
     $notification = Notification::where([
         ['receiver', '=', session('user_data')['user_id']],
-        ['message', '=', 'Diterima']
+        ['message', '=', 'Diterima'],
+        ['status', '=', 0]
     ])->count();
     return $notification;
 }
@@ -19,7 +20,20 @@ function admin_notif_number()
 {
     $notification = Notification::where([
         ['receiver', '=', "Admin"],
+        ['status', '=', 0]
     ])->count();
+    return $notification;
+}
+
+function admin_notif_number_list()
+{
+    $notification = Notification::where([
+        ['receiver', '=', "Admin"],
+        ['status', '=', 0]
+    ])
+        ->limit(5)
+        ->latest()
+        ->get();
     return $notification;
 }
 
@@ -46,17 +60,6 @@ function supervisor_name($submission_id)
         ->name;
 
     return $supervisor;
-}
-
-function admin_notif_number_list()
-{
-    $notification = Notification::where([
-        ['receiver', '=', "Admin"],
-    ])
-        // ->limit(5)
-        // ->latest()
-        ->get();
-    return $notification;
 }
 
 function destination_name($destination_id)
