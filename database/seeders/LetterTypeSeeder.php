@@ -15,9 +15,6 @@ class LetterTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('letter_types')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         DB::table('letter_types')->insert([
             'name' => 'Letter of Recommendation for Exchange (IRO)',
