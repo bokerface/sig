@@ -18,7 +18,11 @@
 
     <style>
         html, body {
-            background: #ffffff;
+            background: #b79f9f;
+        }
+
+        #page{
+            min-height: 100vh;
         }
         .igovclass {
 

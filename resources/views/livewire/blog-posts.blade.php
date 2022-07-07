@@ -2,7 +2,15 @@
     <div class="splide__track">
         <div class="splide__list">
         @php
-          $posts = json_decode(file_get_contents("https://igov.umy.ac.id/wp-json/wp/v2/posts?per_page=3&_embed"), true);
+
+$post = Http::withHeaders([])->post("https://igov.umy.ac.id/wp-json/wp/v2/posts?per_page=3&_embed", [
+        // 'username' => $this->username,
+        // 'password' => $this->password,
+    ])->object();
+
+    dd($post);
+
+        //   $posts = json_decode(file_get_contents("https://igov.umy.ac.id/wp-json/wp/v2/posts?per_page=3&_embed"), true);
          @endphp
 
         @foreach ($posts as $key => $value) 
