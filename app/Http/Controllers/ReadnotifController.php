@@ -12,7 +12,7 @@ class ReadnotifController extends Controller
         $notif = Notification::findOrFail($id);
         $notif->status = 1;
         if ($notif->save()) {
-            return redirect(route('submission-detail', $notif->id));
+            return redirect(route('submission-detail', $notif->submission_id));
         }
     }
 }
