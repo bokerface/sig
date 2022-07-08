@@ -37,6 +37,23 @@ function admin_notif_number_list()
     return $notification;
 }
 
+function submission_has_notif($submission_id)
+{
+    $notification = Notification::where([
+        ['submission_id', '=', $submission_id],
+        ['receiver', '=', session('user_data')['user_id']],
+        ['status', '=', 0]
+    ])->first();
+
+    return $notification;
+
+    // if (empty($notification)) {
+    //     return false;
+    // } else {
+    //     return true;
+    // }
+}
+
 function title_ug_thesis($submission_id)
 {
     $title = Meta::where([

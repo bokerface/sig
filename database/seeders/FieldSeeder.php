@@ -94,7 +94,7 @@ class FieldSeeder extends Seeder
         DB::table('fields')
             ->insert([
                 'key' => 'imigration_office',
-                'label' => 'Name Immigration Office',
+                'label' => 'Name Imigration Office',
                 'type' => 'text'
             ]);
         DB::table('fields')
@@ -132,12 +132,6 @@ class FieldSeeder extends Seeder
                 'key' => 'statement_letter',
                 'label' => 'Statement letter from parents',
                 'type' => 'file'
-            ]);
-        DB::table('fields')
-            ->insert([
-                'key' => 'imigration_office',
-                'label' => 'Imigration Office',
-                'type' => 'text'
             ]);
         DB::table('fields')
             ->insert([

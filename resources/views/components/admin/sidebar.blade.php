@@ -2,7 +2,8 @@
     <ul class="navbar-nav bg-gradient-purple sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center"
+            href="{{ route('admindashboard') }}">
             <img src="{{ asset('/images/asset/IGOV-merah.png') }}" />
         </a>
 
