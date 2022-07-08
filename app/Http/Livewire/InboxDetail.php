@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Meta;
+use App\Models\Notification;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +19,15 @@ class InboxDetail extends Component
 
     public function mount($id)
     {
+        $notif = Notification::where([
+            ['receiver', '=', session('user_data')['user_id']],
+            ['submission_id', '=', $id]
+        ])->first();
 
+        if (!empty($notif)) {
+            $notif->status = 1;
+            $notif->save();
+        }
 
         $this->submission = Submission::select(
             'submissions.*',

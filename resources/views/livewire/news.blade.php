@@ -1,5 +1,5 @@
 <div>
-    {{-- <style>
+    <style>
         .bgsd-gradient {
             background: linear-gradient(to bottom right, #361928 0%, #141118 100%);
         }
@@ -23,5 +23,5 @@
         <div class="content">
             {!!  $postdetail['content'] !!}               
         </div>
-    </div> --}}
+    </div>
 </div>

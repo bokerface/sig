@@ -99,6 +99,7 @@ class FormInboundExchange extends Component
             $notification->receiver = "Admin";
             $notification->status = 0;
             $notification->message = "Pengajuan Baru";
+            $notification->submission_id = $exchange;
             $notification->send_notification();
 
             $this->dispatchBrowserEvent('insert-success');

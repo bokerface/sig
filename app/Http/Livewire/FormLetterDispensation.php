@@ -57,6 +57,7 @@ class FormLetterDispensation extends Component
             $notification->receiver = "Admin";
             $notification->status = 0;
             $notification->message = "Pengajuan Baru";
+            $notification->submission_id = $letter;
             $notification->send_notification();
 
             $this->dispatchBrowserEvent('insert-success');

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\DownloadTranscript;
+use App\Http\Controllers\ReadnotifController;
 use App\Http\Controllers\ValidSubmissionController;
 use App\Http\Livewire\AddExchangeDestination;
 use App\Http\Livewire\AddExchangeInstitution;
@@ -94,7 +95,7 @@ Route::get('admin/login', \App\Http\Livewire\Admin\AdminLogin::class)->name('adm
 Route::middleware('adminAuth')->group(function () {
 
     Route::get('admin/download/{filename}', [FileController::class, 'download'])->name('download-file');
-
+    Route::get('admin/notification/{id}', [ReadnotifController::class, 'read'])->where('id', '[0-9]+')->name('read-notif');
     Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
     Route::get('admin/exchange', \App\Http\Livewire\Admin\AdminExchange::class)->name('adminexchange');
     Route::get('admin/exchange/{meta_id}', \App\Http\Livewire\Admin\AdminSubmissionDetail::class)->where('meta_id', '[0-9]+')->name('submission-detail');

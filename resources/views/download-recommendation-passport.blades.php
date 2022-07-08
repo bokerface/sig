@@ -83,7 +83,7 @@
   <body>
     <!-- Define header and footer blocks before your content -->
     <header>
-      <img style="width:100%;margin-bottom:0.7cm;" src="{{ public_path('images/asset/header-surat.jpg') }}" alt="">
+      <img style="width:100%;margin-bottom:0.7cm;" src="{{ public_path('images/asset/header-surat.png') }}" alt="">
     </header>
   
     <footer>
