@@ -59,8 +59,8 @@
                 {{-- <i class="icon-mail"></i> --}}
                 <span class="badge badge-pill badge-danger">Danger</span>
             </a>
-            <a href="{{ url('home') }}"
-                class="{{ (request()->is('home')) ? 'active-nav' : '' }}">
+            <a href="{{ url('/') }}"
+                class="{{ (request()->is('/')) ? 'active-nav' : '' }}">
                 <i class="icon-home"></i>
             </a>
             <a href="#" data-menu="menu-profile"

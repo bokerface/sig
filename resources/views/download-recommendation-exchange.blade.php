@@ -64,7 +64,7 @@
 
     
 
-    <p class="justify">Demikian surat pemberitahuan ini kami buat. Atas perhatian dan kerjasamanya kami ucapkan terima
+    <p class="justify">Demikian surat pemberitahuan ini kami buat. Atas perhatian dan kerjasama Bapak/Ibu kami ucapkan terima
         kasih.</p>
 
     <p style="font-style:italic">Wassalamu’alaikum Wr.Wb</p>
