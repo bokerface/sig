@@ -17,7 +17,7 @@ class AdminLogin extends Component
         return view('livewire.admin.login')
             ->layout('components.admin.layoutadminlogin');
     }
- 
+
     protected $rules = [
         'password' => 'required',
         'username' => 'required',
@@ -39,13 +39,12 @@ class AdminLogin extends Component
         ];
 
         $user = DB::table('users')
-        ->where('username', '=', $this->username)
-        ->first();
+            ->where('username', '=', $this->username)
+            ->first();
 
-        if($user) {
+        if ($user) {
 
-            if(Hash::check($this->password, $user->password))
-            {      
+            if (Hash::check($this->password, $user->password)) {
                 $admin_data = [
                     "id" => $user->id,
                     "name" => $user->name,
@@ -53,25 +52,20 @@ class AdminLogin extends Component
                     "level" => $user->level,
                     "isAdminLogin" => true
                 ];
-        
+
                 Session::put("admin_data", $admin_data);
 
-                return redirect()->intended('admin/exchange');
-
+                return redirect()->intended('admin');
             } else {
                 return back()->with('error', 'Wrong username or password.');
             }
-            
         } else {
 
             return back()->with('error', 'Wrong username or password.');
-
         }
-
-
     }
 
-    public function logout() 
+    public function logout()
     {
         Session::flush();
 

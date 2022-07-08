@@ -12,11 +12,11 @@ class FormLogin extends Component
     public function render()
     {
         return view('livewire.form-login')
-        ->layout('components.layoutnologin');
+            ->layout('components.layoutnologin');
     }
 
     public $error, $username, $password;
-   
+
 
     protected $rules = [
         'password' => 'required',
@@ -55,10 +55,10 @@ class FormLogin extends Component
         if ($ceknum == 0) {
 
             $user = DB::table('v_students')
-            ->where('email', '=', $this->username)
-            ->first();
+                ->where('email', '=', $this->username)
+                ->first();
 
-            if($user) {
+            if ($user) {
                 $user_data = [
                     "user_id" =>  $user->studentid,
                     "fullname" =>  $user->fullname,
@@ -75,22 +75,20 @@ class FormLogin extends Component
                 ];
 
                 Session::put("user_data", $user_data);
-                
-                return redirect()->to(route('home'));
 
+                return redirect()->to(route('home'));
             } else {
                 return back()->with('error', 'You are not allowed to access this apps.');
             }
         } else {
             return back()->with('error', 'Wrong username or password.');
         }
-  
     }
 
-    public function logout() 
+    public function logout()
     {
         Session::flush();
 
-        return redirect()->to(route('front'));
+        return redirect()->to(route('login'));
     }
 }

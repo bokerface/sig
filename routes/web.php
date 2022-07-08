@@ -45,13 +45,13 @@ use Illuminate\Support\Facades\Route;
 
 
 //ROUTE FOR STUDENT
-Route::get('/', Auth::class)->name('front');
+// Route::get('/', Auth::class)->name('front'); 
 Route::get('login', Auth::class)->name('login');
 Route::get('check-submission/{submission_id}', [ValidSubmissionController::class, 'show'])->name('check-submission')->where('submission_id', '[0-9]+');
 
 Route::middleware('isLoggedIn')->group(function () {
 
-    Route::get('home', Home::class)->name('home');
+    Route::get('/', Home::class)->name('home');
 
     Route::get('notification', Notification::class)->name('notification');
     Route::get('inbox', Inbox::class)->name('inbox');
@@ -89,14 +89,14 @@ Route::middleware('isLoggedIn')->group(function () {
 
 
 //ROUTE FOR ADMIN
-Route::get('admin', \App\Http\Livewire\Admin\AdminLogin::class)->name('adminlogin');
 Route::get('admin/login', \App\Http\Livewire\Admin\AdminLogin::class)->name('adminlogin');
 
 Route::middleware('adminAuth')->group(function () {
 
+    Route::get('admin', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
     Route::get('admin/download/{filename}', [FileController::class, 'download'])->name('download-file');
     Route::get('admin/notification/{id}', [ReadnotifController::class, 'read'])->where('id', '[0-9]+')->name('read-notif');
-    Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
+    // Route::get('admin/dashboard', \App\Http\Livewire\Admin\AdminDashboard::class)->name('admindashboard');
     Route::get('admin/exchange', \App\Http\Livewire\Admin\AdminExchange::class)->name('adminexchange');
     Route::get('admin/exchange/{meta_id}', \App\Http\Livewire\Admin\AdminSubmissionDetail::class)->where('meta_id', '[0-9]+')->name('submission-detail');
     Route::get('admin/letter', \App\Http\Livewire\Admin\AdminLetter::class)->name('adminletter');
