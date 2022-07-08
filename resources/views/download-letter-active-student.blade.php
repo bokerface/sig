@@ -94,7 +94,7 @@
     
     <p class="justify">Bahwa yang bersangkutan benar sebagai <strong>mahasiswa aktif</strong> International Program of Government Affairs and Administration (IGOV) Universitas Muhammadiyah Yogyakart.</p>
 
-    <p class="justify">Demikian surat rekomendasi ini kami buat, atas kerjasama Bapak/Ibu kami ucapkan terima kasih.</p>
+    <p class="justify">Demikian surat rekomendasi ini kami buat, atas perhatian dan kerjasama Bapak/Ibu kami ucapkan terima kasih.</p>
 
         <p style="font-style: :italic">Wassalamu’alaikum Wr.Wb</p>
 

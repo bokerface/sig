@@ -1,18 +1,28 @@
 <div class="splide single-slider slider-no-arrows homepage-slider mt-5" id="single-slider-1">
+ 
     <div class="splide__track">
         <div class="splide__list">
-            @php
-                $posts = json_decode(file_get_contents("https://igov.umy.ac.id/wp-json/wp/v2/posts?per_page=3&_embed"),
-                true);
-            @endphp
+        @php
 
-            @foreach($posts as $key => $value)
+        $posts = Http::withoutVerifying()->withHeaders([])->get("https://cintaquran.my.id/wp-json/wp/v2/posts", [
+            "per_page"=> 2,
+            "_embed"=> ''
+        ])->json();
+    
+        // echo '<pre>'; print_r($posts); echo '</pre>';
+        // dd($posts);
 
+         @endphp
+
+            @foreach($posts as $value)
+   
                 <div class="splide__slide">
                     <div class="card rounded-m mx-2 text-center shadow-m" data-card-height="170" style="height:170px;">
                         <a href="{{ url('news/' . $value['id']) }}">
-                            <img
-                                src="{{ $value['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['large']['source_url'] }}">
+                            @if ($value['featured_media'] > 0)
+                                 <img src="{{ $value['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']['full']['source_url'] }}">   
+                            @endif
+                          
                             <div class="card-bottom news d-flex align-items-end">
                                 <h1 class="font-18 font-400 pb-2 text-white text-start">
                                     {{ $value['title']['rendered'] }}

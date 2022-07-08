@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Http;
 
 class News extends Component
 {
@@ -12,7 +13,13 @@ class News extends Component
     {
         
 
-       $post = json_decode(file_get_contents("https://igov.umy.ac.id/wp-json/wp/v2/posts?include[]=". $id ."&_embed"), true);
+
+    $post = Http::withoutVerifying()->withHeaders([])->get("https://cintaquran.my.id/wp-json/wp/v2/posts", [
+        "include[]"=> $id,
+        "_embed"=> ''
+    ])->json();
+
+   
 
        $this->postdetail = [
             "id"    => $id,
@@ -24,6 +31,8 @@ class News extends Component
     }
     public function render()
     {
+        
+    
         return view('livewire.news')
         ->layout('components.layoutfront');
     }

@@ -302,9 +302,9 @@ font-size:16px !important;
 }
 
 .bottom-splash span img {
-    max-width: 75px;
+    max-width: 65px;
     margin-bottom: -5px;
-    margin-left: -10px;
+    margin-left: 10px;
 }
 
 .bottom-splash p {

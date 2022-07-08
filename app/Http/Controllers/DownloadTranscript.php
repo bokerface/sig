@@ -137,6 +137,8 @@ class DownloadTranscript extends Controller
             fn () => print($pdf),
             "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
         );
+
+        
     }
 
 }

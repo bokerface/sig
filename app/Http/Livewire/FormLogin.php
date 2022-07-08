@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Http;
 
 class FormLogin extends Component
 {
@@ -39,18 +40,13 @@ class FormLogin extends Component
             'password' => $this->password,
         ];
 
-        $params = http_build_query($data);
-        $body = array('http' =>
-        array(
-            'method' => 'POST',
-            'header' => 'Content-type: application/x-www-form-urlencoded',
-            'content' => $params
-        ));
-        $context = stream_context_create($body);
-        $link = file_get_contents('https://sso.umy.ac.id/api/Authentication/Login', false, $context);
-        $json = json_decode($link);
 
-        $ceknum = $json->{'code'};
+        $link = Http::withHeaders([])->post('https://sso.umy.ac.id/api/Authentication/Login', [
+            'username' => $this->username,
+            'password' => $this->password,
+        ])->object();
+
+        $ceknum = $link->code;
 
         if ($ceknum == 0) {
 
