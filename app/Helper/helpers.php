@@ -27,10 +27,17 @@ function admin_notif_number()
 
 function admin_notif_number_list()
 {
-    $notification = Notification::where([
-        ['receiver', '=', "Admin"],
-        ['status', '=', 0]
-    ])
+    $notification = Notification::select(
+        'notifications.*',
+        'submissions.letter_types',
+        'letter_types.name as letter_types'
+    )
+        ->leftJoin('submissions', 'submissions.id', '=', 'notifications.submission_id')
+        ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
+        ->where([
+            ['receiver', '=', "Admin"],
+            ['notifications.status', '=', 0]
+        ])
         ->limit(5)
         ->latest()
         ->get();
@@ -45,13 +52,11 @@ function submission_has_notif($submission_id)
         ['status', '=', 0]
     ])->first();
 
-    return $notification;
-
-    // if (empty($notification)) {
-    //     return false;
-    // } else {
-    //     return true;
-    // }
+    if (empty($notification)) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function title_ug_thesis($submission_id)
@@ -73,10 +78,13 @@ function supervisor_name($submission_id)
         ['key', '=', 'supervisor'],
     ])
         ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
-        ->first()
-        ->name;
+        ->first();
 
-    return $supervisor;
+    if (empty($supervisor)) {
+        return null;
+    } else {
+        return $supervisor->name;
+    }
 }
 
 function destination_name($destination_id)

@@ -8,8 +8,8 @@
         <h4 class="mb-3 font-600 text-sigov-red">Documents needed</h4>
 
         <div class="mb-2">
-            <label for="form5" class="d-block form-label @error('title') text-danger @enderror">Title UG Thesis <span
-                    class="text-danger">*</span></label>
+            <label for="form5" class="d-block form-label @error('title') text-danger @enderror">Title Undergraduate
+                Thesis <span class="text-danger">*</span></label>
 
             <input type="text" wire:model="title" id="" class="form-control mb-2" />
 

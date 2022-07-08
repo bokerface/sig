@@ -27,13 +27,13 @@
 
          <div class="form-field">
              <label for="form5"
-                 class="d-block form-label @error('exchange_institution') text-danger @enderror">Institution <span
+                 class="d-block form-label @error('exchange_institution') text-danger @enderror">University <span
                      class="text-danger">*</span></label>
              <div class="input-group mb-3">
 
                  <select id="form5" wire:model="exchange_institution"
                      class="form-control @error('exchange_institution') is-invalid @enderror">
-                     <option value="" selected>Select Institution</option>
+                     <option value="" selected>Select University</option>
 
                      @foreach($exchange_institutions as $institution)
                          <option value="{{ $institution->id }}">{{ $institution->institution }}</option>

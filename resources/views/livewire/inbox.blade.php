@@ -135,11 +135,11 @@
                 <div class="item-info text-black">
 
 
+                    @if(submission_has_notif($submission->id) == true)
+                        <em class="badge bg-red-dark">!</em>
+                    @endif
                     <h5 style="text-transform: capitalize">
                         {{ $submission->letter_type }}
-                        @if(submission_has_notif($submission->id) == true)
-                            <em class="badge bg-red-dark">!</em>
-                        @endif
                     </h5>
                     <p class="mb-0">Hello, {{ Session::get('user_data.fullname') }} ...</p>
 

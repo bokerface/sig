@@ -86,7 +86,7 @@
         </li>
 
         <div class="sidebar-heading">
-            Exchange Institution
+            Exchange University
         </div>
 
         <li class="nav-item active">
@@ -98,7 +98,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('exchange-institution') }}">
                 <i class="fas fa-fw fa-users"></i>
-                <span>List of Institutions</span></a>
+                <span>List of University</span></a>
         </li>
 
 

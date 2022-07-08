@@ -10,8 +10,8 @@
                 Add Institution
             </button> --}}
 
-            <a href="{{ route('add-exchange-institution') }}" class="btn btn-primary mb-3"> Add
-                Institution
+            <a href="{{ route('add-exchange-institution') }}" class="btn btn-primary mb-3">
+                Add University
             </a>
 
             <div class="card shadow mb-4">

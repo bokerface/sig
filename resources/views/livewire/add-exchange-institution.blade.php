@@ -1,11 +1,11 @@
 <div>
     @section('page-title')
-    Add New Exchange Institution
+    Add New Exchange University
     @endsection
     <div class="col-md-7 mx-auto">
         <div class="card">
             <div class="card-header">
-                Institution Form
+                University Form
             </div>
             <div class="card-body">
                 <form wire:submit.prevent="store">
@@ -13,7 +13,7 @@
                         <div class="row">
                             <label for="institution_name"
                                 class="col-3 my-auto align-self-center {{ $errors->has('institution_name') ? 'text-danger' : '' }}">
-                                Institution Name
+                                University Name
                             </label>
                             <input type="text" wire:model="institution_name" id="institution_name"
                                 class="form-control col-9">

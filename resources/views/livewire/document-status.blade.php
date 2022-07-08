@@ -26,7 +26,7 @@
                             <label for="inputfile" class="form-label @error('letter_number') text-danger @enderror">
                                 <div class="d-flex flex-row justify-content-between">
                                     <div class="d-flex flex-row">
-                                        Nomor Surat <span class="text-danger">*</span>
+                                        Letter Number <span class="text-danger">*</span>
                                     </div>
                                 </div>
                             </label>
@@ -41,7 +41,7 @@
                             <label for="inputfile" class="form-label @error('year_of_academic') text-danger @enderror">
                                 <div class="d-flex flex-row justify-content-between">
                                     <div class="d-flex flex-row">
-                                        Tahun Akademik <span class="text-danger">*</span>
+                                        Academic Year e.g 2022/2023 <span class="text-danger">*</span>
                                     </div>
                                 </div>
                             </label>
