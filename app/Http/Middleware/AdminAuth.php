@@ -17,11 +17,10 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!isset(session('admin_data')['isAdminLogin']) == true) {            
+        if (!isset(session('admin_data')['isAdminLogin']) == true) {
             return redirect('admin/login')->with('error', 'Login first to access!');
         }
 
         return $next($request);
-
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('sender');
             $table->string('receiver');
             $table->string('message');
+            $table->bigInteger('submission_id');
             $table->integer('status');
             $table->timestamps();
         });
