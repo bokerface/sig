@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPWA = true;  // Enables or disables the service worker and PWA
     let isAJAX = true; // AJAX transitions. Requires local server or server
     var pwaName = "SIGOV"; //Local Storage Names for PWA
-    var pwaRemind = 0.01; //Days to re-remind to add to home
-    var pwaNoCache = false; //Requires server and HTTPS/SSL. Will clear cache with each visit
+    var pwaRemind = 1; //Days to re-remind to add to home
+    var pwaNoCache = true; //Requires server and HTTPS/SSL. Will clear cache with each visit
 
     //Setting Service Worker Locations scope = folder | location = service worker js location
     var pwaScope = "/";

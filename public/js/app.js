@@ -5427,9 +5427,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var pwaName = "SIGOV"; //Local Storage Names for PWA
 
-  var pwaRemind = 0.01; //Days to re-remind to add to home
+  var pwaRemind = 1; //Days to re-remind to add to home
 
-  var pwaNoCache = false; //Requires server and HTTPS/SSL. Will clear cache with each visit
+  var pwaNoCache = true; //Requires server and HTTPS/SSL. Will clear cache with each visit
   //Setting Service Worker Locations scope = folder | location = service worker js location
 
   var pwaScope = "/";
