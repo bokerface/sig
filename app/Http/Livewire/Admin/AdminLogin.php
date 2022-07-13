@@ -12,6 +12,13 @@ class AdminLogin extends Component
 {
     public $username, $password;
 
+    public function mount()
+    {
+        if (isset(session('admin_data')['isAdminLogin']) == true) {
+            return redirect()->to(url('admin/dashboard'));
+        }
+    }
+
     public function render()
     {
         return view('livewire.admin.login')
