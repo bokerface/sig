@@ -5,8 +5,6 @@
 
     <div class="pt-2">
 
-
-
         <a href="{{ url('letter-recommendation-passport') }}"
             data-menu="menu-letter-recommendation-passport"
             class="btn-sigov-pink text-left dark sdcustom-btnicon bgsd-circleimg-small btn-margins">
