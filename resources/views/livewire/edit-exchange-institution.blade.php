@@ -1,6 +1,6 @@
 <div>
     @section('page-title')
-    Add New Exchange University
+    Edit Exchange University
     @endsection
     <div class="col-md-7 mx-auto">
         <div class="card">

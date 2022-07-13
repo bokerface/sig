@@ -4,13 +4,17 @@
             background: linear-gradient(to bottom right, #361928 0%, #141118 100%);
         }
 
+        .inbox-bg {
+            background: #141118;
+        }
+
         h3.judul span {
             font-size: 11px;
         }
 
     </style>
 
-    <x-modal-title title="Inbox" bg="bgsd-gradient" />
+    <x-modal-title title="Inbox" bg="inbox-bg" />
 
     <div class="col-12 ps-3 pe-4">
 
@@ -45,12 +49,12 @@
                                 use. You can download the documents by click link below. <br>
 
                                 <a class="btn btn-xs mt-2 btn-sigov-pink"
-                                href="{{ url('download?filename='.$submission->additional_file) }}">
-                                <i class="fas fa-file-pdf"></i> Download Document
-                            </a>
-                            
+                                    href="{{ url('download?filename='.$submission->additional_file) }}">
+                                    <i class="fas fa-file-pdf"></i> Download Document
+                                </a>
+
                             </p>
-                            
+
                             <hr>
                         @else
                             <p class="card-text">
@@ -90,8 +94,8 @@
                         <span class="card-text"> Congratulation, your secondary supervisor: </span>
                         @if(!empty($supervisor))
                             <p>Name : {{ $supervisor->name }}<br>
-                            Mobile : {{ $supervisor->phone }}<br>
-                            Email : {{ $supervisor->email }}</p>
+                                Mobile : {{ $supervisor->phone }}<br>
+                                Email : {{ $supervisor->email }}</p>
                         @endif
                         <hr>
                     @endif

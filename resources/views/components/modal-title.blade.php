@@ -25,14 +25,14 @@
 
 
     <div class="page-title page-title-small px-2">
-        <h2><a href="#" data-back-button><i class="fa fa-chevron-left me-2"></i> {{ $title }}</a></h2>       
+        <h2><a href="#" data-back-button><i class="fa fa-chevron-left me-2"></i> {{ $title }}</a></h2>
     </div>
 
-    <div class="sdcustom-small card header-card shape-rounded" style=" min-height:90px;" >
+    <div class="sdcustom-small card header-card shape-rounded" style=" min-height:90px;">
         <div class="{{ $bg }} bgsd-circleimg-title-small card-overlay">
         </div>
     </div>
 
 
-    
+
 </div>

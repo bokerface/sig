@@ -18,6 +18,7 @@ use App\Http\Livewire\Inbox;
 use App\Http\Livewire\InboxDetail;
 use App\Http\Livewire\LetterIndex;
 use App\Http\Livewire\CapacityBuildings;
+use App\Http\Livewire\EditExchangeInstitution;
 use App\Http\Livewire\EditSubmission;
 use App\Http\Livewire\Exchange;
 use App\Http\Livewire\ExchangeDestination;
@@ -108,6 +109,7 @@ Route::middleware('adminAuth')->group(function () {
     Route::get('admin/logout', [\App\Http\Livewire\Admin\AdminLogin::class, 'logout'])->name('logout');
 
     Route::get('admin/exchange-institution', ExchangeInstitution::class)->name('exchange-institution');
+    Route::get('admin/exchange-institution/{id}', EditExchangeInstitution::class)->where('id', '[0-9]+')->name('edit-exchange-institution');
     Route::get('admin/add-exchange-institution', AddExchangeInstitution::class)->name('add-exchange-institution');
     Route::get('admin/exchange-destination', ExchangeDestination::class)->name('exchange-destination');
     Route::get('admin/add-exchange-destination', AddExchangeDestination::class)->name('add-exchange-destination');
