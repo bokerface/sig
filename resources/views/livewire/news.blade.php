@@ -4,9 +4,13 @@
             background: linear-gradient(to bottom right, #361928 0%, #141118 100%);
         }
 
+        .bg-news {
+            background: #141118;
+        }
+
     </style>
 
-    <x-header title="News" subtitle="" bg="bgsd-gradient" height="80" icon="" type="small" modal="" />
+    <x-header title="News" subtitle="" bg="bg-news" height="80" icon="" type="small" modal="" />
 
     @php
         $date = \Carbon\Carbon::parse($postdetail['date'])->locale('en');

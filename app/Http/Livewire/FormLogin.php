@@ -74,7 +74,7 @@ class FormLogin extends Component
 
                 return redirect()->to(route('home'));
             } else {
-                return back()->with('error', 'You are not allowed to access this apps.');
+                return back()->with('error', 'You are not allowed to access this apps.' . $ceknum);
             }
         } else {
             return back()->with('error', 'Wrong username or password.');

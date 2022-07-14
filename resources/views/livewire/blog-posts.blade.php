@@ -19,12 +19,12 @@
                         <a href="{{ url('news/' . $value['id']) }}">
                             @if($value['featured_media'] > 0)
                                 <img
-                                    src="{{ $value['_embedded']['wp:featuredmedia'][0]['source_url'] }}">
+                                    src="{{ $value['_embedded']['wp:featuredmedia'][0]['source_url'] ?? asset('images/noimage.jpg') }}">
                             @endif
 
                             <div class="card-bottom news d-flex align-items-end">
                                 <h1 class="font-18 font-400 pb-2 text-white text-start">
-                                    {{ $value['title']['rendered'] }}
+                                    {{ substr_replace($value['title']['rendered']," ...",70) }}
                                 </h1>
                             </div>
                             <div class="card-overlay bg-gradient-fade2"></div>

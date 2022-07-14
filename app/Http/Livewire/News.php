@@ -24,7 +24,7 @@ class News extends Component
         $this->postdetail = [
             "id"    => $id,
             "title" => $post[0]['title']['rendered'],
-            "featured_image" => $post[0]['_embedded']['wp:featuredmedia'][0]['source_url'],
+            "featured_image" => $post[0]['_embedded']['wp:featuredmedia'][0]['source_url'] ?? asset('images/noimage.jpg'),
             "content" => $post[0]['content']['rendered'],
             "date" => $post[0]['date'],
         ];
