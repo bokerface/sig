@@ -18,8 +18,8 @@
                     <div class="card rounded-m mx-2 text-center shadow-m" data-card-height="170" style="height:170px;">
                         <a href="{{ url('news/' . $value['id']) }}">
                             @if($value['featured_media'] > 0)
-                                <img
-                                    src="{{ $value['_embedded']['wp:featuredmedia'][0]['source_url'] ?? asset('images/noimage.jpg') }}">
+                                <img src="{{ $value['_embedded']['wp:featuredmedia'][0]['source_url'] ?? asset('images/noimage.jpg') }}"
+                                    style="width: 100%">
                             @endif
 
                             <div class="card-bottom news d-flex align-items-end">

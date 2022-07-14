@@ -31,8 +31,6 @@ class News extends Component
     }
     public function render()
     {
-
-
         return view('livewire.news')
             ->layout('components.layoutfront');
     }
