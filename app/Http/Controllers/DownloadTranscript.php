@@ -51,7 +51,7 @@ class DownloadTranscript extends Controller
             fn () => print($pdf),
             "transcript-" . Session::get('user_data.user_id') . ".pdf"
         );
-        exit();
+        // exit();
     }
 
     public function download_recommendation_passport($id)

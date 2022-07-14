@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'use strict'
 
     //Global Variables
-    let isPWA = false;  // Enables or disables the service worker and PWA
-    let isAJAX = false; // AJAX transitions. Requires local server or server
+    let isPWA = true;  // Enables or disables the service worker and PWA
+    let isAJAX = true; // AJAX transitions. Requires local server or server
     var pwaName = "SIGOV"; //Local Storage Names for PWA
-    var pwaRemind = 24; //Days to re-remind to add to home
-    var pwaNoCache = false; //Requires server and HTTPS/SSL. Will clear cache with each visit
+    var pwaRemind = 0.5; //Days to re-remind to add to home
+    var pwaNoCache = true; //Requires server and HTTPS/SSL. Will clear cache with each visit
 
     //Setting Service Worker Locations scope = folder | location = service worker js location
     var pwaScope = "/";
