@@ -18,10 +18,10 @@ class DownloadTranscript extends Controller
     {
 
         $submission = $this->submission = Submission::findOrFail($id);
-        $meta = $this->meta =DB::table('metas')
-        ->select('metas.*')
-        ->where('submission_id', '=', $id)
-        ->get()->toArray();
+        $meta = $this->meta = DB::table('metas')
+            ->select('metas.*')
+            ->where('submission_id', '=', $id)
+            ->get()->toArray();
 
         $transcript = Http::withHeaders([])->post('https://krs.umy.ac.id/WebApi/Info/GetDetailTranskrip', [
             'ClientId' => 'SiGov',
@@ -51,16 +51,17 @@ class DownloadTranscript extends Controller
             fn () => print($pdf),
             "transcript-" . Session::get('user_data.user_id') . ".pdf"
         );
+        exit();
     }
 
     public function download_recommendation_passport($id)
     {
 
         $submission = $this->submission = Submission::findOrFail($id);
-        $meta = $this->meta =DB::table('metas')
-                ->select('metas.*')
-                ->where('submission_id', '=', $id)
-                ->get()->toArray();
+        $meta = $this->meta = DB::table('metas')
+            ->select('metas.*')
+            ->where('submission_id', '=', $id)
+            ->get()->toArray();
 
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
@@ -73,7 +74,7 @@ class DownloadTranscript extends Controller
 
         $pdf = PDF::loadView('download-recommendation-passport', compact(
             'data_mhs',
-            'submission', 
+            'submission',
             'meta'
         ))->output();
 
@@ -88,7 +89,7 @@ class DownloadTranscript extends Controller
 
 
         $submission = $this->submission = Submission::findOrFail($id);
-        
+
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
             'student_id' => Session::get('user_data.user_id')
@@ -113,10 +114,10 @@ class DownloadTranscript extends Controller
     {
 
         $submission = $this->submission = Submission::findOrFail($id);
-        $meta = $this->meta =DB::table('metas')
-                ->select('metas.*')
-                ->where('submission_id', '=', $id)
-                ->get()->toArray();
+        $meta = $this->meta = DB::table('metas')
+            ->select('metas.*')
+            ->where('submission_id', '=', $id)
+            ->get()->toArray();
 
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
@@ -137,8 +138,5 @@ class DownloadTranscript extends Controller
             fn () => print($pdf),
             "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
         );
-
-        
     }
-
 }
