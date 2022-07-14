@@ -9,6 +9,22 @@ var CACHE_NAME = APP_NAME + '-' + APP_VER;
 // Leave REQUIRED_FILES = [] to disable offline.
 var REQUIRED_FILES = [
 	'index.php',
+	'styles/bootstrap.css',
+	'styles/style.css',
+	'styles/customsd.css',
+	'fonts/css/fontawesome-all.min.css',
+	'fonts/css/icomoon.css',
+	'app/icons/icon-192x192.png',
+	
+	'./images/asset/logo-splash.png',
+	'./images/asset/igovlogo.png',
+	'./images/asset/IGOV-merah.png',
+	
+
+	'scripts/custom.js',
+	'/livewire/livewire.js?id=c69d0f2801c01fcf8166',
+	'fonts/webfonts/icomoon.eot',
+	'fonts/webfonts/icomoon.woff',
 ];
 
 // Service Worker Diagnostic. Set true to get console logs.
