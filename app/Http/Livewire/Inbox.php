@@ -61,6 +61,7 @@ class Inbox extends Component
                     ->when(!empty($this->search), function ($query) {
                         return $query->where('letter_types.name', 'LIKE', '%' . $this->search . '%');
                     })
+                    ->where('submissions.student_id', '=', session('user_data')['user_id'])
                     ->latest()
                     ->get()
             ]
