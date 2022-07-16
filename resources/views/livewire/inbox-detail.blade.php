@@ -68,12 +68,15 @@
                                 $letter = 'download-recommendation-passport';
                                 }
                             @endphp
-                            <p>
-                                <a class="btn btn-sm btn-sigov-pink"
-                                    href="{{ url( $letter . '/' . $submission->id) }}">
-                                    <i class="fas fa-file-pdf"></i> Download Document
-                                </a>
-                            </p>
+
+                            @if(!empty($letter_number))
+                                <p>
+                                    <a class="btn btn-sm btn-sigov-pink"
+                                        href="{{ url( $letter . '/' . $submission->id) }}">
+                                        <i class="fas fa-file-pdf"></i> Download Document
+                                    </a>
+                                </p>
+                            @endif
 
                         @endif
                     @elseif($submission->letter_types == 6)

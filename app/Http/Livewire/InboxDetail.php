@@ -16,6 +16,7 @@ class InboxDetail extends Component
 
     // data for specific submission
     public $supervisor;
+    public $letter_number;
 
     public function mount($id)
     {
@@ -41,11 +42,23 @@ class InboxDetail extends Component
             ->findOrFail($id);
         $this->metas = Meta::where('submission_id', '=', $id)->get();
 
+
         if ($this->submission->letter_types == 13) {
             $this->supervisor = Meta::where(
                 [
                     ['submission_id', '=', $id],
                     ['key', '=', 'supervisor']
+                ]
+            )
+                ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
+                ->first();
+        }
+
+        if ($this->submission->letter_types == 2) {
+            $this->letter_number = Meta::where(
+                [
+                    ['submission_id', '=', $id],
+                    ['key', '=', 'letter_number']
                 ]
             )
                 ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
