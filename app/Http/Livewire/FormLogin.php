@@ -73,7 +73,7 @@ class FormLogin extends Component
                         'ClientId' => 'SiGov',
                         'Credential' => 'F3BC28F09FC5F33B453030D763B06369EC708AED70634A5901C93CF7244FFB35',
                         'NIM' => $user->STUDENTID,
-                        'TahunAjaran' => 2018,
+                        'TahunAjaran' => $thn_ajaran,
                         'Semester' => $current_semester
                     ])->object();
 
