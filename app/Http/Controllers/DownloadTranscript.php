@@ -36,19 +36,28 @@ class DownloadTranscript extends Controller
             'placeofbirth' => Session::get('user_data.placeofbirth')
         );
 
-        // dd($transcript);
-
         // return view('download-transcript', compact('data_mhs', 'transcript', 'submission', 'meta'));
+
+        // $pdf = PDF::loadView('download-transcript', compact(
+        //     'transcript',
+        //     'data_mhs',
+        //     'submission',
+        //     'meta'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "transcript-" . Session::get('user_data.user_id') . ".pdf"
+        // );
 
         $pdf = PDF::loadView('download-transcript', compact(
             'transcript',
             'data_mhs',
             'submission',
             'meta'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "transcript-" . Session::get('user_data.user_id') . ".pdf"
         );
         // exit();
