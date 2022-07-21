@@ -81,14 +81,24 @@ class DownloadTranscript extends Controller
 
         // return view('download-recommendation-passport', compact('data_mhs', 'submission', 'meta'));
 
+        // $pdf = PDF::loadView('download-recommendation-passport', compact(
+        //     'data_mhs',
+        //     'submission',
+        //     'meta'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "recommendation-passport-" . Session::get('user_data.user_id') . ".pdf"
+        // );
+
         $pdf = PDF::loadView('download-recommendation-passport', compact(
             'data_mhs',
             'submission',
             'meta'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "recommendation-passport-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
@@ -108,13 +118,22 @@ class DownloadTranscript extends Controller
 
         return view('download-letter-active-student', compact('data_mhs', 'submission'));
 
+        // $pdf = PDF::loadView('download-letter-active-student', compact(
+        //     'data_mhs',
+        //     'submission'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "active-student-" . Session::get('user_data.user_id') . ".pdf"
+        // );
+
         $pdf = PDF::loadView('download-letter-active-student', compact(
             'data_mhs',
             'submission'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "active-student-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
@@ -137,14 +156,24 @@ class DownloadTranscript extends Controller
 
         // return view('download-recommendation-exchange', compact('data_mhs', 'submission', 'meta'));
 
+        // $pdf = PDF::loadView('download-recommendation-exchange', compact(
+        //     'data_mhs',
+        //     'submission',
+        //     'meta'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
+        // );
+
         $pdf = PDF::loadView('download-recommendation-exchange', compact(
             'data_mhs',
             'submission',
             'meta'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
