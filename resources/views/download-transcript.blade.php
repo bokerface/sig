@@ -160,8 +160,8 @@
             <div class="barcode">{!! DNS2D::getBarcodeHTML(url('check-submission/' . $submission->id), 'QRCODE', 2.5,
                 2.5) !!}
             </div>
-            <p><u style="font-weight:bold">Sakir Ridho Wijaya, S.IP., M.IP</u><br>
-                NIK. 19891106201604 163 156
+            <p><u style="font-weight:bold">{{ setting('director_name') }}</u><br>
+                {{ setting('director_nik') }}
             </p>
         </td>
     </tr>

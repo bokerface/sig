@@ -5,6 +5,7 @@ use App\Models\ExchangeDestination;
 use App\Models\ExchangeInstitution;
 use App\Models\Meta;
 use App\Models\Notification;
+use App\Models\Setting;
 
 function notif_number()
 {
@@ -49,7 +50,8 @@ function submission_has_notif($submission_id)
     $notification = Notification::where([
         ['submission_id', '=', $submission_id],
         ['receiver', '=', session('user_data')['user_id']],
-        ['status', '=', 0]
+        ['status', '=', 0],
+        ['message', '=', 'Diterima']
     ])->first();
 
     if (empty($notification)) {
@@ -97,6 +99,11 @@ function institution_name($institution_id)
 {
     $exchange_institution = ExchangeInstitution::findOrFail($institution_id);
     return $exchange_institution->institution;
+}
+
+function setting($setting_name)
+{
+    return Setting::where([['setting_name', '=', $setting_name]])->first()->setting;
 }
 
 // function fields($item)

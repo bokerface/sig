@@ -58,7 +58,7 @@
                             <hr>
                         @else
                             <p class="card-text">
-                                Your letter is already to download.
+                                Your letter is ready to download.
                             </p>
 
                             @php

@@ -121,6 +121,11 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('settings') }}">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Settings</span></a>
+        </li>
 
         <!-- Heading -->
 

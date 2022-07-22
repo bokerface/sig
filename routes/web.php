@@ -28,6 +28,7 @@ use App\Http\Livewire\FormTranscriptApplication;
 use App\Http\Livewire\FormSecondarySupervisor;
 use App\Http\Livewire\FormLogin;
 use App\Http\Livewire\InstitutionDestination;
+use App\Http\Livewire\Settings;
 use App\Http\Livewire\SubmissionDetail;
 use App\Http\Livewire\Supervisor;
 use App\Http\Livewire\TestClass;
@@ -116,4 +117,6 @@ Route::middleware('adminAuth')->group(function () {
     Route::get('admin/supervisor', Supervisor::class)->name('supervisor');
     Route::get('admin/add-supervisor', AddSupervisor::class)->name('add-supervisor');
     // Route::post('admin/add-exchange-institution', [ExchangeInstitution::class, 'store'])->name('store-exchange');
+
+    Route::get('admin/settings', Settings::class)->name('settings');
 });

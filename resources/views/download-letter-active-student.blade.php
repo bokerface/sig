@@ -69,7 +69,7 @@
         <tr>
             <td style="width:100px;">Nama</td>
             <td>:</td>
-            <td>Sakir Ridho Wijaya, S.IP., M.IP</td>
+            <td>{{ setting('director_name') }}</td>
         </tr>
         <tr>
             <td>Jabatan</td>

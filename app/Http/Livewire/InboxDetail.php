@@ -22,8 +22,12 @@ class InboxDetail extends Component
     {
         $notif = Notification::where([
             ['receiver', '=', session('user_data')['user_id']],
-            ['submission_id', '=', $id]
+            ['submission_id', '=', $id],
+            ['status', '=', 0],
+            ['message', '=', 'Diterima'],
         ])->first();
+
+        // dd($notif);
 
         if (!empty($notif)) {
             $notif->status = 1;
