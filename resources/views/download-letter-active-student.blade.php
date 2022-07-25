@@ -69,7 +69,7 @@
         <tr>
             <td style="width:100px;">Nama</td>
             <td>:</td>
-            <td>{{ setting('director_name') }}</td>
+            <td>{{ setting('director_name')->setting ?? '' }}</td>
         </tr>
         <tr>
             <td>Jabatan</td>

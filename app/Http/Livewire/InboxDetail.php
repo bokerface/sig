@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Meta;
 use App\Models\Notification;
 use App\Models\Submission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 use Livewire\Component;
@@ -54,7 +55,7 @@ class InboxDetail extends Component
                     ['key', '=', 'supervisor']
                 ]
             )
-                ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
+                ->leftJoin('supervisors', 'supervisors.id', '=', DB::raw('metas.value'))
                 ->first();
         }
 

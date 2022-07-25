@@ -103,7 +103,7 @@ function institution_name($institution_id)
 
 function setting($setting_name)
 {
-    return Setting::where([['setting_name', '=', $setting_name]])->first()->setting;
+    return Setting::where([['setting_name', '=', $setting_name]])->first();
 }
 
 // function fields($item)

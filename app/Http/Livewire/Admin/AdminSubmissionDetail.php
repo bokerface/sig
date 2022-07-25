@@ -36,6 +36,7 @@ class AdminSubmissionDetail extends Component
                 ['metas.submission_id', '=', $this->submission->id],
                 ['metas.key', '!=', 'exchange_type'],
                 ['metas.key', '!=', 'letter_type'],
+                ['fields.role', '!=', 1]
             ])
             ->get();
 

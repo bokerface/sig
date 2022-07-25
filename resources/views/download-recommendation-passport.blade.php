@@ -95,8 +95,9 @@
             <div class="barcode">{!! DNS2D::getBarcodeHTML(url('check-submission/' . $submission->id), 'QRCODE', 2.5,
                 2.5) !!}
             </div>
-            <p><u style="font-weight:bold">{{ setting('director_name') }}</u><br>
-                {{ setting('director_nik') }}
+            <p><u
+                    style="font-weight:bold">{{ setting('director_name')->setting ?? '' }}</u><br>
+                {{ setting('director_nik')->setting ?? '' }}
             </p>
         </td>
     </tr>
