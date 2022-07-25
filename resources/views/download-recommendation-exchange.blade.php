@@ -86,7 +86,7 @@
             </div>
             <p><u
                     style="font-weight:bold">{{ setting('director_name')->setting ?? '' }}</u><br>
-                {{ setting('director_nik')->setting ?? '' }}
+                NIK. {{ setting('director_nik')->setting ?? '' }}
             </p>
         </td>
     </tr>
