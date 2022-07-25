@@ -59,16 +59,16 @@ class InboxDetail extends Component
                 ->first();
         }
 
-        if ($this->submission->letter_types == 2) {
+        if (in_array($this->submission->letter_types, [1, 2])) {
             $this->letter_number = Meta::where(
                 [
                     ['submission_id', '=', $id],
                     ['key', '=', 'letter_number']
                 ]
             )
-                ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
                 ->first();
         }
+        // dd($this->letter_number);
         // dd($this->submission);
     }
 
