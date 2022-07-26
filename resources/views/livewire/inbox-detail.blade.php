@@ -57,19 +57,19 @@
 
                             <hr>
                         @else
-                            <p class="card-text">
-                                Your letter is ready to download.
-                            </p>
-
-                            @php
-                                if($submission->letter_types == '1') {
-                                $letter = 'download-recommendation-exchange';
-                                } elseif($submission->letter_types == '2') {
-                                $letter = 'download-recommendation-passport';
-                                }
-                            @endphp
 
                             @if(!empty($letter_number))
+                                <p class="card-text">
+                                    Your letter is ready to download.
+                                </p>
+
+                                @php
+                                    if($submission->letter_types == '1') {
+                                    $letter = 'download-recommendation-exchange';
+                                    } elseif($submission->letter_types == '2') {
+                                    $letter = 'download-recommendation-passport';
+                                    }
+                                @endphp
                                 <p>
                                     <a class="btn btn-sm btn-sigov-pink"
                                         href="{{ url( $letter . '/' . $submission->id) }}">
