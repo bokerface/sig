@@ -41,7 +41,9 @@
                                         @endif
                                     @endif
                                 </div>
-                                <livewire:comment :field_id="$meta->id" :comment="$meta->comment" :key="$meta->id" />
+                                @if ($meta->role == 3)
+                                    <livewire:comment :field_id="$meta->id" :comment="$meta->comment" :key="$meta->id" />
+                                @endif
                             </div>
                         </div>
                     @endforeach

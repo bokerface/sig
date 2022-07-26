@@ -55,6 +55,22 @@ class DocumentStatus extends Component
         ])
             ->first());
 
+        if ($this->letter_number_empty == false) {
+            $this->letter_number = Meta::where([
+                ['submission_id', '=', $this->submission_id],
+                ['key', '=', 'letter_number']
+            ])
+                ->first()->value;
+        }
+
+        if ($this->year_of_academic_empty == false) {
+            $this->year_of_academic = Meta::where([
+                ['submission_id', '=', $this->submission_id],
+                ['key', '=', 'year_of_academic']
+            ])
+                ->first()->value;
+        }
+
         // dd($this->select_verified);
         // dd($this->verification_file_exist);
     }
