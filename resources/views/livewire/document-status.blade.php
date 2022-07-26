@@ -74,9 +74,11 @@
                     @error('letter_number')
                         <p class="text-danger mb-2">{{ $message }}</p>
                     @enderror
-                    <div class="d-flex flex-row justify-content-end mt-1">
-                        <button type="submit" class="btn btn-primary" type="submit">submit</button>
-                    </div>
+                    @if($letter_number_empty)
+                        <div class="d-flex flex-row justify-content-end mt-1">
+                            <button type="submit" class="btn btn-primary" type="submit">submit</button>
+                        </div>
+                    @endif
                 </div>
             </form>
             {{-- @endif --}}
