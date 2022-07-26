@@ -29,6 +29,14 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
+        <style>
+            tr.not-verified td,
+            tr.not-verified td a {
+                font-weight: bold;
+            }
+
+        </style>
+
         <!-- Sidebar -->
         <x-admin.sidebar />
         <!-- End of Sidebar -->
