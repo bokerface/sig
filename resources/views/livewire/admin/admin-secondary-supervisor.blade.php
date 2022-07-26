@@ -60,7 +60,8 @@
 
                                 @foreach($submissions as $submission)
 
-                                    <tr>
+                                    <tr
+                                        class="{{ $submission->status == 0 ? 'not-verified' : 'verified' }}">
                                         <td>{{ $i++ }}</td>
                                         <td><a href="{{ route('submission-detail',$submission->id) }}"
                                                 wire:click="getMeta({{ $submission->id }})">{{ $submission->student_id; }}</a>
