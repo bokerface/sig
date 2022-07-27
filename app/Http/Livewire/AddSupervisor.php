@@ -28,8 +28,8 @@ class AddSupervisor extends Component
         $this->validate([
             'username' => 'unique:users,username|required|string',
             'name' => 'required|string',
-            'phone_number' => 'required|numeric',
-            'email' => 'required|email',
+            'phone_number' => 'required|string',
+            'email' => 'unique:users,email|required|email',
             'profile' => 'required|string',
             'password' => 'required|string|confirmed',
             'password_confirmation' => 'required|string'

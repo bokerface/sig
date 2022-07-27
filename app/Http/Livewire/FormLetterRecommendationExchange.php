@@ -21,7 +21,12 @@ class FormLetterRecommendationExchange extends Component
     public function render()
     {
         if (!empty($this->exchange_destination)) {
-            $this->exchange_institutions = ExchangeInstitution::where('destination_id', $this->exchange_destination)->get();
+            $this->exchange_institutions = ExchangeInstitution::where(
+                [
+                    ['destination_id', '=', $this->exchange_destination],
+                    ['status', '=', 'active']
+                ]
+            )->get();
         }
 
         return view(

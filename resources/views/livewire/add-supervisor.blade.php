@@ -46,7 +46,7 @@
                                 class="col-4 my-auto align-self-center {{ $errors->has('phone_number') ? 'text-danger' : '' }}">
                                 Phone Number
                             </label>
-                            <input type="number" wire:model="phone_number" id="phone_number" class="form-control col-8"
+                            <input type="text" wire:model="phone_number" id="phone_number" class="form-control col-8"
                                 autocomplete="nope">
                         </div>
                         <div class="d-flex flex-row">
