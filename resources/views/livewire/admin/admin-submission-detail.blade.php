@@ -16,7 +16,7 @@
                     
                         <div class="alert alert-abusma">
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     {{-- @php
                                         $key = str_replace("_"," ", $meta->key);
                                     @endphp --}}
