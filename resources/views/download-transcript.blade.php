@@ -80,7 +80,7 @@
     </tr>
     <tr>
         <td><i>Department</i></td>
-        <td><i>&nbsp;&nbsp;Governmental Science (International Class/ IGOV)</i></td>
+        <td><i>&nbsp;&nbsp;International Program of Government Affairs and Administration (IGOV)</i></td>
     </tr>
 
     <tr>

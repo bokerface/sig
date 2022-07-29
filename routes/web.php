@@ -18,6 +18,7 @@ use App\Http\Livewire\Inbox;
 use App\Http\Livewire\InboxDetail;
 use App\Http\Livewire\LetterIndex;
 use App\Http\Livewire\CapacityBuildings;
+use App\Http\Livewire\DetailThesis;
 use App\Http\Livewire\EditExchangeInstitution;
 use App\Http\Livewire\EditSubmission;
 use App\Http\Livewire\Exchange;
@@ -28,6 +29,7 @@ use App\Http\Livewire\FormTranscriptApplication;
 use App\Http\Livewire\FormSecondarySupervisor;
 use App\Http\Livewire\FormLogin;
 use App\Http\Livewire\InstitutionDestination;
+use App\Http\Livewire\ListThesisProposal;
 use App\Http\Livewire\Settings;
 use App\Http\Livewire\SubmissionDetail;
 use App\Http\Livewire\Supervisor;
@@ -119,4 +121,11 @@ Route::middleware('adminAuth')->group(function () {
     // Route::post('admin/add-exchange-institution', [ExchangeInstitution::class, 'store'])->name('store-exchange');
 
     Route::get('admin/settings', Settings::class)->name('settings');
+});
+
+Route::middleware('spvAuth')->prefix('supervisor')->group(function () {
+    Route::get('/', ListThesisProposal::class)->name('list-thesis-proposal');
+    Route::get('logout', [\App\Http\Livewire\Admin\AdminLogin::class, 'logout'])->name('logout-spv');
+    Route::get('detail-thesis/{submission_id}', DetailThesis::class)->where('submission_id', '[0-9]+')->name('spv-submission-detail');
+    Route::get('download/{filename}', [FileController::class, 'download'])->name('spv-download-file');
 });

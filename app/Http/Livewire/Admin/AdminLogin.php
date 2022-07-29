@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Supervisor;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -51,19 +52,36 @@ class AdminLogin extends Component
 
         if ($user) {
 
-            if (Hash::check($this->password, $user->password)) {
-                $admin_data = [
-                    "id" => $user->id,
-                    "name" => $user->name,
-                    "email" => $user->email,
-                    "level" => $user->level,
-                    "isAdminLogin" => true
-                ];
+            if ($user->level == 1) {
+                if (Hash::check($this->password, $user->password)) {
+                    $admin_data = [
+                        "id" => $user->id,
+                        "name" => $user->name,
+                        "email" => $user->email,
+                        "level" => $user->level,
+                        "isAdminLogin" => true
+                    ];
 
-                Session::put("admin_data", $admin_data);
+                    Session::put("admin_data", $admin_data);
 
-                return redirect()->intended('admin');
-            } else {
+                    return redirect()->intended('admin');
+                } else {
+                    return back()->with('error', 'Wrong username or password.');
+                }
+            } elseif ($user->level == 2) {
+                if (Hash::check($this->password, $user->password)) {
+                    $admin_data = [
+                        "id" => Supervisor::where('user_id', '=', $user->id)->first()->id,
+                        "name" => $user->name,
+                        "email" => $user->email,
+                        "level" => $user->level,
+                        "isSpvLogin" => true
+                    ];
+
+                    Session::put("admin_data", $admin_data);
+
+                    return redirect()->intended('supervisor');
+                }
                 return back()->with('error', 'Wrong username or password.');
             }
         } else {
