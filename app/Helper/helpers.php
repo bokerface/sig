@@ -6,6 +6,7 @@ use App\Models\ExchangeInstitution;
 use App\Models\Meta;
 use App\Models\Notification;
 use App\Models\Setting;
+use App\Models\Supervisor;
 
 function notif_number()
 {
@@ -87,6 +88,26 @@ function supervisor_name($submission_id)
     } else {
         return $supervisor->name;
     }
+}
+
+function secondary_spv_finish_date($submission_id)
+{
+    $supervisor = Meta::where([
+        ['submission_id', '=', $submission_id],
+        ['key', '=', 'accompaniment_document'],
+    ])->first();
+
+    if (empty($supervisor)) {
+        return null;
+    } else {
+        return $supervisor->created_at;
+    }
+}
+
+function supervisor_name_by_id($id_spv)
+{
+    $supervisor = Supervisor::find($id_spv);
+    return $supervisor->name;
 }
 
 function destination_name($destination_id)

@@ -13,6 +13,9 @@
     @error('select_verified')
         <p class="text-danger mb-1">{{ $message }}</p>
     @enderror
+    @if(session()->has('error'))
+        <p class="text-danger mb-1">{{ session('error') }}</p>
+    @endif
 
     @if($submission_type == 'exchange')
 
