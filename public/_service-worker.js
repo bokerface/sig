@@ -1,39 +1,28 @@
 // To clear cache on devices, always increase APP_VER number after making changes.
 // The app will serve fresh content right away or after 2-3 refreshes (open / close)
-var APP_NAME = 'Azures';
-var APP_VER = '3.4.1L';
+var APP_NAME = 'SIGOV';
+var APP_VER = '1.0';
 var CACHE_NAME = APP_NAME + '-' + APP_VER;
 
 // Files required to make this app work offline.
 // Add all files you want to view offline below.
 // Leave REQUIRED_FILES = [] to disable offline.
 var REQUIRED_FILES = [
-	// HTML Files
-	'index.html',
-	// Styles
-	'styles/style.css',
+	'index.php',
 	'styles/bootstrap.css',
-	// Scripts
-	'scripts/custom.js',
-	'scripts/bootstrap.min.js',
-	// Plugins
-	'plugins/charts/charts.js',
-	'plugins/charts/charts-call-graphs.js',
-	'plugins/countdown/countdown.js',
-	'plugins/filterizr/filterizr.js',
-	'plugins/filterizr/filterizr.css',
-	'plugins/filterizr/filterizr-call.js',
-	'plugins/galleryViews/gallery-views.js',
-	'plugins/glightbox/glightbox.js',
-	'plugins/glightbox/glightbox.css',
-	'plugins/glightbox/glightbox-call.js',
-	// Fonts
+	'styles/style.css',
+	'styles/customsd.css',
 	'fonts/css/fontawesome-all.min.css',
-	'fonts/webfonts/fa-brands-400.woff2',
-	'fonts/webfonts/fa-regular-400.woff2',
-	'fonts/webfonts/fa-solid-900.woff2',
-	// Images
-	'images/empty.png',
+	'fonts/css/icomoon.css',
+	'app/icons/icon-192x192.png',
+	
+	'./images/asset/logo-splash.png',
+	'./images/asset/igovlogo.png',
+
+	'scripts/custom.js',
+	'/livewire/livewire.js?id=c69d0f2801c01fcf8166',
+	'fonts/webfonts/icomoon.eot',
+	'fonts/webfonts/icomoon.woff',
 ];
 
 // Service Worker Diagnostic. Set true to get console logs.
