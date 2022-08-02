@@ -58,8 +58,8 @@ class FormLogin extends Component
 
             if ($user) {
                 $user_data = [
-                    // "user_id" =>  $user->studentid,
-                    // "fullname" =>  $user->fullname,
+                    // "user_id" =>  $user->STUDENTID,
+                    // "fullname" =>  $user->FULLNAME,
                     // "dateofbirth" =>  $user->dateofbirth,
                     // "placeofbirth" =>  $user->placeofbirth,
                     // "email" => $user->email,
