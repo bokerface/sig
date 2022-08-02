@@ -60,7 +60,7 @@
 
     @livewire('blog-posts')
 
-
+    <div class="ms-3"><a href="{{ url('all-news') }}">View All News <i class="fas fa-arrow-right"></i></a></div>
         <div class="content mb-2">
             <h5 class="float-start font-16 font-500"><b>SIGOV</b> Services</h5>
             <div class="clearfix"></div>
