@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Submission;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
@@ -16,14 +17,13 @@ class AdminSecondarySupervisor extends Component
 
     public function render()
     {
-        $submissions = DB::table('submissions')
-            ->select(
-                'submissions.id',
-                'submissions.student_id',
-                'v_students.fullname',
-                'submissions.created_at',
-                'submissions.status',
-            )
+        $submissions = Submission::select(
+            'submissions.id',
+            'submissions.student_id',
+            'v_students.fullname',
+            'submissions.created_at',
+            'submissions.status',
+        )
             ->where('submissions.submission_type', '=', 'secondary_supervisor')
             ->leftJoin('v_students', 'submissions.student_id', '=', 'v_students.studentid')
             ->latest()->paginate($this->paginate);
@@ -35,8 +35,7 @@ class AdminSecondarySupervisor extends Component
             [
                 "submissions" => $this->search === null ?
                     $submissions :
-                    DB::table('submissions')
-                    ->select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
+                    Submission::select('submissions.id', 'submissions.student_id', 'v_students.fullname',  'submissions.created_at', 'submissions.status')
                     ->where('submissions.submission_type', '=', 'secondary_supervisor')
                     ->orWhere('v_students.fullname', 'like', '%' . $this->search . '%')
                     ->orWhere('submissions.student_id', 'like', '%' . $this->search . '%')
@@ -63,5 +62,11 @@ class AdminSecondarySupervisor extends Component
         ];
 
         $this->emit('getMeta', $meta);
+    }
+
+    public function delete($exchange_id)
+    {
+        $exchange = Submission::find($exchange_id);
+        $exchange->delete();
     }
 }

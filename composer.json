@@ -27,7 +27,8 @@
             "App\\": "app/",
             "App\\Lib\\": "src/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Bokerface\\Survey\\": "packages/bokerface/survey/src"
         },
         "files": [
             "app/Helper/helpers.php"

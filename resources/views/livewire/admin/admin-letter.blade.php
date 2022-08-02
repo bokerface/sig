@@ -43,6 +43,7 @@
                                     <th style="width:32%">Name</th>
                                     <th style="width:250px">Date</th>
                                     <th>Status</th>
+                                    <th></th>
                                 </tr>
                             </thead>
 
@@ -72,6 +73,11 @@
                                             @else
                                                 Verified
                                             @endif
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-danger" wire:click="delete({{ $submission->id }})">
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
 

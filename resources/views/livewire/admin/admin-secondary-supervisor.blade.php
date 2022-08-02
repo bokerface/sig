@@ -44,6 +44,7 @@
                                     <th>Secondary Supervisor</th>
                                     <th>Start Date</th>
                                     <th>Finish Date</th>
+                                    <th></th>
                                     {{-- <th>Status</th> --}}
                                 </tr>
                             </thead>
@@ -66,6 +67,11 @@
                                         <td>{{ supervisor_name($submission->id) }}</td>
                                         <td>{{ $submission->created_at; }}</td>
                                         <td>{{ secondary_spv_finish_date($submission->id) }}</td>
+                                        <td>
+                                            <button class="btn btn-danger" wire:click="delete({{ $submission->id }})">
+                                                Delete
+                                            </button>
+                                        </td>
                                         {{-- <td>{{ $submission->status; }}</td> --}}
                                     </tr>
 
