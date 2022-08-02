@@ -31,6 +31,12 @@
             color: #e62e45;
         }
 
+        .menushare a {
+            display:block;
+            padding: 5px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
     </style>
     @livewireStyles
 
@@ -53,16 +59,21 @@
         </div>
 
         <div id="footer-bar" class="footer-bar-5 rounded-0">
+            <a href="{{ url('/') }}"
+            class="{{ (request()->is('/')) ? 'active-nav' : '' }}">
+            <i class="icon-home"></i>
+            </a>
             <a href="{{ url('inbox') }}"
                 class="{{ (request()->is('inbox')) ? 'active-nav' : '' }}">
                 <i class="icon-mail"></i><em class="badge bg-yellow-dark">{{ notif_number() }}</em>
                 {{-- <i class="icon-mail"></i> --}}
                 <span class="badge badge-pill badge-danger">Danger</span>
             </a>
-            <a href="{{ url('/') }}"
-                class="{{ (request()->is('/')) ? 'active-nav' : '' }}">
-                <i class="icon-home"></i>
-            </a>
+           
+            {{-- <a href="#" data-menu="menu-profile"
+                class="{{ (request()->is('profile')) ? 'active-nav' : '' }}">
+                <i class="fas fa-newspaper"></i>
+            </a> --}}
             <a href="#" data-menu="menu-profile"
                 class="{{ (request()->is('profile')) ? 'active-nav' : '' }}">
                 <i class="icon-user"></i>
@@ -103,6 +114,32 @@
             </div>
         </div>
     </div>
+    </div>
+
+    <div id="menu-share-list"
+         class="menu menu-box-bottom menu-box-detached rounded-m"
+         data-menu-height="140"
+         data-menu-effect="menu-over">
+        <div class="menushare p-3">
+            <a href="https://www.facebook.com/share.php?u" class="external-link shareToFacebook">
+                <i class="font-18 fab fa-facebook color-facebook"></i>
+                <span class="font-13">Facebook</span>
+                
+            </a>
+            <a href="#" class="external-link shareToTwitter">
+                <i class="font-18 fab fa-twitter-square color-twitter"></i>
+                <span class="font-13">Twitter</span>
+                
+            </a>
+           
+          
+            <a href="#" class="external-link shareToWhatsApp">
+                <i class="font-18 fab fa-whatsapp-square color-whatsapp"></i>
+                <span class="font-13">WhatsApp</span>
+                
+            </a>
+           
+        </div>
     </div>
 
 

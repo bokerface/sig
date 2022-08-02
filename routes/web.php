@@ -25,6 +25,7 @@ use App\Http\Livewire\Exchange;
 use App\Http\Livewire\ExchangeDestination;
 use App\Http\Livewire\ExchangeInstitution;
 use App\Http\Livewire\News;
+use App\Http\Livewire\AllNews;
 use App\Http\Livewire\FormTranscriptApplication;
 use App\Http\Livewire\FormSecondarySupervisor;
 use App\Http\Livewire\FormLogin;
@@ -76,6 +77,7 @@ Route::middleware('isLoggedIn')->group(function () {
     Route::get('inbound-exchange', \App\Http\Livewire\FormInboundExchange::class)->name('inbound-exchange');
 
     Route::get('news/{id}', News::class)->name('news');
+    Route::get('all-news', AllNews::class)->name('all-news');
     Route::get('letter', LetterIndex::class)->name('letter');
     Route::get('letter-recommendation-exchange', \App\Http\Livewire\FormLetterRecommendationExchange::class)->name('letter-recommendation-exchange');
     Route::get('letter-recommendation-passport', \App\Http\Livewire\FormLetterRecommendationPassport::class)->name('letter-recommendation-passport');
