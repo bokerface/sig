@@ -16,7 +16,7 @@
                     
                         <div class="alert alert-abusma">
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     {{-- @php
                                         $key = str_replace("_"," ", $meta->key);
                                     @endphp --}}
@@ -36,12 +36,16 @@
                                             <span>{{ destination_name($meta->value) }}</span>
                                         @elseif($meta->key == 'exchange_institution')
                                             <span>{{ institution_name($meta->value) }}</span>
+                                        @elseif($meta->key == 'supervisor')
+                                            <span>{{ supervisor_name_by_id($meta->value) }}</span>
                                         @else
                                             <span>{{ $meta->value }}</span>
                                         @endif
                                     @endif
                                 </div>
-                                <livewire:comment :field_id="$meta->id" :comment="$meta->comment" :key="$meta->id" />
+                                @if ($meta->role == 3)
+                                    <livewire:comment :field_id="$meta->id" :comment="$meta->comment" :key="$meta->id" />
+                                @endif
                             </div>
                         </div>
                     @endforeach

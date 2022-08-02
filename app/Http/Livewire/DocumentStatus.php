@@ -55,6 +55,22 @@ class DocumentStatus extends Component
         ])
             ->first());
 
+        if ($this->letter_number_empty == false) {
+            $this->letter_number = Meta::where([
+                ['submission_id', '=', $this->submission_id],
+                ['key', '=', 'letter_number']
+            ])
+                ->first()->value;
+        }
+
+        if ($this->year_of_academic_empty == false) {
+            $this->year_of_academic = Meta::where([
+                ['submission_id', '=', $this->submission_id],
+                ['key', '=', 'year_of_academic']
+            ])
+                ->first()->value;
+        }
+
         // dd($this->select_verified);
         // dd($this->verification_file_exist);
     }
@@ -76,12 +92,32 @@ class DocumentStatus extends Component
             // 'select_verified' => "required|numeric"
         ]);
 
-        // dd($submission_id);
+        // dd($commented_fields);
 
-        $submission = Submission::findOrFail($submission_id);
-        $submission->status = $this->select_verified;
-        $submission->save();
-        $this->status = $submission->status;
+        $commented_fields = Meta::where([
+            ['submission_id', '=', $submission_id],
+            ['comment', '!=', '']
+        ])->count();
+
+        if ($this->select_verified == 2) {
+            if ($commented_fields >= 1) {
+                $submission = Submission::findOrFail($submission_id);
+                $submission->status = $this->select_verified;
+                $submission->save();
+                $this->status = $submission->status;
+            } else {
+                return session()->flash('error', 'Please specify which field need to be revised');
+            }
+        } else {
+            if ($commented_fields >= 1) {
+                return session()->flash('error', 'Cannot verify this submission because some fields needs revision');
+            } else {
+                $submission = Submission::findOrFail($submission_id);
+                $submission->status = $this->select_verified;
+                $submission->save();
+                $this->status = $submission->status;
+            }
+        }
 
         $notification = new CustomNotification;
         $notification->sender = 'Admin';

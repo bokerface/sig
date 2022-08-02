@@ -5,6 +5,8 @@ use App\Models\ExchangeDestination;
 use App\Models\ExchangeInstitution;
 use App\Models\Meta;
 use App\Models\Notification;
+use App\Models\Setting;
+use App\Models\Supervisor;
 
 function notif_number()
 {
@@ -49,7 +51,8 @@ function submission_has_notif($submission_id)
     $notification = Notification::where([
         ['submission_id', '=', $submission_id],
         ['receiver', '=', session('user_data')['user_id']],
-        ['status', '=', 0]
+        ['status', '=', 0],
+        ['message', '=', 'Diterima']
     ])->first();
 
     if (empty($notification)) {
@@ -87,6 +90,26 @@ function supervisor_name($submission_id)
     }
 }
 
+function secondary_spv_finish_date($submission_id)
+{
+    $supervisor = Meta::where([
+        ['submission_id', '=', $submission_id],
+        ['key', '=', 'accompaniment_document'],
+    ])->first();
+
+    if (empty($supervisor)) {
+        return null;
+    } else {
+        return $supervisor->created_at;
+    }
+}
+
+function supervisor_name_by_id($id_spv)
+{
+    $supervisor = Supervisor::find($id_spv);
+    return $supervisor->name;
+}
+
 function destination_name($destination_id)
 {
     $exchange_destination = ExchangeDestination::findOrFail($destination_id);
@@ -97,6 +120,11 @@ function institution_name($institution_id)
 {
     $exchange_institution = ExchangeInstitution::findOrFail($institution_id);
     return $exchange_institution->institution;
+}
+
+function setting($setting_name)
+{
+    return Setting::where([['setting_name', '=', $setting_name]])->first();
 }
 
 // function fields($item)

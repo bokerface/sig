@@ -54,18 +54,20 @@ class FormLogin extends Component
                 ->where('email', '=', $this->username)
                 ->first();
 
+            // dd($user);
+
             if ($user) {
                 $user_data = [
-                    "user_id" =>  $user->studentid,
-                    "fullname" =>  $user->fullname,
-                    "dateofbirth" =>  $user->dateofbirth,
-                    "placeofbirth" =>  $user->placeofbirth,
-                    "email" => $user->email,
-                    // "user_id" =>  $user->STUDENTID,
-                    // "fullname" =>  $user->FULLNAME,
-                    // "dateofbirth" =>  $user->DATEOFBIRTH,
-                    // "placeofbirth" =>  $user->PLACEOFBIRTH,
-                    // "email" => $user->EMAIL,
+                    // "user_id" =>  $user->studentid,
+                    // "fullname" =>  $user->fullname,
+                    // "dateofbirth" =>  $user->dateofbirth,
+                    // "placeofbirth" =>  $user->placeofbirth,
+                    // "email" => $user->email,
+                    "user_id" =>  $user->STUDENTID,
+                    "fullname" =>  $user->FULLNAME,
+                    "dateofbirth" =>  $user->DATEOFBIRTH,
+                    "placeofbirth" =>  $user->PLACEOFBIRTH,
+                    "email" => $user->EMAIL,
                     "role" => 3,
                     "isLoggedIn" => true
                 ];

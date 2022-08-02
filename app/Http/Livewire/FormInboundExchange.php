@@ -35,7 +35,6 @@ class FormInboundExchange extends Component
             'photo' => 'required|image|max:1024',
         ]);
 
-
         $curriculum_vitae = $this->curriculum_vitae->store('files', 'public');
         $validateData['curriculum_vitae'] = $curriculum_vitae;
 

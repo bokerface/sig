@@ -18,10 +18,10 @@ class DownloadTranscript extends Controller
     {
 
         $submission = $this->submission = Submission::findOrFail($id);
-        $meta = $this->meta =DB::table('metas')
-        ->select('metas.*')
-        ->where('submission_id', '=', $id)
-        ->get()->toArray();
+        $meta = $this->meta = DB::table('metas')
+            ->select('metas.*')
+            ->where('submission_id', '=', $id)
+            ->get()->toArray();
 
         $transcript = Http::withHeaders([])->post('https://krs.umy.ac.id/WebApi/Info/GetDetailTranskrip', [
             'ClientId' => 'SiGov',
@@ -36,31 +36,41 @@ class DownloadTranscript extends Controller
             'placeofbirth' => Session::get('user_data.placeofbirth')
         );
 
-        // dd($transcript);
-
         // return view('download-transcript', compact('data_mhs', 'transcript', 'submission', 'meta'));
+
+        // $pdf = PDF::loadView('download-transcript', compact(
+        //     'transcript',
+        //     'data_mhs',
+        //     'submission',
+        //     'meta'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "transcript-" . Session::get('user_data.user_id') . ".pdf"
+        // );
 
         $pdf = PDF::loadView('download-transcript', compact(
             'transcript',
             'data_mhs',
             'submission',
             'meta'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "transcript-" . Session::get('user_data.user_id') . ".pdf"
         );
+        // exit();
     }
 
     public function download_recommendation_passport($id)
     {
 
         $submission = $this->submission = Submission::findOrFail($id);
-        $meta = $this->meta =DB::table('metas')
-                ->select('metas.*')
-                ->where('submission_id', '=', $id)
-                ->get()->toArray();
+        $meta = $this->meta = DB::table('metas')
+            ->select('metas.*')
+            ->where('submission_id', '=', $id)
+            ->get()->toArray();
 
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
@@ -71,14 +81,24 @@ class DownloadTranscript extends Controller
 
         // return view('download-recommendation-passport', compact('data_mhs', 'submission', 'meta'));
 
+        // $pdf = PDF::loadView('download-recommendation-passport', compact(
+        //     'data_mhs',
+        //     'submission',
+        //     'meta'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "recommendation-passport-" . Session::get('user_data.user_id') . ".pdf"
+        // );
+
         $pdf = PDF::loadView('download-recommendation-passport', compact(
             'data_mhs',
-            'submission', 
+            'submission',
             'meta'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "recommendation-passport-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
@@ -88,7 +108,7 @@ class DownloadTranscript extends Controller
 
 
         $submission = $this->submission = Submission::findOrFail($id);
-        
+
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
             'student_id' => Session::get('user_data.user_id')
@@ -98,13 +118,22 @@ class DownloadTranscript extends Controller
 
         return view('download-letter-active-student', compact('data_mhs', 'submission'));
 
+        // $pdf = PDF::loadView('download-letter-active-student', compact(
+        //     'data_mhs',
+        //     'submission'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "active-student-" . Session::get('user_data.user_id') . ".pdf"
+        // );
+
         $pdf = PDF::loadView('download-letter-active-student', compact(
             'data_mhs',
             'submission'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "active-student-" . Session::get('user_data.user_id') . ".pdf"
         );
     }
@@ -113,10 +142,10 @@ class DownloadTranscript extends Controller
     {
 
         $submission = $this->submission = Submission::findOrFail($id);
-        $meta = $this->meta =DB::table('metas')
-                ->select('metas.*')
-                ->where('submission_id', '=', $id)
-                ->get()->toArray();
+        $meta = $this->meta = DB::table('metas')
+            ->select('metas.*')
+            ->where('submission_id', '=', $id)
+            ->get()->toArray();
 
         $data_mhs = array(
             'name' => Session::get('user_data.fullname'),
@@ -127,18 +156,25 @@ class DownloadTranscript extends Controller
 
         // return view('download-recommendation-exchange', compact('data_mhs', 'submission', 'meta'));
 
+        // $pdf = PDF::loadView('download-recommendation-exchange', compact(
+        //     'data_mhs',
+        //     'submission',
+        //     'meta'
+        // ))->output();
+
+        // return response()->streamDownload(
+        //     fn () => print($pdf),
+        //     "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
+        // );
+
         $pdf = PDF::loadView('download-recommendation-exchange', compact(
             'data_mhs',
             'submission',
             'meta'
-        ))->output();
+        ));
 
-        return response()->streamDownload(
-            fn () => print($pdf),
+        return $pdf->download(
             "recommendation-exchange-" . Session::get('user_data.user_id') . ".pdf"
         );
-
-        
     }
-
 }

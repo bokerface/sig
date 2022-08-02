@@ -38,7 +38,7 @@
                                 <tr>
                                     <th width="10">No</th>
                                     <th style="width:150px;">Student Id</th>
-                                    <th  style="width:50%;">Name</th>
+                                    <th style="width:50%;">Name</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
@@ -50,7 +50,8 @@
                                 @endphp
 
                                 @foreach($exchanges as $exchange)
-                                    <tr>
+                                    <tr
+                                        class="{{ $exchange->status == 0 ? 'not-verified' : 'verified' }}">
                                         <td>{{ $i++ }}</td>
                                         <td>
                                             <a
@@ -64,13 +65,13 @@
                                             @if($exchange->status == 0)
 
                                                 Awaiting Verification
-                                                
+
                                             @else
 
                                                 Verified
 
                                             @endif
-                                            </td>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -60,7 +60,12 @@
                                 @foreach($institutions as $institution)
 
                                     <tr>
-                                        <td>{{ $institution->institution; }}</td>
+                                        <td>
+                                            <a
+                                                href="{{ route('edit-exchange-institution',$institution->id) }}">
+                                                {{ $institution->institution; }}
+                                            </a>
+                                        </td>
                                         <td>{{ $institution->destination; }}</td>
                                         {{-- <td>{{ $institution->status; }}</td> --}}
                                     </tr>

@@ -11,16 +11,64 @@
                 <form wire:submit.prevent="store">
                     <div class="form-group">
                         <div class="row">
+                            <label for="username"
+                                class="col-4 my-auto align-self-center {{ $errors->has('username') ? 'text-danger' : '' }}">
+                                Username
+                            </label>
+                            <input type="text" wire:model="username" class="form-control col-8" autocomplete="nope">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="col-4"></div>
+                            <small class="text-danger col-8 m-0">
+                                {{ $errors->first('username') }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
                             <label for="name"
                                 class="col-4 my-auto align-self-center {{ $errors->has('name') ? 'text-danger' : '' }}">
                                 Supervisor Name
                             </label>
-                            <input type="text" wire:model="name" id="name" class="form-control col-8">
+                            <input type="text" wire:model="name" id="name" class="form-control col-8"
+                                autocomplete="nope">
                         </div>
                         <div class="d-flex flex-row">
                             <div class="col-4"></div>
                             <small class="text-danger col-8 m-0">
                                 {{ $errors->first('name') }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="phone_number"
+                                class="col-4 my-auto align-self-center {{ $errors->has('phone_number') ? 'text-danger' : '' }}">
+                                Phone Number
+                            </label>
+                            <input type="text" wire:model="phone_number" id="phone_number" class="form-control col-8"
+                                autocomplete="nope">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="col-4"></div>
+                            <small class="text-danger col-8 m-0">
+                                {{ $errors->first('phone_number') }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="email"
+                                class="col-4 my-auto align-self-center {{ $errors->has('email') ? 'text-danger' : '' }}">
+                                Email
+                            </label>
+                            <input type="text" wire:model="email" id="email" class="form-control col-8"
+                                autocomplete="nope">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="col-4"></div>
+                            <small class="text-danger col-8 m-0">
+                                {{ $errors->first('email') }}
                             </small>
                         </div>
                     </div>
@@ -42,31 +90,33 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <label for="phone_number"
-                                class="col-4 my-auto align-self-center {{ $errors->has('phone_number') ? 'text-danger' : '' }}">
-                                Phone Number
+                            <label for="password"
+                                class="col-4 my-auto align-self-center {{ $errors->has('password') ? 'text-danger' : '' }}">
+                                Password
                             </label>
-                            <input type="number" wire:model="phone_number" id="phone_number" class="form-control col-8">
+                            <input type="password" wire:model="password" id="password" class="form-control col-8"
+                                autocomplete="off">
                         </div>
                         <div class="d-flex flex-row">
                             <div class="col-4"></div>
                             <small class="text-danger col-8 m-0">
-                                {{ $errors->first('phone_number') }}
+                                {{ $errors->first('password') }}
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <label for="email"
-                                class="col-4 my-auto align-self-center {{ $errors->has('email') ? 'text-danger' : '' }}">
-                                Email
+                            <label for="password_confirmation"
+                                class="col-4 my-auto align-self-center {{ $errors->has('password_confirmation') ? 'text-danger' : '' }}">
+                                Repeat Password
                             </label>
-                            <input type="email" wire:model="email" id="email" class="form-control col-8">
+                            <input type="password" wire:model="password_confirmation" id="password_confirmation"
+                                class="form-control col-8" autocomplete="nope">
                         </div>
                         <div class="d-flex flex-row">
                             <div class="col-4"></div>
                             <small class="text-danger col-8 m-0">
-                                {{ $errors->first('email') }}
+                                {{ $errors->first('password_confirmation') }}
                             </small>
                         </div>
                     </div>

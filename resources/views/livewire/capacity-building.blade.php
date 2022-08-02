@@ -4,6 +4,11 @@
 
 
     <form class="p-4 pt-2 formsd" wire:submit.prevent="handleForm" enctype="multipart/form-data">
+        <div class="mb-2">
+            <label for="inputfile" class="form-label @error('phone_number') text-danger @enderror">
+                {{ $description }}
+            </label>
+        </div>
         <h4 class="mb-3 font-600 text-sigov-red">Data needed</h4>
 
         <div class="mb-2">

@@ -22,7 +22,6 @@
             <div class="mask-overlay"></div>
         </div>
 
-
         <div class="p-5 pt-2 pb-0">
 
             <div class="row">
@@ -30,7 +29,6 @@
                     <label class="title">Name</label>
                     <span class="judul">{{ Session::get('user_data.fullname') }}</span>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-8">
@@ -45,7 +43,7 @@
             <div class="row">
                 <div class="col-12">
                     <label class="title">Phone Number</label>
-                    <span class="judul">(+62) 813 2345678</span>
+                    <span class="judul">(+62) {{ $phone }}</span>
                 </div>
             </div>
             <div class="row">

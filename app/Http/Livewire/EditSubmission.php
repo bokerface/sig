@@ -31,6 +31,8 @@ class EditSubmission extends Component
             ->where('submission_id', '=', $this->submission->id)
             ->leftJoin('fields', 'fields.key', '=', 'metas.key')
             ->get();
+
+        // dd($this->submission_field_values);
     }
 
     public function render()

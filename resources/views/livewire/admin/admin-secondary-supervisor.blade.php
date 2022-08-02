@@ -42,14 +42,9 @@
                                     <th>Name</th>
                                     <th>Title UG Thesis</th>
                                     <th>Secondary Supervisor</th>
-                                    <th>Date</th>
-                                    <th>Status
-
-
-                                        {{-- 
-                                            
-                                            --}}
-                                    </th>
+                                    <th>Start Date</th>
+                                    <th>Finish Date</th>
+                                    {{-- <th>Status</th> --}}
                                 </tr>
                             </thead>
 
@@ -60,7 +55,8 @@
 
                                 @foreach($submissions as $submission)
 
-                                    <tr>
+                                    <tr
+                                        class="{{ $submission->status == 0 ? 'not-verified' : 'verified' }}">
                                         <td>{{ $i++ }}</td>
                                         <td><a href="{{ route('submission-detail',$submission->id) }}"
                                                 wire:click="getMeta({{ $submission->id }})">{{ $submission->student_id; }}</a>
@@ -69,7 +65,8 @@
                                         <td>{{ title_ug_thesis($submission->id) }}</td>
                                         <td>{{ supervisor_name($submission->id) }}</td>
                                         <td>{{ $submission->created_at; }}</td>
-                                        <td>{{ $submission->status; }}</td>
+                                        <td>{{ secondary_spv_finish_date($submission->id) }}</td>
+                                        {{-- <td>{{ $submission->status; }}</td> --}}
                                     </tr>
 
                                 @endforeach

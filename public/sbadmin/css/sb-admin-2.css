@@ -14208,9 +14208,10 @@ a:focus {
 
 /* line 4, E:/laragon/www/sigovumy/appsigov/public/sbadmin/scss/_login.scss */
 .bg-login-image {
-  background: url("https://igov.umy.ac.id/wp-content/uploads/2022/03/IMG_9755-scaled.jpg");
+  /* background: url("https://igov.umy.ac.id/wp-content/uploads/2022/03/IMG_9755-scaled.jpg"); */
+  background: url("../../images/asset/bg-img-login-admin.jpeg");
   background-position: center;
-  background-size: cover;
+  background-size:  cover;
 }
 
 /* line 10, E:/laragon/www/sigovumy/appsigov/public/sbadmin/scss/_login.scss */

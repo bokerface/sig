@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\SpvAuth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'isLoggedIn' => \App\Http\Middleware\CustomAuth::class,
-        'adminAuth' => \App\Http\Middleware\AdminAuth::class
+        'adminAuth' => \App\Http\Middleware\AdminAuth::class,
+        'spvAuth' => SpvAuth::class
     ];
 }

@@ -26,16 +26,21 @@ class AdminSubmissionDetail extends Component
             ->leftJoin('v_students', 'v_students.studentid', '=', 'submissions.student_id')
             ->leftJoin('letter_types', 'letter_types.id', '=', 'submissions.letter_types')
             ->findOrFail($meta_id);
+
         $this->metas = Meta::select(
             'metas.*',
             'fields.label',
             'fields.type',
+            'fields.role',
         )
             ->leftJoin('fields', 'fields.key', '=', 'metas.key')
             ->where([
                 ['metas.submission_id', '=', $this->submission->id],
                 ['metas.key', '!=', 'exchange_type'],
                 ['metas.key', '!=', 'letter_type'],
+                ['metas.key', '!=', 'letter_number'],
+                ['metas.key', '!=', 'year_of_academic'],
+                // ['fields.role', '!=', 1]
             ])
             ->get();
 

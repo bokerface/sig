@@ -18,6 +18,8 @@ var REQUIRED_FILES = [
 	
 	'./images/asset/logo-splash.png',
 	'./images/asset/igovlogo.png',
+	'./images/asset/IGOV-merah.png',
+	
 
 	'scripts/custom.js',
 	'/livewire/livewire.js?id=c69d0f2801c01fcf8166',

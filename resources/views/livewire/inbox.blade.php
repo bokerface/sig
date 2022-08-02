@@ -133,8 +133,6 @@
             <a href="{{ url('inbox-detail',$submission->id) }}"
                 class="item-category sdcustom-btnicon bgsd-grey bg-gradient-start btn-margins">
                 <div class="item-info text-black">
-
-
                     @if(submission_has_notif($submission->id) == true)
                         <em class="badge bg-red-dark">!</em>
                     @endif

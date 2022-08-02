@@ -15,6 +15,7 @@ class CapacityBuilding extends Component
     public $phone_number;
     public $motivation;
     public $letter_type;
+    public $description;
     protected $rules = [
         'phone_number' => 'numeric|required',
         'motivation' => 'string|required',
@@ -25,6 +26,7 @@ class CapacityBuilding extends Component
         $this->letter_type = LetterType::where('id', '=', $id)
             ->whereIn('id', [7, 8, 9, 10, 11, 12])
             ->firstOrFail();
+        $this->description = $this->letter_type->description;
         // dd($this->letter_type);
     }
 

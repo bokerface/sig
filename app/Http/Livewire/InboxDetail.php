@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Meta;
 use App\Models\Notification;
 use App\Models\Submission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 use Livewire\Component;
@@ -16,13 +17,18 @@ class InboxDetail extends Component
 
     // data for specific submission
     public $supervisor;
+    public $letter_number;
 
     public function mount($id)
     {
         $notif = Notification::where([
             ['receiver', '=', session('user_data')['user_id']],
-            ['submission_id', '=', $id]
+            ['submission_id', '=', $id],
+            ['status', '=', 0],
+            ['message', '=', 'Diterima'],
         ])->first();
+
+        // dd($notif);
 
         if (!empty($notif)) {
             $notif->status = 1;
@@ -41,6 +47,7 @@ class InboxDetail extends Component
             ->findOrFail($id);
         $this->metas = Meta::where('submission_id', '=', $id)->get();
 
+
         if ($this->submission->letter_types == 13) {
             $this->supervisor = Meta::where(
                 [
@@ -48,9 +55,20 @@ class InboxDetail extends Component
                     ['key', '=', 'supervisor']
                 ]
             )
-                ->leftJoin('supervisors', 'supervisors.id', '=', 'metas.value')
+                ->leftJoin('supervisors', 'supervisors.id', '=', DB::raw('metas.value'))
                 ->first();
         }
+
+        if (in_array($this->submission->letter_types, [1, 2])) {
+            $this->letter_number = Meta::where(
+                [
+                    ['submission_id', '=', $id],
+                    ['key', '=', 'letter_number']
+                ]
+            )
+                ->first();
+        }
+        // dd($this->letter_number);
         // dd($this->submission);
     }
 

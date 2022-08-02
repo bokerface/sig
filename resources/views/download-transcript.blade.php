@@ -8,32 +8,40 @@
         margin-left: 1.2cm;
         margin-right: 1.2cm;
         margin-bottom: 2.4cm;
-      }
+    }
+
     .table-transcript {
         border-spacing: 0px;
         border-collapse: separate;
-        border-bottom :1px solid #b9b9b9;
+        border-bottom: 1px solid #b9b9b9;
     }
-    .table-transcript th {        
-       background:#b9b9b9;
+
+    .table-transcript th {
+        background: #b9b9b9;
     }
-    .table-transcript th, .table-transcript td {        
-        padding:2px;
-        font-size:10pt;
+
+    .table-transcript th,
+    .table-transcript td {
+        padding: 2px;
+        font-size: 10pt;
     }
-    .table-transcript tr:nth-child(even) td {        
-        background:#e9e9e9
+
+    .table-transcript tr:nth-child(even) td {
+        background: #e9e9e9
     }
-    .table-transcript th.no-border, .table-transcript td.no-border {        
-        border-right:none;
+
+    .table-transcript th.no-border,
+    .table-transcript td.no-border {
+        border-right: none;
     }
 
     .judul-transkrip tr:nth-child(even) td {
-        padding-bottom:4px;
+        padding-bottom: 4px;
     }
-</style> 
+
+</style>
 <h3 class="text-center"><u>TRANSKRIP AKADEMIK <i>(ACADEMIC TRANSCRIPT)</i></u></h3>
-<table class="judul-transkrip">
+<table class="judul-transkrip" style="width:100%;">
     <tr>
         <td><u>Nama</u></td>
         <td> : {{ $data_mhs['name'] }}</td>
@@ -43,20 +51,21 @@
     </tr>
 
     @php
-    $date = \Carbon\Carbon::parse($data_mhs['dateofbirth'])->locale('id');
-    $date->settings(['formatFunction' => 'translatedFormat']);
+        $date = \Carbon\Carbon::parse($data_mhs['dateofbirth'])->locale('id');
+        $date->settings(['formatFunction' => 'translatedFormat']);
     @endphp
-  
+
 
 
     <tr>
         <td><u>Tempat dan Tanggal Lahir</u></td>
-        <td> : {{ $data_mhs['placeofbirth'] }}, {{ $date->format('j F Y') }}</td>
+        <td> : {{ $data_mhs['placeofbirth'] }},
+            {{ $date->format('j F Y') }}</td>
     </tr>
     <tr>
         <td><i>Place and Date of Birth</i></td>
     </tr>
-   
+
     <tr>
         <td><u>Nomor Mahasiswa</u></td>
         <td> : {{ $data_mhs['student_id'] }}</td>
@@ -64,14 +73,14 @@
     <tr>
         <td><i>Student Number</i></td>
     </tr>
-  
+
     <tr>
         <td><u>Program Studi</u></td>
         <td> : Ilmu Pemerintahan (Kelas Internasional)</td>
     </tr>
     <tr>
         <td><i>Department</i></td>
-        <td><i>&nbsp;&nbsp;Governmental Science (International Class/ IGOV)</i></td>
+        <td><i>&nbsp;&nbsp;International Program of Government Affairs and Administration (IGOV)</i></td>
     </tr>
 
     <tr>
@@ -85,7 +94,7 @@
 </table>
 <h4 class="text-center" style="line-height:1em; margin:0; margin-bottom:4px;">DAFTAR NILAI <i>(LIST OF GRADES)</i></h4>
 
-<table class="table-transcript">
+<table class="table-transcript" style="width:100%;">
     <thead>
         <tr>
             <th style="text-align: center;">No</th>
@@ -98,25 +107,25 @@
     </thead>
     <tbody>
         @foreach($transcript->Data as $data)
-        <tr>
-            <td style="text-align: center;">{{ $data->Urut }}</td>
-            <td class="no-border" style="text-align: left;">{{ $data->NamaMK }}</td>
-            <td style="text-align: right; font-style:italic;">{{ $data->NamaMKEng }}</td>
-            <td style="text-align: center;">{{ $data->SKS }}</td>
-            <td class="no-border" style="text-align: center;">{{ $data->NilaiHuruf }}</td>
-            {{-- <td>{{ $data->BobotNilai }}</td> --}}
-        </tr>
+            <tr>
+                <td style="text-align: center;">{{ $data->Urut }}</td>
+                <td class="no-border" style="text-align: left;">{{ $data->NamaMK }}</td>
+                <td style="text-align: right; font-style:italic;">{{ $data->NamaMKEng }}</td>
+                <td style="text-align: center;">{{ $data->SKS }}</td>
+                <td class="no-border" style="text-align: center;">{{ $data->NilaiHuruf }}</td>
+                {{-- <td>{{ $data->BobotNilai }}</td> --}}
+            </tr>
         @endforeach
-       
+
     </tbody>
 </table>
 
 @php
-    
+
     $sum = array_sum(array_column($transcript->Data, 'SKS'));
 
 @endphp
-<table>
+<table style="width:100%;">
     <tr>
         <td style="width:200px;"><u>Jumlah SKS</u></td>
         <td> : {{ $sum }}</td>
@@ -144,14 +153,16 @@
         <td style="text-align:center;width:40%;">
 
             @php
-            $date = \Carbon\Carbon::parse($meta[0]->value);
-            @endphp           
+                $date = \Carbon\Carbon::parse($meta[0]->value);
+            @endphp
 
             <p>Yogyakarta, {{ $date->format('j F Y') }} <br>Director of IGOV</p>
-            <div class="barcode">{!! DNS2D::getBarcodeHTML(url('check-submission/' . $submission->id), 'QRCODE', 2.5, 2.5) !!}
+            <div class="barcode">{!! DNS2D::getBarcodeHTML(url('check-submission/' . $submission->id), 'QRCODE', 2.5,
+                2.5) !!}
             </div>
-            <p><u style="font-weight:bold">Sakir Ridho Wijaya, S.IP., M.IP</u><br>
-                NIK. 19891106201604 163 156
+            <p><u
+                    style="font-weight:bold">{{ setting('director_name')->setting ?? '' }}</u><br>
+                NIK. {{ setting('director_nik')->setting ?? '' }}
             </p>
         </td>
     </tr>

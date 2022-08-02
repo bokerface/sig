@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'use strict'
 
     //Global Variables
-    let isPWA = false;  // Enables or disables the service worker and PWA
-    let isAJAX = false; // AJAX transitions. Requires local server or server
+    let isPWA = true;  // Enables or disables the service worker and PWA
+    let isAJAX = true; // AJAX transitions. Requires local server or server
     var pwaName = "SIGOV"; //Local Storage Names for PWA
-    var pwaRemind = 24; //Days to re-remind to add to home
-    var pwaNoCache = false; //Requires server and HTTPS/SSL. Will clear cache with each visit
+    var pwaRemind = 0.2; //Days to re-remind to add to home
+    var pwaNoCache = true; //Requires server and HTTPS/SSL. Will clear cache with each visit
 
     //Setting Service Worker Locations scope = folder | location = service worker js location
     var pwaScope = "/";
@@ -595,110 +595,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         //PWA Settings
-        // if(isPWA === true){
-        //     var checkPWA = document.getElementsByTagName('html')[0];
-        //     if(!checkPWA.classList.contains('isPWA')){
-        //         if ('serviceWorker' in navigator) {
-        //           window.addEventListener('load', function() {
-        //             navigator.serviceWorker.register(pwaLocation, {scope: pwaScope}).then(function(registration){registration.update();})
-        //           });
-        //         }
+        if(isPWA === true){
+            var checkPWA = document.getElementsByTagName('html')[0];
+            if(!checkPWA.classList.contains('isPWA')){
+                if ('serviceWorker' in navigator) {
+                  window.addEventListener('load', function() {
+                    navigator.serviceWorker.register(pwaLocation, {scope: pwaScope}).then(function(registration){registration.update();})
+                  });
+                }
 
-        //         //Setting Timeout Before Prompt Shows Again if Dismissed
-        //         var hours = pwaRemind * 1; // Reset when storage is more than 24hours
-        //         var now = Date.now();
-        //         var setupTime = localStorage.getItem(pwaName+'-PWA-Timeout-Value');
-        //         if (setupTime == null) {
-        //             localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
-        //         } else if (now - setupTime > hours*60*60*1000) {
-        //             localStorage.removeItem(pwaName+'-PWA-Prompt')
-        //             localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
-        //         }
+                //Setting Timeout Before Prompt Shows Again if Dismissed
+                var hours = pwaRemind * 1; // Reset when storage is more than 24hours
+                var now = Date.now();
+                var setupTime = localStorage.getItem(pwaName+'-PWA-Timeout-Value');
+                if (setupTime == null) {
+                    localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
+                } else if (now - setupTime > hours*60*60*1000) {
+                    localStorage.removeItem(pwaName+'-PWA-Prompt')
+                    localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
+                }
 
 
-        //         const pwaClose = document.querySelectorAll('.pwa-dismiss');
-        //         pwaClose.forEach(el => el.addEventListener('click',e =>{
-        //             const pwaWindows = document.querySelectorAll('#menu-install-pwa-android, #menu-install-pwa-ios');
-        //             for(let i=0; i < pwaWindows.length; i++){pwaWindows[i].classList.remove('menu-active');}
-        //             localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
-        //             localStorage.setItem(pwaName+'-PWA-Prompt', 'install-rejected');
-        //             console.log('PWA Install Rejected. Will Show Again in '+ (pwaRemind)+' Days')
-        //         }));
+                const pwaClose = document.querySelectorAll('.pwa-dismiss');
+                pwaClose.forEach(el => el.addEventListener('click',e =>{
+                    const pwaWindows = document.querySelectorAll('#menu-install-pwa-android, #menu-install-pwa-ios');
+                    for(let i=0; i < pwaWindows.length; i++){pwaWindows[i].classList.remove('menu-active');}
+                    localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
+                    localStorage.setItem(pwaName+'-PWA-Prompt', 'install-rejected');
+                    console.log('PWA Install Rejected. Will Show Again in '+ (pwaRemind)+' Days')
+                }));
 
-        //         //Trigger Install Prompt for Android
-        //         const pwaWindows = document.querySelectorAll('#menu-install-pwa-android, #menu-install-pwa-ios');
-        //         if(pwaWindows.length){
-        //             if (isMobile.Android()) {
-        //                 if (localStorage.getItem(pwaName+'-PWA-Prompt') != "install-rejected") {
-        //                     function showInstallPrompt() {
-        //                         setTimeout(function(){
-        //                             if (!window.matchMedia('(display-mode: fullscreen)').matches) {
-        //                                 console.log('Triggering PWA Window for Android')
-        //                                 document.getElementById('menu-install-pwa-android').classList.add('menu-active');
-        //                                 document.querySelectorAll('.menu-hider')[0].classList.add('menu-active');
-        //                             }
-        //                         },3500);
-        //                     }
-        //                     var deferredPrompt;
-        //                     window.addEventListener('beforeinstallprompt', (e) => {
-        //                         e.preventDefault();
-        //                         deferredPrompt = e;
-        //                         showInstallPrompt();
-        //                     });
-        //                 }
-        //                 const pwaInstall = document.querySelectorAll('.pwa-install');
-        //                 pwaInstall.forEach(el => el.addEventListener('click', e => {
-        //                     deferredPrompt.prompt();
-        //                     deferredPrompt.userChoice
-        //                         .then((choiceResult) => {
-        //                             if (choiceResult.outcome === 'accepted') {
-        //                                 console.log('Added');
-        //                             } else {
-        //                                 localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
-        //                                 localStorage.setItem(pwaName+'-PWA-Prompt', 'install-rejected');
-        //                                 setTimeout(function(){
-        //                                     if (!window.matchMedia('(display-mode: fullscreen)').matches) {
-        //                                         document.getElementById('menu-install-pwa-android').classList.remove('menu-active');
-        //                                         document.querySelectorAll('.menu-hider')[0].classList.remove('menu-active');
-        //                                     }
-        //                                 },50);
-        //                             }
-        //                             deferredPrompt = null;
-        //                         });
-        //                 }));
-        //                 window.addEventListener('appinstalled', (evt) => {
-        //                     document.getElementById('menu-install-pwa-android').classList.remove('menu-active');
-        //                     document.querySelectorAll('.menu-hider')[0].classList.remove('menu-active');
-        //                 });
-        //             }
-        //             //Trigger Install Guide iOS
-        //             if (isMobile.iOS()) {
-        //                 if (localStorage.getItem(pwaName+'-PWA-Prompt') != "install-rejected") {
-        //                     setTimeout(function(){
-        //                         if (!window.matchMedia('(display-mode: fullscreen)').matches) {
-        //                             console.log('Triggering PWA Window for iOS');
-        //                             document.getElementById('menu-install-pwa-ios').classList.add('menu-active');
-        //                             document.querySelectorAll('.menu-hider')[0].classList.add('menu-active');
-        //                         }
-        //                     },3500);
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     checkPWA.setAttribute('class','isPWA');
-        // }
+                //Trigger Install Prompt for Android
+                const pwaWindows = document.querySelectorAll('#menu-install-pwa-android, #menu-install-pwa-ios');
+                if(pwaWindows.length){
+                    if (isMobile.Android()) {
+                        if (localStorage.getItem(pwaName+'-PWA-Prompt') != "install-rejected") {
+                            function showInstallPrompt() {
+                                setTimeout(function(){
+                                    if (!window.matchMedia('(display-mode: fullscreen)').matches) {
+                                        console.log('Triggering PWA Window for Android')
+                                        document.getElementById('menu-install-pwa-android').classList.add('menu-active');
+                                        document.querySelectorAll('.menu-hider')[0].classList.add('menu-active');
+                                    }
+                                },3500);
+                            }
+                            var deferredPrompt;
+                            window.addEventListener('beforeinstallprompt', (e) => {
+                                e.preventDefault();
+                                deferredPrompt = e;
+                                showInstallPrompt();
+                            });
+                        }
+                        const pwaInstall = document.querySelectorAll('.pwa-install');
+                        pwaInstall.forEach(el => el.addEventListener('click', e => {
+                            deferredPrompt.prompt();
+                            deferredPrompt.userChoice
+                                .then((choiceResult) => {
+                                    if (choiceResult.outcome === 'accepted') {
+                                        console.log('Added');
+                                    } else {
+                                        localStorage.setItem(pwaName+'-PWA-Timeout-Value', now);
+                                        localStorage.setItem(pwaName+'-PWA-Prompt', 'install-rejected');
+                                        setTimeout(function(){
+                                            if (!window.matchMedia('(display-mode: fullscreen)').matches) {
+                                                document.getElementById('menu-install-pwa-android').classList.remove('menu-active');
+                                                document.querySelectorAll('.menu-hider')[0].classList.remove('menu-active');
+                                            }
+                                        },50);
+                                    }
+                                    deferredPrompt = null;
+                                });
+                        }));
+                        window.addEventListener('appinstalled', (evt) => {
+                            document.getElementById('menu-install-pwa-android').classList.remove('menu-active');
+                            document.querySelectorAll('.menu-hider')[0].classList.remove('menu-active');
+                        });
+                    }
+                    //Trigger Install Guide iOS
+                    if (isMobile.iOS()) {
+                        if (localStorage.getItem(pwaName+'-PWA-Prompt') != "install-rejected") {
+                            setTimeout(function(){
+                                if (!window.matchMedia('(display-mode: fullscreen)').matches) {
+                                    console.log('Triggering PWA Window for iOS');
+                                    document.getElementById('menu-install-pwa-ios').classList.add('menu-active');
+                                    document.querySelectorAll('.menu-hider')[0].classList.add('menu-active');
+                                }
+                            },3500);
+                        }
+                    }
+                }
+            }
+            checkPWA.setAttribute('class','isPWA');
+        }
 
 
         // //End of isPWA
-        // if(pwaNoCache === true){
-        //     caches.delete('workbox-runtime').then(function() {});
-        //     sessionStorage.clear()
-        //     caches.keys().then(cacheNames => {
-        //       cacheNames.forEach(cacheName => {
-        //         caches.delete(cacheName);
-        //       });
-        //     });
-        // }
+        if(pwaNoCache === true){
+            caches.delete('workbox-runtime').then(function() {});
+            sessionStorage.clear()
+            caches.keys().then(cacheNames => {
+              cacheNames.forEach(cacheName => {
+                caches.delete(cacheName);
+              });
+            });
+        }
 
        
     }
